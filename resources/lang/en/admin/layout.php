@@ -7,7 +7,7 @@ return [
     'text_dashboard'            => 'Dashboard',
     'text_cars'                 => 'Cars',
     'text_categories'           => 'Categories',
-    'text_locations'            => 'Locations',z
+    'text_locations'            => 'Locations',
     'text_types'                => 'Types',
     'text_amenities'            => 'Amenities',
     'text_features'             => 'Features',
