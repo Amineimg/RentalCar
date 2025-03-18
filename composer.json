@@ -9,16 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "barryvdh/laravel-omnipay": "^0.2.2",
-        "chencha/share": "dev-master",
         "fideloper/proxy": "^4.0",
         "fruitcake/laravel-cors": "^3.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.2",
-        "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
-        "laravelcollective/html": "^6.0",
-        "torann/currency": "1.0.16"
+        "laravelcollective/html": "^6.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
