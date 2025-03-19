@@ -302,7 +302,7 @@ if(!function_exists('getChartData')){
 if(!function_exists('userCurrencySymbol')){
     function userCurrencySymbol(){
         $code = Session::has('currency') ? Session::get('currency') : get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($code);
+        $currency = ["symbol" => "$", "code" => "USD"];
         return $currency['symbol'];
     }
 
