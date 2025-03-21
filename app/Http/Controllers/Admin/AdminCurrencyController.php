@@ -4,20 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Currency;
 use Illuminate\Support\Facades\Artisan;
 
 class AdminCurrencyController extends Controller
 {
     public function index()
     {
-        $currencies = currency()->getCurrencies();
+        $currencies = Currency::get();
         return view('admin.settings.currency', compact('currencies'));
     }
 
     public function destroy(Request $request, $id)
     {
         if ($request->ajax()) {
-            currency()->delete($id);
+            Currency::where('id',$id)->delete();
             return response()->json(get_string('success_delete'), 200);
         } else {
             return response()->json(get_string('something_happened'), 400);
@@ -40,7 +41,7 @@ class AdminCurrencyController extends Controller
             'exchange_rate' => $request->exchange_rate,
             'active' => 1,
         ];
-        currency()->create($data);
+        Currency::create($data);
 
         Artisan::call('currency:cleanup');
 

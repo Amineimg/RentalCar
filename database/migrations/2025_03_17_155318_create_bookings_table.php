@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bookings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('car_name', 200)->nullable();
             $table->integer('completed')->default(0);
             $table->integer('status')->default(0);
             $table->integer('car_id')->index();
-            $table->integer('user_id')->nullable()->index();
-            $table->integer('owner_id')->default(0);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references("id")->on("users")->onDelete("cascade");
+            $table->unsignedBigInteger('owner_id')->nullable()->default(0);
+            $table->foreign('owner_id')->references("id")->on("owners")->onDelete("cascade");
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->integer('guest_number')->nullable();

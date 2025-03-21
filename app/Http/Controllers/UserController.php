@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Booking;
+use App\Models\Admin\Currency;
 use App\Models\Admin\UserRequest;
 use App\User;
 use App\UserInfo;
@@ -22,7 +23,7 @@ class UserController extends Controller
         $static_data = $this->static_data;
         $default_language = $this->default_language;
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($currency_code);
+        $currency = Currency::where('code',$currency_code)->first()->toArray();
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
         if($static_data['user']){
             $request = (UserRequest::where('user_id', $static_data['user']->id)->first()) ? false : true;
@@ -30,7 +31,7 @@ class UserController extends Controller
         }else{
             $request = null;
             $bookings = null;
-        }  
+        }
         return view('home.account.my_account', compact('static_data', 'default_language', 'request', 'bookings', 'currency'));
     }
 
@@ -81,7 +82,7 @@ class UserController extends Controller
             'last_name' => $request->last_name,
             'phone'     => $request->phone,
         ];
-        $data['username'] = $request->username;        
+        $data['username'] = $request->username;
         $user_info->update($data);
         unset($data);
 

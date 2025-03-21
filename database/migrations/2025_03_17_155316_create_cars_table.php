@@ -12,11 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('user_id')->index();
-            $table->integer('category_id')->index();
-            $table->integer('carmodel_id')->nullable();
-            $table->integer('location_id')->index();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references("id")->on("categories")->onDelete("cascade");
+
+            $table->unsignedBigInteger('carmodel_id')->nullable();
+            $table->foreign('carmodel_id')->references("id")->on("carmodels")->onDelete("cascade");
+            $table->unsignedBigInteger('location_id')->nullable();
+            $table->foreign('location_id')->references("id")->on("locations")->onDelete("cascade");
             $table->integer('status')->default(0);
             $table->integer('featured')->default(0);
             $table->string('features', 255)->nullable();

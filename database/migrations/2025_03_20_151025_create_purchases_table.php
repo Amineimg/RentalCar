@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references("id")->on("users")->onDelete("cascade");
-            $table->integer('status')->default(1);
-            $table->string('alias', 255);
+            $table->string('transaction', 255)->nullable();
+            $table->integer('points');
+            $table->string('method', 255);
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('purchases');
     }
 };

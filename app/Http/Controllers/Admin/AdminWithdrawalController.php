@@ -13,8 +13,7 @@ use App\Models\Admin\Owner;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-
-
+use App\Models\Admin\Currency;
 
 class AdminWithdrawalController extends Controller
 
@@ -26,7 +25,8 @@ class AdminWithdrawalController extends Controller
 
         $currency_code = get_setting('currency_code', 'site');
 
-        $currency = currency()->getCurrency($currency_code);
+        $currency = Currency::where('code',$currency_code)->first()->toArray();
+
 
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
 

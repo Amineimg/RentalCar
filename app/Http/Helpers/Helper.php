@@ -271,7 +271,7 @@ if(!function_exists('getChartData')){
             case 'visits':
                 while ($start_date->lte($end_date)) {
                     $tmp = $start_date->copy();
-                    $data[] = count(DB::table('visitors')->whereDate('created_at', '=', $tmp)->get());
+                    $data[] = 0;
                     $start_date->addDay()->copy();
                 }
                 break;

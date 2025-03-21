@@ -12,11 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog_contents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('blog_id')->index();
-            $table->integer('language_id')->index();
+            $table->id();
             $table->string('title', 255);
             $table->text('content')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->unsignedBigInteger('blog_id')->nullable();
+            $table->foreign('blog_id')->references("id")->on("blogs")->onDelete("cascade");
+            $table->unsignedBigInteger('language_id')->nullable();
+            $table->foreign('language_id')->references("id")->on("languages")->onDelete("cascade");
         });
     }
 

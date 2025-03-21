@@ -1,5 +1,9 @@
 <?php
 
+use Database\Seeders\CurrencySeeder;
+use Database\Seeders\LanguageSeeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call([
+            LanguageSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
+            CurrencySeeder::class,
+        ]);
     }
 }

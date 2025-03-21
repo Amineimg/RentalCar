@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('languages', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('default')->default(0);
             $table->string('language', 255);
             $table->string('code', 2)->unique();
             $table->string('flag', 6);
+            $table->timestamps();
+
         });
     }
 
