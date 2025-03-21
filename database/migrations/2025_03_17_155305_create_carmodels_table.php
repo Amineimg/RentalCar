@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carmodels', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('order')->default(0);
-            $table->integer('carmake_id')->default(0)->index();
+            $table->unsignedBigInteger('carmake_id')->nullable();
+            $table->foreign('carmake_id')->references("id")->on("carmakes");
             $table->string('alias', 255);
         });
     }

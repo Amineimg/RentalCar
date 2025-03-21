@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->text('key')->nullable();
             $table->text('value')->nullable();
-            $table->unsignedInteger('language_id')->nullable();
-            $table->foreignId('language_id')->references("id")->on("languages")->onDelete("cascade");
-            $table->morphs('translatable');
+            $table->unsignedBigInteger('language_id')->nullable();
+            $table->foreign('language_id')->references("id")->on("languages")->onDelete("cascade");
+            $table->morphs('translate');
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Currency;
 use Illuminate\Support\Facades\Auth;
 use Visitor;
 
@@ -52,7 +53,7 @@ class AdminLoginController extends Controller
         $data['data_range'] = generateDateRange(Carbon::today()->subDays(5), Carbon::yesterday());
 
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($currency_code);
+        $currency = Currency::where('code',$currency_code)->first()->toArray();
        // dd($currency);
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
 

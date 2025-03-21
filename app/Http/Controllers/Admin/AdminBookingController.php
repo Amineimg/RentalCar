@@ -40,7 +40,7 @@ class AdminBookingController extends Controller
 
     public function index(){
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($currency_code);
+        $currency = Currency::where('code',$currency_code)->first()->toArray();
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
         $bookings = Booking::orderBy('created_at','desc')->paginate(10);
         return view('admin.booking', compact('bookings', 'currency'));

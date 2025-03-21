@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carmakes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('order')->default(0);
             $table->string('featured_image', 255)->nullable();
             $table->string('alias', 255);

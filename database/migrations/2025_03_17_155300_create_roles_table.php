@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('image', 255);
-            // $table->integer('imageable_id');
-            // $table->string('imageable_type', 255);
-            $table->morphs('image');
-            $table->integer('sort_order')->nullable();
+            $table->string('role', 255);
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('roles');
     }
 };

@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->index();
+            $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references("id")->on("users")->onDelete("cascade");
             $table->integer('status')->default(1);
             $table->string('image', 255)->nullable();
             $table->string('alias', 255);

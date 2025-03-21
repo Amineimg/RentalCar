@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carmake_contents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('carmake_id')->index();
-            $table->integer('language_id');
+            $table->id();
             $table->string('name', 255);
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->unsignedBigInteger('carmake_id')->nullable();
+            $table->foreign('carmake_id')->references("id")->on("carmakes");
+            $table->unsignedBigInteger('language_id')->nullable();
+            $table->foreign('language_id')->references("id")->on("languages")->onDelete("cascade");
         });
     }
 
