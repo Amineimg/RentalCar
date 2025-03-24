@@ -44,10 +44,24 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col s12">
+                                        {{-- <div class="col s12">
                                             {{Form::textarea('description['.$language->id.']', $carmake->content($language->id)->description, ['class' => 'hidden desc-content'])}}
                                             @if($errors->has('description.'.$language->id.''))
                                                 <span class="wrong-error">{{$errors->first('description.'.$language->id.'')}}</span>
+                                            @endif
+                                        </div> --}}
+                                        <div class="form-group  {{$errors->has('meta_title.'.$language->id.'') ? 'has-error' : ''}}">
+                                            {{Form::label('meta_title['.$language->id.']', "Meta Title")}}
+                                            {{Form::text('meta_title['.$language->id.']', $carmake->content($language->id)->meta_title, ['class' => 'form-control', 'placeholder' => 'Meta Title'])}}
+                                            @if($errors->has('meta_title.'.$language->id.''))
+                                                <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group  {{$errors->has('meta_description.'.$language->id.'') ? 'has-error' : ''}}">
+                                            {{Form::label('meta_description['.$language->id.']', "Meta Description")}}
+                                            {{Form::text('meta_description['.$language->id.']', $carmake->content($language->id)->meta_description, ['class' => 'form-control', 'placeholder' => 'Meta Description'])}}
+                                            @if($errors->has('meta_description.'.$language->id.''))
+                                                <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -64,7 +78,7 @@
                             @if($errors->has('alias'))
                                 <span class="wrong-error">* {{$errors->first('alias')}}</span>
                             @endif
-                         </div>    
+                         </div>
                     </div>
                     <div class="col s12">
                         <div class="form-group">
@@ -106,7 +120,7 @@
             </div>
             <div class="col clearfix s12 mtop10">
                 <div class="form-group">
-                    <button class="btn waves-effect" type="submit" name="action">{{get_string('edit_carmake')}}</button>
+                    <button class="btn waves-effect" type="submit" name="action"> Enregistrer</button>
                     <a href="{{route('admin.taxonomy.carmake.index')}}" class="btn waves-effect">{{get_string('carmake_all')}}</a>
                     <a href="#!" class="delete-button btn waves-effect btn-red" data-id="{{$carmake->id}}"><i class="material-icons color-white">delete</i></a>
                 </div>

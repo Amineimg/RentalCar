@@ -27,7 +27,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Admin\Carmake;
 use Illuminate\Support\Facades\File;
 
 use Intervention\Image\Facades\Image;
@@ -185,6 +185,8 @@ class AdminCarmodelController extends Controller
             $data['carmodel_id'] = $carmodel->id;
 
             $data['language_id']  = $language->id;
+            $data['meta_title']  = $request->meta_title[$language->id];
+            $data['meta_description']  =$request->meta_description[$language->id];
 
             CarmodelContent::create($data);
 
@@ -320,7 +322,7 @@ class AdminCarmodelController extends Controller
 
         }
 
-        
+
 
         if(empty($request->carmake_id)){
 
@@ -368,7 +370,7 @@ class AdminCarmodelController extends Controller
 
 
 
-        
+
 
         $carmodel->update($data);
 
@@ -390,19 +392,22 @@ class AdminCarmodelController extends Controller
 
             // Getting content from textarea
 
-            $data['description'] = $request->description[$language->id];
+            // $data['description'] = $request->description[$language->id];
 
             $data['carmodel_id'] = $carmodel->id;
 
             $data['language_id']  = $language->id;
+            $data['meta_title']  = $request->meta_title[$language->id];
+            $data['meta_description']  =$request->meta_description[$language->id];
 
 
 
             // Update the Carmodel Content
 
-            $carmodel_content = CarmodelContent::where(['language_id' => $language->id, 'carmodel_id' => $id])->first();
-
-            $carmodel_content->update($data);
+            CarmodelContent::updateOrCreate([
+                'language_id' => $language->id, 'carmodel_id' => $id
+            ],
+            $data);
 
         }
 
@@ -497,6 +502,8 @@ class AdminCarmodelController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 
@@ -523,6 +530,8 @@ class AdminCarmodelController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 

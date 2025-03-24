@@ -42,6 +42,20 @@
                                                     <span class="wrong-error">* {{$errors->first('name.'.$language->id.'')}}</span>
                                                 @endif
                                             </div>
+                                            <div class="form-group  {{$errors->has('meta_title.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::label('meta_title['.$language->id.']', "Meta Title")}}
+                                                {{Form::text('meta_title['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => 'Meta Title'])}}
+                                                @if($errors->has('meta_title.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group  {{$errors->has('meta_description.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::label('meta_description['.$language->id.']', "Meta Description")}}
+                                                {{Form::text('meta_description['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => 'Meta Description'])}}
+                                                @if($errors->has('meta_description.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -50,8 +64,8 @@
                     </div>
                     <div class="col s12">
                         <div class="form-group  {{$errors->has('carmake_id') ? 'has-error' : ''}}">
-                            {{Form::label('carmake_id', get_string('carmake'))}}
-                            {{Form::select('carmake_id', $carmakes, null, ['class' => 'carmake-select form-control', 'placeholder' => get_string('choose_carmake')])}}
+                            {{Form::label('carmake_id', 'Les Marques')}}
+                            {{Form::select('carmake_id', $carmakes, null, ['class' => 'carmake-select form-control', 'placeholder' =>''])}}
                             @if($errors->has('carmake_id'))
                                 <span class="wrong-error">* {{$errors->first('carmake_id')}}</span>
                             @endif

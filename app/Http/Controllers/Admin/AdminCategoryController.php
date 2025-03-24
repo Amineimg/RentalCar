@@ -474,6 +474,9 @@ class AdminCategoryController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
+
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 
@@ -500,6 +503,8 @@ class AdminCategoryController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 

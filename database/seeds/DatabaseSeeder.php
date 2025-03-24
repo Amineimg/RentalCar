@@ -1,5 +1,6 @@
 <?php
 
+use Database\Seeders\CategorySeeder;
 use Database\Seeders\CurrencySeeder;
 use Database\Seeders\LanguageSeeder;
 use Database\Seeders\RoleSeeder;
@@ -16,10 +17,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            LanguageSeeder::class,
-            RoleSeeder::class,
-            UserSeeder::class,
-            CurrencySeeder::class,
+            // LanguageSeeder::class,
+            // RoleSeeder::class,
+            // UserSeeder::class,
+            // CurrencySeeder::class,
+            CategorySeeder::class,
         ]);
     }
 }

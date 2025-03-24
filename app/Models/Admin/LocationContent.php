@@ -11,7 +11,7 @@ class LocationContent extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'location', 'description', 'location_id', 'language_id'
+        'location','meta_title','meta_description', 'description', 'location_id', 'language_id'
     ];
 
     // Get the Service Category for the content

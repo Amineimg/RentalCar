@@ -11,7 +11,7 @@ class Location extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'featured_image', 'alias', 'home_image', 'featured', 'order',
+        'featured_image', 'alias', 'home_image', 'featured', 'order','tarif'
     ];
 
     // Getting the content - Default Language

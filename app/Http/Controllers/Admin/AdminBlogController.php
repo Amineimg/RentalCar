@@ -113,6 +113,8 @@ class AdminBlogController extends Controller{
             $data['blog_id'] = $post->id;
 
             $data['language_id'] = $language->id;
+            $data['meta_title']  = $request->meta_title[$language->id];
+            $data['meta_description']  =$request->meta_description[$language->id];
 
             BlogContent::create($data);
 

@@ -16,6 +16,7 @@ use App\Models\Admin\CarDate;
 use App\Models\Admin\Location;
 use App\Models\Admin\LocationContent;
 use App\Models\Admin\Carmodel;
+use App\Models\Admin\Currency;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -406,21 +407,21 @@ class CarController extends Controller
         if( count($current_year_prices) == $CurrentYearNbrDays ) {
             $car_price = Price::where(['car_id' => $car->id, 'date' => Carbon::create($current_year, 1, 1, 0, 0, 0) ])->first();
             $seasons_table['normale']['title'] = $static_data["strings"]["normal_rates"];
-            $seasons_table['normale']['p1']  = currency($car_price->d_4);
-            $seasons_table['normale']['p2']  = currency($car_price->d_10);
-            $seasons_table['normale']['p3']  = currency($car_price->d_11);
+            $seasons_table['normale']['p1']  = $car_price->d_4.' '. userCurrencySymbol();
+            $seasons_table['normale']['p2']  = $car_price->d_10.' '. userCurrencySymbol();
+            $seasons_table['normale']['p3']  = $car_price->d_11.' '. userCurrencySymbol();
 
             $car_price = Price::where(['car_id' => $car->id, 'date' => Carbon::create($current_year, 7, 1, 0, 0, 0) ])->first();
             $seasons_table['high']['title'] = $static_data["strings"]["high_season"];
-            $seasons_table['high']['p1']  = currency($car_price->d_4);
-            $seasons_table['high']['p2']  = currency($car_price->d_10);
-            $seasons_table['high']['p3']  = currency($car_price->d_11);
+            $seasons_table['high']['p1']  = $car_price->d_4.' '. userCurrencySymbol();
+            $seasons_table['high']['p2']  = $car_price->d_10.' '. userCurrencySymbol();
+            $seasons_table['high']['p3']  = $car_price->d_11.' '. userCurrencySymbol();
         } else {
             $car_price = Car::where(['id' => $car->id])->first();
             $seasons_table['normale']['title'] = $static_data["strings"]["normal_rates"];
-            $seasons_table['normale']['p1']  = currency($car_price->price_per_night);
-            $seasons_table['normale']['p2']  = currency($car_price->d_10);
-            $seasons_table['normale']['p3']  = currency($car_price->d_11);
+            $seasons_table['normale']['p1']  = $car_price->price_per_night.' '. userCurrencySymbol();
+            $seasons_table['normale']['p2']  = $car_price->d_10.' '. userCurrencySymbol();
+            $seasons_table['normale']['p3']  = $car_price->d_11.' '. userCurrencySymbol();
         }
 
         if(!empty(request('test'))){
@@ -435,7 +436,7 @@ class CarController extends Controller
 
         $static_data = $this->static_data;
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($request->currency_code);
+        $currency = Currency::where('code',$request->currency_code)->first()->toArray();
 
         //dd($currency, $request->currency_code);
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
@@ -445,7 +446,7 @@ class CarController extends Controller
         $data['start_date']   = Carbon::createFromFormat('d/m/Y H:s', $data['start_date'])->format('Y-m-d H:s');
         $dtotal = $data['total'];
         if ($currency_code != $request->currency_code) {
-            $data['total']    = currency($data['total'], 'EUR','EUR', false);
+            $data['total']    = $data['total'].' '. userCurrencySymbol();
         }
         //dd($data['total'], $dtotal  );
         $data['end_date']     = Carbon::createFromFormat('d/m/Y H:s', $data['end_date'])->format('Y-m-d H:s');
@@ -807,19 +808,19 @@ class CarController extends Controller
 
         if($total_days >= 1 && $total_days <= 4){
             if(isset($season->prices['d_2'])){
-                $price = currency($season->prices['d_2'], Session::get('currency'), Session::get('currency'), false);
+                $price = $season->prices['d_2'].' '. userCurrencySymbol();
             }else{
                 $price = $season->price_per_night;
             }
         }else if($total_days >= 5 && $total_days <= 10){
             if(isset($season->prices['d_7'])){
-                $price = currency($season->prices['d_7'], Session::get('currency'), Session::get('currency'), false);
+                $price = $season->prices['d_7'].' '. userCurrencySymbol();
             }else{
                 $price = $season->price_per_night;
             }
         }else if($total_days >= 11){
             if(isset($season->prices['d_14'])){
-                $price = currency($season->prices['d_14'], Session::get('currency'), Session::get('currency'), false);
+                $price = $season->prices['d_14'].' '. userCurrencySymbol();
             }else{
                 $price = $season->price_per_night;
             }

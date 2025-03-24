@@ -45,6 +45,22 @@
                                             </div>
                                         </div>
                                         <div class="col s12">
+                                            <div class="form-group  {{$errors->has('meta_title.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::label('meta_title['.$language->id.']', "Meta Title")}}
+                                                {{Form::text('meta_title['.$language->id.']',  $post->content($language->id)->meta_description ?? '', ['class' => 'form-control', 'placeholder' => 'Meta Title'])}}
+                                                @if($errors->has('meta_title.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group  {{$errors->has('meta_description.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::label('meta_description['.$language->id.']', "Meta Description")}}
+                                                {{Form::text('meta_description['.$language->id.']',  $post->content($language->id)->meta_title ?? '', ['class' => 'form-control', 'placeholder' => 'Meta Description'])}}
+                                                @if($errors->has('meta_description.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col s12">
                                             {{Form::textarea('body['.$language->id.']', $post->content($language->id)->content, ['class' => 'hidden desc-content'])}}
                                             @if($errors->has('body.'.$language->id.''))
                                                 <span class="wrong-error">{{$errors->first('body.'.$language->id.'')}}</span>
@@ -64,7 +80,7 @@
                             @if($errors->has('alias'))
                                 <span class="wrong-error">* {{$errors->first('alias')}}</span>
                             @endif
-                         </div>    
+                         </div>
                     </div>
                     <div class="col l6 m6 s12">
                         <div class="input-group {{$errors->has('image') ? 'has-error' : ''}}">

@@ -38,7 +38,7 @@
                     </td>
                     <td class="service-name"><img src="{{ asset($service->image) }}" alt="" width="100" /></td>
                     <td class="service-name">{{$service->service[$default_language->id]}}</td>
-                    <td class="service-name">{{currency($service->price, 'EUR', 'EUR')}}</td>
+                    <td class="service-name">{{$service->price.' '. userCurrencySymbol()}}</td>
                     <td>
                         <div class="icon-options">
                             <a class="edit-button" data-toggle="modal"  data-id="{{$service->id}}" href="#update-modal" title="{{get_string('edit_service')}}"><i class="small material-icons color-primary">mode_edit</i></a>

@@ -64,12 +64,18 @@
                             @if($errors->has('alias'))
                                 <span class="wrong-error">* {{$errors->first('alias')}}</span>
                             @endif
-                         </div>    
+                         </div>
                     </div>
-                    <div class="col m8 s6 left left-align mbot0">
+                    <div class="col m4 s6 left left-align mbot0">
                         <div class="form-group">
                             {{Form::number('order', $location->order, ['class' => 'form-control', 'min' => '0', 'step' => 1, 'placeholder' => get_string('order')])}}
                             {{Form::label('order', get_string('order'))}}
+                        </div>
+                    </div>
+                    <div class="col m4 s6 left left-align mbot0">
+                        <div class="form-group">
+                            {{Form::number('tarif', $location->tarif ?? 0, ['class' => 'form-control', 'min' => '0', 'step' => 1, 'placeholder' => 'Tarif'])}}
+                            {{Form::label('tarif', "Tarif")}}
                         </div>
                     </div>
                     <div class="col m4 s6 right right-align mbot0">
@@ -119,7 +125,7 @@
                             <a href="#!" class="mtop20 delete-featured-image btn waves-effect btn-red" data-id="{{$location->id}}"><i class="material-icons color-white">delete</i>{{ get_string('delete_image') }}</a>
                         </div>
                         @endif
-                    </div> 
+                    </div>
                     </div>
                 </div>
             </div>
@@ -127,7 +133,7 @@
                 <div class="form-group">
                     <button class="btn waves-effect" type="submit" name="action">{{get_string('edit_location')}}</button>
                     <a href="{{route('admin.taxonomy.location.index')}}" class="btn waves-effect">{{get_string('location_all')}}</a>
-                    <a href="#!" class="delete-button btn waves-effect btn-red" data-id="{{$location->id}}"><i class="material-icons color-white">delete</i></a> 
+                    <a href="#!" class="delete-button btn waves-effect btn-red" data-id="{{$location->id}}"><i class="material-icons color-white">delete</i></a>
                 </div>
             </div>
             {!!Form::close()!!}

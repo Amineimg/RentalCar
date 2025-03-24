@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('order')->default(0);
             $table->unsignedBigInteger('carmake_id')->nullable();
             $table->foreign('carmake_id')->references("id")->on("carmakes");
+            $table->string('featured_image', 255)->nullable();
             $table->string('alias', 255);
         });
     }
