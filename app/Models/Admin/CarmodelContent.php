@@ -11,7 +11,7 @@ class CarmodelContent extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'name', 'carmodel_id', 'language_id'
+        'name','meta_title','meta_description', 'carmodel_id', 'language_id'
     ];
 
     // Get the Carmodel for the content

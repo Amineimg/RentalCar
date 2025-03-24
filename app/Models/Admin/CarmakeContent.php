@@ -11,7 +11,7 @@ class CarmakeContent extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'name', 'carmake_id', 'language_id'
+        'name','meta_title','meta_description', 'carmake_id', 'language_id'
     ];
 
     // Get the Carmake for the content

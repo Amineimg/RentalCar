@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('highlights', function (Blueprint $table) {
             $table->id();
             $table->text('highlight');
-            $table->integer('order');
+            $table->integer('order')->nullable();
         });
     }
 

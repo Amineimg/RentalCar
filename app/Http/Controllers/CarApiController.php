@@ -18,6 +18,7 @@ use App\Models\Admin\Highlight;
 use Illuminate\Support\Collection;
 use App\Models\Admin\ExtraService;
 use App\Http\Resources\CarResource;
+use App\Models\Admin\Currency;
 use App\Models\Admin\LocationContent;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -105,21 +106,21 @@ class CarApiController extends Controller
         if( count($current_year_prices) == $CurrentYearNbrDays ) {
             $car_price = Price::where(['car_id' => $car->id, 'date' => Carbon::create($current_year, 1, 1, 0, 0, 0) ])->first();
             $seasons_table['normale']['title'] = $static_data["strings"]["normal_rates"];
-            $seasons_table['normale']['p1']  = currency($car_price->d_4);
-            $seasons_table['normale']['p2']  = currency($car_price->d_10);
-            $seasons_table['normale']['p3']  = currency($car_price->d_11);
+            $seasons_table['normale']['p1']  = $car_price->d_4;
+            $seasons_table['normale']['p2']  = $car_price->d_10;
+            $seasons_table['normale']['p3']  = $car_price->d_11;
 
             $car_price = Price::where(['car_id' => $car->id, 'date' => Carbon::create($current_year, 7, 1, 0, 0, 0) ])->first();
             $seasons_table['high']['title'] = $static_data["strings"]["high_season"];
-            $seasons_table['high']['p1']  = currency($car_price->d_4);
-            $seasons_table['high']['p2']  = currency($car_price->d_10);
-            $seasons_table['high']['p3']  = currency($car_price->d_11);
+            $seasons_table['high']['p1']  = $car_price->d_4  .' '.userCurrencySymbol();;
+            $seasons_table['high']['p2']  = $car_price->d_10  .' '.userCurrencySymbol();;
+            $seasons_table['high']['p3']  = $car_price->d_11  .' '.userCurrencySymbol();;
         } else {
             $car_price = Car::where(['id' => $car->id])->first();
             $seasons_table['normale']['title'] = $static_data["strings"]["normal_rates"];
-            $seasons_table['normale']['p1']  = currency($car_price->price_per_night);
-            $seasons_table['normale']['p2']  = currency($car_price->d_10);
-            $seasons_table['normale']['p3']  = currency($car_price->d_11);
+            $seasons_table['normale']['p1']  =$car_price->price_per_night .' '.userCurrencySymbol();
+            $seasons_table['normale']['p2']  = $car_price->d_10 .' '.userCurrencySymbol();
+            $seasons_table['normale']['p3']  = $car_price->d_11 .' '.userCurrencySymbol();
         }
 
         $response = [
@@ -150,7 +151,7 @@ class CarApiController extends Controller
                 "image"      => asset($car_service->image),
                 "price"      => $car_service->price,
                 "title"      => $car_service->service[$default_language->id] ?? null,
-                "currency"   => currency($car_service->price, 'EUR', 'EUR'),
+                "currency"   => $car_service->price .' '.userCurrencySymbol(),
                 "max_number" => $car_service->max_number
             ];
         }
@@ -389,7 +390,7 @@ class CarApiController extends Controller
 
         $static_data = $this->static_data;
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($request->currency_code);
+        $currency = Currency::where('code',$request->currency_code)->first()->toArray();
 
         $currency = $currency['symbol'] ? $currency['symbol'] : '';
 
@@ -399,7 +400,7 @@ class CarApiController extends Controller
                                 ->format('Y-m-d H:s');
         $dtotal = $data['total'];
         if ($currency_code != $request->currency_code) {
-            $data['total']    = currency($data['total'], 'EUR','EUR', false);
+            $data['total']    = $data['total'].' '. userCurrencySymbol();
         }
 
         $data['user_id']   = ($static_data['user']) ? $static_data['user']->id : 0;

@@ -105,9 +105,7 @@ class AdminCarmakeController extends Controller
     public function store(Request $request)
 
     {
-
         $languages = $this->languages;
-
         foreach($languages as $language) {
 
             // Validation
@@ -171,6 +169,8 @@ class AdminCarmakeController extends Controller
             $data['carmake_id'] = $carmake->id;
 
             $data['language_id']  = $language->id;
+            $data['meta_title']  = $request->meta_title[$language->id];
+            $data['meta_description']  =$request->meta_description[$language->id];
 
             CarmakeContent::create($data);
 
@@ -342,7 +342,7 @@ class AdminCarmakeController extends Controller
 
 
 
-        
+
 
         $carmake->update($data);
 
@@ -364,19 +364,21 @@ class AdminCarmakeController extends Controller
 
             // Getting content from textarea
 
-            $data['description'] = $request->description[$language->id];
+            // $data['description'] = $request->description[$language->id];
 
             $data['carmake_id'] = $carmake->id;
 
             $data['language_id']  = $language->id;
+            $data['meta_title']  = $request->meta_title[$language->id];
+            $data['meta_description']  =$request->meta_description[$language->id];
 
 
 
             // Update the Carmake Content
-
-            $carmake_content = CarmakeContent::where(['language_id' => $language->id, 'carmake_id' => $id])->first();
-
-            $carmake_content->update($data);
+            CarmakeContent::updateOrCreate([
+                'language_id' => $language->id,
+                'carmake_id' => $id
+            ],$data);
 
         }
 
@@ -471,6 +473,8 @@ class AdminCarmakeController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 
@@ -497,6 +501,8 @@ class AdminCarmakeController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
             'featured_image.'.$lang_id.'' => 'dimensions:min_width=1920,min_height=600'
 

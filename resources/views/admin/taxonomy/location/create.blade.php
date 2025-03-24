@@ -57,10 +57,16 @@
                     </div>
                 </div>
                 <div id="data-panel" class="tab-pane">
-                    <div class="col m8 s6 left left-align mbot0">
+                    <div class="col m4 s6 left left-align mbot0">
                         <div class="form-group">
                             {{Form::number('order', 0, ['class' => 'form-control', 'min' => '0', 'step' => 1, 'placeholder' => get_string('order')])}}
                             {{Form::label('order', get_string('order'))}}
+                        </div>
+                    </div>
+                    <div class="col m4 s6 left left-align mbot0">
+                        <div class="form-group">
+                            {{Form::number('tarif', 0, ['class' => 'form-control', 'min' => '0', 'step' => 1, 'placeholder' => 'Tarif'])}}
+                            {{Form::label('tarif', "Tarif")}}
                         </div>
                     </div>
                     <div class="col m4 s6 right right-align mbot0">

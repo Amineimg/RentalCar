@@ -11,15 +11,15 @@ class CarContent extends Model
 
     // Allow columns to be filled with data
     protected $fillable = [
-        'name', 
-        'features', 
-        'highlights', 
-        'extraservices', 
-        'services', 
+        'name',
+        'meta_title',
+        'meta_description',
+        'features',
+        'highlights',
+        'extraservices',
+        'services',
         'description',
-        'car_id', 
-        'meta_title', 
-        'meta_description', 
+        'car_id',
         'language_id'
     ];
 

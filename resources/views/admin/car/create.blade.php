@@ -54,14 +54,14 @@
                                             @endif
                                         </div>
                                         <div class="col s12 mtop10 mbot20">
-                                            {{Form::label('meta_title['.$language->id.']', get_string('meta_title'))}}
-                                            {{Form::text('meta_title['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => get_string('enter_car_name')])}}
+                                            {{Form::label('meta_title['.$language->id.']', 'Meta Title')}}
+                                            {{Form::text('meta_title['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => 'Meta Title'])}}
                                             @if($errors->has('meta_title.'.$language->id.''))
                                                 <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
                                             @endif
                                         </div>
                                         <div class="col s12 mtop10 mbot20">
-                                            {{Form::label('meta_description['.$language->id.']', get_string('meta_description'))}}
+                                            {{Form::label('meta_description['.$language->id.']', 'Meta Description')}}
                                             {{Form::textarea('meta_description['.$language->id.']', null, ['class' => 'form-control'])}}
                                             @if($errors->has('meta_description.'.$language->id.''))
                                                 <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>

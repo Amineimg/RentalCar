@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('image', 255);
             // $table->integer('imageable_id');
             // $table->string('imageable_type', 255);
-            $table->morphs('image');
+            $table->morphs('imageable');
             $table->integer('sort_order')->nullable();
         });
     }

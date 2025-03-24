@@ -177,6 +177,7 @@ class AdminLocationController extends Controller
         $data['featured'] = $request->featured ? $request->featured : 0;
 
         $data['order'] = $request->order ? $request->order : 0;
+        $data['tarif'] = $request->tarif ? $request->tarif : 0;
 
         $location = Location::create($data);
 
@@ -404,6 +405,7 @@ class AdminLocationController extends Controller
         $data['order'] = $request->order ? $request->order : $location->order;
 
         $data['featured'] = $request->featured ? $request->featured : 0;
+        $data['tarif'] = $request->tarif ? $request->tarif : 0;
 
         $location->update($data);
 
@@ -436,8 +438,7 @@ class AdminLocationController extends Controller
             // Update the Location Content
 
             $location_content = LocationContent::where(['language_id' => $language->id, 'location_id' => $id])->first();
-
-            $location_content->update($data);
+            LocationContent::updateOrCreate(['language_id' => $language->id, 'location_id' => $id],$data);
 
         }
 
@@ -524,6 +525,8 @@ class AdminLocationController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:300',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
         ],[
 
@@ -546,6 +549,8 @@ class AdminLocationController extends Controller
             'name.'.$lang_id.'' => 'required',
 
             'description.'.$lang_id.'' => 'max:500',
+            'meta_title.'.$lang_id.'' => 'required',
+            'meta_description.'.$lang_id.'' => 'required',
 
         ],[
 

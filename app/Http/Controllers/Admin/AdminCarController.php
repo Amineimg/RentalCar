@@ -71,13 +71,13 @@ class AdminCarController extends Controller
         $highlights = Highlight::all();
         $extraservices = ExtraService::all();
         $services = Service::all();
-        return view('admin.car.create', compact( 'categories', 
-                                                 'carmakes', 
-                                                 'languages', 
-                                                 'features', 
-                                                 'highlights', 
-                                                 'extraservices', 
-                                                 'services', 
+        return view('admin.car.create', compact( 'categories',
+                                                 'carmakes',
+                                                 'languages',
+                                                 'features',
+                                                 'highlights',
+                                                 'extraservices',
+                                                 'services',
                                                  'default_language' ));
     }
 
@@ -147,11 +147,11 @@ class AdminCarController extends Controller
         if(empty($request->carburant)){
             $data['carburant'] = 'petrol';
         }
-        
+
         $default_language = Language::where('default', 1)->first();
         $data['alias'] = Utility::alias($request->name[$default_language->id], [], 'car');
         $car = Car::create($data);
-        
+
         if(isset($request->images)){
             foreach($request->images as $image){
                 Image::create(['image' => $image, 'imageable_id' => $car->id, 'imageable_type' => 'App\Models\Admin\Car']);
@@ -222,36 +222,36 @@ class AdminCarController extends Controller
         $extraservices = ExtraService::all();
         $services = Service::all();
         $car = Car::findOrFail($id);
-        
+
         $carmodels = [];
         $selected_carmake = 0;
         $selected_carmodel = 0;
-        
+
         if(!empty($car->carmodel)){
             $carmodels = Carmodel::with(['contentload' => function ($query) use ($default_language) {
                 $query->where('language_id', $default_language->id);
             }])->where('carmake_id', $car->carmodel->carmake_id)->orderBy('alias', 'ASC')->get()->pluck('contentload.name', 'contentload.carmodel_id');
-            
+
             $selected_carmake = $car->carmodel->carmake_id;
             $selected_carmodel = $car->carmodel->id;
         }
-        
+
         $seasons = Season::where('car_id', $car->id)
                             ->orderBy('start_date', 'ASC')
                             ->get();
 
-        return view('admin.car.edit', compact( 'car', 
-                                               'categories', 
-                                               'carmakes', 
-                                               'carmodels', 
-                                               'selected_carmake', 
-                                               'selected_carmodel', 
-                                               'default_language', 
-                                               'languages', 
-                                               'features', 
-                                               'highlights', 
-                                               'extraservices', 
-                                               'services', 
+        return view('admin.car.edit', compact( 'car',
+                                               'categories',
+                                               'carmakes',
+                                               'carmodels',
+                                               'selected_carmake',
+                                               'selected_carmodel',
+                                               'default_language',
+                                               'languages',
+                                               'features',
+                                               'highlights',
+                                               'extraservices',
+                                               'services',
                                                'seasons' ));
     }
 
@@ -290,7 +290,7 @@ class AdminCarController extends Controller
                     }
                 }
             }
-            
+
             if(!empty($seasons_to_update)){
                 foreach ($seasons_to_update as $season) {
                     $ss = Season::findOrFail($season['id']);
@@ -352,11 +352,11 @@ class AdminCarController extends Controller
         if(empty($request->transmission)){
             $data['transmission'] = 'manual';
         }
-        
+
         if(empty($request->airconditioner)){
             $data['airconditioner'] = 0;
         }
-        
+
         if(empty($request->status)){
             $data['status'] = 0;
         }
@@ -378,9 +378,9 @@ class AdminCarController extends Controller
                 $sort_order++;
 
                 $data_img = [
-                        'image'          => $image, 
-                        'sort_order'     => $sort_order, 
-                        'imageable_id'   => $car->id, 
+                        'image'          => $image,
+                        'sort_order'     => $sort_order,
+                        'imageable_id'   => $car->id,
                         'imageable_type' => 'App\Models\Admin\Car'
                     ];
                 if(!in_array_r($image, $old_images, true)){
@@ -420,12 +420,12 @@ class AdminCarController extends Controller
             $data['language_id'] = $language->id;
 
             // Update the Category Content
-            $car_content = CarContent::where(['language_id' => $language->id, 'car_id' => $id])->first();
-            $car_content->update($data);
+            CarContent::updateOrCreate(['language_id' => $language->id, 'car_id' => $id],$data);
         }
 
         // Redirect after saving
         //return redirect('admin/car');
+
         return redirect()->route('admin.car.edit', $id);
 
     }
@@ -521,8 +521,8 @@ class AdminCarController extends Controller
 
         $languages = $this->languages;
         $validator = Validator::make(
-            $request->all(), 
-            $this->validation_rules, 
+            $request->all(),
+            $this->validation_rules,
             $this->validation_messages
         );
 
@@ -566,11 +566,11 @@ class AdminCarController extends Controller
     public function validateServiceUpdate(Request $request, $id){
         $languages = $this->languages;
         $validator = Validator::make(
-            $request->all(), 
-            $this->validation_rules, 
+            $request->all(),
+            $this->validation_rules,
             $this->validation_messages
         );
-        $images = Car::findOrFail($id)->images->toArray();
+        $images =Car::findOrFail($id)->images()->exists() ?  Car::findOrFail($id)->images->toArray() :[];
 //dd($validator->fails());
         if($validator->fails()){
             if(isset($request->images)){

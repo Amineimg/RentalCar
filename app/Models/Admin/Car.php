@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,6 @@ class Car extends Model
     protected $fillable = [
         'user_id',
         'status',
-        'images',
         'front_image',
         'category_id',
         'carmodel_id',
@@ -43,8 +43,7 @@ class Car extends Model
         'transmission',
         'carburant',
         'meta_keywords',
-        'meta_description',
-        'meta_title',
+
     ];
 
     // Storing arrays in base
@@ -56,7 +55,7 @@ class Car extends Model
         'location'       => 'array',
         'contact'        => 'array',
         'social'         => 'array',
-        'images'         => 'array',
+        // 'images'         => 'array',
         'business_hours' => 'array',
         'prices'         => 'array',
         'car_info'       => 'array',
@@ -69,7 +68,7 @@ class Car extends Model
 
     // Getting the images in the post content
     public function images(){
-        return $this->morphMany('App\Models\Image', 'imageable')->where('image', 'NOT LIKE', '%front-%')->orderBy('sort_order', 'ASC');
+        return $this->morphMany(Image::class, 'imageable')->where('image', 'NOT LIKE', '%front-%')->orderBy('sort_order', 'ASC');
     }
 
     // Getting the front image

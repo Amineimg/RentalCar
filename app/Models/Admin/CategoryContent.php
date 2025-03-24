@@ -11,7 +11,7 @@ class CategoryContent extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'name', 'description', 'category_id', 'language_id'
+        'name', 'description','meta_title','meta_description', 'category_id', 'language_id',
     ];
 
     // Get the Car Category for the content

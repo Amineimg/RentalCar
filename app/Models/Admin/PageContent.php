@@ -11,7 +11,7 @@ class PageContent extends Model
 
     // Allow columns to be filled with data
     protected $fillable = [
-        'page_id', 'language_id', 'title', 'content'
+        'page_id','meta_title','meta_description', 'language_id', 'title', 'content'
     ];
 
     // Get the post for the content

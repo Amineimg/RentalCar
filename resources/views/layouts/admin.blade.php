@@ -56,7 +56,7 @@
 
                         <p class="date-text">{{date('d/m/Y')}}</p>
 
-                        
+
 
                     </div>
 
@@ -131,6 +131,7 @@
                             --}}
 
                             <li class="{{ setActive('admin/page') }}"><a href="{{route('admin.page.index')}}">{{get_string('pages')}}</a></li>
+                            <li class="{{ setActive('admin/blog') }}"><a href="{{route('admin.blog.index')}}">Blogs</a></li>
 
                             {{--
 
@@ -434,11 +435,11 @@
 
                         <div class="user-img">
 
-                            <img src="{{ asset(Auth::user()->admin->avatar) }}" 
+                            <img src="{{ asset(Auth::user()->admin->avatar) }}"
 
-                                 alt="user-img" 
+                                 alt="user-img"
 
-                                 title="{{ Auth::user()->username }}" 
+                                 title="{{ Auth::user()->username }}"
 
                                  class="responsive-img">
 
