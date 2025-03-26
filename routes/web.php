@@ -5,6 +5,13 @@
 |--------------------------------------------------------------------------
 */
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Auth::routes();
 
 /*
@@ -15,7 +22,7 @@ Auth::routes();
 Route::get('sitemap.xml', 'HomeController@sitemap')->name('sitemapxml');
 
 Route::get('/clear-cache', function() {
-     $exitCode = Artisan::call('cache:clear'); 
+     $exitCode = Artisan::call('cache:clear');
     $exitCode2 = Artisan::call('config:cache');
 
     dd($exitCode, $exitCode2);
@@ -259,6 +266,8 @@ Route::post('/image_handler/deleteBase', 'ImageHandler@deleteBase')->name('image
 |--------------------------------------------------------------------------
 */
 
+// Route::get('/', [HomeController::class,'index'])->name('home');
+
 Route::group(['middleware' => 'user'], function(){
 
     // Only for users
@@ -274,176 +283,176 @@ Route::group(['middleware' => 'user'], function(){
 
 });
 
-$locale = Request::segment(1);
+// $locale = Request::segment(1);
 
-if($locale == 'rental'){
-    app()->setLocale('en');
-}elseif($locale == 'es'){
-    app()->setLocale('es');
-}elseif($locale == 'noleggio'){
-    app()->setLocale('it');
-}elseif($locale == 'wynajem'){
-    app()->setLocale('pl');
-}elseif($locale == 'verhuur') {
-    app()->setLocale('nl');
-}elseif($locale == 'aluguel') {
-    app()->setLocale('pt');
-} else {
-    app()->setLocale('fr');
-    $locale = '';
-}
+// if($locale == 'rental'){
+//     app()->setLocale('en');
+// }elseif($locale == 'es'){
+//     app()->setLocale('es');
+// }elseif($locale == 'noleggio'){
+//     app()->setLocale('it');
+// }elseif($locale == 'wynajem'){
+//     app()->setLocale('pl');
+// }elseif($locale == 'verhuur') {
+//     app()->setLocale('nl');
+// }elseif($locale == 'aluguel') {
+//     app()->setLocale('pt');
+// } else {
+//     app()->setLocale('fr');
+//     $locale = '';
+// }
 Route::group(
     [
-      'prefix' => $locale,
-      'where' => ['locale' => 'rental'],
-      'middleware' => 'language_middleware'
-    ], function() use ($locale) {
+    //   'prefix' => $locale,
+    //   'where' => ['locale' => 'rental'],
+    //   'middleware' => 'language_middleware'
+    ], function() {
 
 
-    if($locale && $locale == 'rental'){
-        Route::get('car-rental-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_en');
-        Route::get('car-rental-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_en');
-        Route::get('car-rental-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_en');
-        Route::get('car-rental-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_en');
-        Route::get('car-rental-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_en');
-        Route::get('car-rental-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_en');
-        Route::get('car-rental-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_en');
-        Route::get('car-rental-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_en');
-        Route::get('car-rental-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_en');
-        Route::get('car-rental-in-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech');
-        Route::get('cheap-car-hire-marrakech', 'HomeController@cher')->name('cheap-car-hire-marrakech');
-        Route::get('4-x-4-hire-marrakech', 'HomeController@qat_qat')->name('4-x-4-hire-marrakech');
-        Route::get('car-rental-marrakech-airport', 'HomeController@airport')->name('car-rental-marrakech-airport');
-        Route::get('car-rental-marrakech-without-deposit', 'HomeController@caution')->name('car-rental-marrakech-without-deposit');
-        Route::get('car-rental-marrakech-manual-automatic', 'HomeController@man_auto')->name('car-rental-marrakech-manual-automatic');
-        Route::get('automatic-car-rental-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_en');
-        Route::get('manual-car-rental-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_en');
-    }elseif($locale && $locale == 'es'){
-        Route::get('alquiler-de-coches-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_es');
-        Route::get('alquiler-de-coches-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_es');
-        Route::get('alquiler-de-coches-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_es');
-        Route::get('alquiler-de-coches-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_es');
-        Route::get('alquiler-de-coches-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_es');
-        Route::get('alquiler-de-coches-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_es');
-        Route::get('alquiler-de-coches-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_es');
-        Route::get('alquiler-de-coches-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_es');
-        Route::get('alquiler-de-coches-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_es');
-        Route::get('alquiler-de-coches-en-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech-es');
-        Route::get('alquiler-coches-marrakech-barato', 'HomeController@cher')->name('alquiler-de-coches-marrakech-barato');
-        Route::get('alquiler-4-x-4-marrakech', 'HomeController@qat_qat')->name('alquiler-4-x-4-marrakech');
-        Route::get('alquiler-coche-marrakech-aeropuerto', 'HomeController@airport')->name('alquiler-coche-marrakech-aeropuerto');
-        Route::get('alquiler-coche-marrakech-sin-deposito', 'HomeController@caution')->name('alquiler-coche-marrakech-sin-deposito');
-        Route::get('alquiler-coche-marrakech-manual-automático', 'HomeController@man_auto')->name('alquiler-coche-marrakech-manual-automático');
-        Route::get('alquiler-coches-marrakech', 'CarController@getParcAuto')->name('parc_auto_es');
-        Route::get('alquiler-de-coches-automático-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_es');
-        Route::get('manual-alquiler-de-coches-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_es');
-    }elseif($locale && $locale == 'noleggio'){
-        Route::get('noleggio-auto-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_it');
-        Route::get('noleggio-auto-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_it');
-        Route::get('noleggio-auto-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_it');
-        Route::get('noleggio-auto-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_it');
-        Route::get('noleggio-auto-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_it');
-        Route::get('noleggio-auto-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_it');
-        Route::get('noleggio-auto-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_it');
-        Route::get('noleggio-auto-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_it');
-        Route::get('noleggio-auto-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_it');
-        Route::get('noleggio-auto-a-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech-it');
-        Route::get('autonoleggio-marrakech', 'CarController@getParcAuto')->name('parc_auto_it');
-        Route::get('condizioni-generali', 'HomeController@generalConditions')->name('generalconditions_it');
-        Route::get('contattaci', 'HomeController@contact')->name('contact_it');
-        Route::get('noleggio-auto-marrakech-economico', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_it');
-        Route::get('autonoleggio-marrakech-aeroporto', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_it');
-        Route::get('noleggio-auto-marrakech-senza-deposito', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_it');
-        Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
-        Route::get('noleggio-4x4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_it');
-        Route::get('noleggio-auto-automatico-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_it');
-        Route::get('noleggio-auto-manuale-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_it');
-    } elseif($locale && $locale == 'wynajem'){
-        Route::get('wypożyczalnia-samochodów-marrakesz', 'CarController@getParcAuto')->name('parc_auto_pl');
-        Route::get('ogólne-warunki', 'HomeController@generalConditions')->name('generalconditions_pl');
-        Route::get('pytania-i-odpowiedzi', 'HomeController@faq')->name('faq_pl');
-        Route::get('kontakt', 'HomeController@contact')->name('contact_pl');
-        Route::get('wynajem-samochodów-w-marrakeszu-tanio', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_pl');
-        Route::get('wynajem-samochodów-w-marrakeszu', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_pl');
-        Route::get('wynajem-samochodu-lotnisko-marrakesz', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_pl');
-        Route::get('wynajem-samochodów-w-marrakeszu-bez-kaucji', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_pl');
-        Route::get('wynajem-samochodów-automatycznych-w-marrakeszu', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_pl');
-        Route::get('wynajem-4-x-4-marrakesz', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_pl');
-        Route::get('wynajem-samochodów-manualnych-w-marrakeszu', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_pl');
-        // Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
-        Route::get('wynajem-samochodów-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_pl');
-        Route::get('wynajem-samochodów-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_pl');
-        Route::get('wynajem-samochodów-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_pl');
-        Route::get('wynajem-samochodówrw-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_pl');
-        Route::get('wynajem-samochodów-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_pl');
-        Route::get('wynajem-samochodów-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_pl');
-        Route::get('wynajem-samochodów-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_pl');
-        Route::get('wynajem-samochodów-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_pl');
-        Route::get('wynajem-samochodów-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_pl');
-        
-    } elseif($locale && $locale == 'verhuur') {
-        Route::get('autoverhuur-marrakech', 'CarController@getParcAuto')->name('parc_auto_nl');
-        Route::get('algemene-voorwaarden', 'HomeController@generalConditions')->name('generalconditions_nl');
-        Route::get('veelgestelde-vragen', 'HomeController@faq')->name('faq_nl');
-        Route::get('contact', 'HomeController@contact')->name('contact_nl');
-        Route::get('autoverhuur-marrakech-goedkoop', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_nl');
-        Route::get('autoverhuur-in-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_nl');
-        Route::get('autoverhuur-marrakech-luchthaven', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_nl');
-        Route::get('autoverhuur-marrakech-zonder-borg', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_nl');
-        Route::get('automatische-autoverhuur-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_nl');
-        Route::get('verhuur-4-x-4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_nl');
-        Route::get('handgeschakelde-autoverhuur-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_nl');
-        // Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
-        Route::get('autoverhuur-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_nl');
-        Route::get('autoverhuur-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_nl');
-        Route::get('autoverhuur-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_nl');
-        Route::get('autoverhuur-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_nl');
-        Route::get('autoverhuur-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_nl');
-        Route::get('autoverhuur-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_nl');
-        Route::get('autoverhuur-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_nl');
-        Route::get('autoverhuur-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_nl');
-        Route::get('autoverhuur-fez', 'HomeController@loc_fes')->name('location-de-voiture-fes_nl');
-    } elseif($locale && $locale == 'aluguel') {
-        Route::get('aluguel-de-carros-marrakech', 'CarController@getParcAuto')->name('parc_auto_pt');
-        Route::get('condições-gerais', 'HomeController@generalConditions')->name('generalconditions_pt');
-        Route::get('perguntas-frequentesn', 'HomeController@faq')->name('faq_pt');
-        Route::get('contato', 'HomeController@contact')->name('contact_pt');
+    // if($locale && $locale == 'rental'){
+    //     Route::get('car-rental-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_en');
+    //     Route::get('car-rental-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_en');
+    //     Route::get('car-rental-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_en');
+    //     Route::get('car-rental-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_en');
+    //     Route::get('car-rental-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_en');
+    //     Route::get('car-rental-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_en');
+    //     Route::get('car-rental-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_en');
+    //     Route::get('car-rental-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_en');
+    //     Route::get('car-rental-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_en');
+    //     Route::get('car-rental-in-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech');
+    //     Route::get('cheap-car-hire-marrakech', 'HomeController@cher')->name('cheap-car-hire-marrakech');
+    //     Route::get('4-x-4-hire-marrakech', 'HomeController@qat_qat')->name('4-x-4-hire-marrakech');
+    //     Route::get('car-rental-marrakech-airport', 'HomeController@airport')->name('car-rental-marrakech-airport');
+    //     Route::get('car-rental-marrakech-without-deposit', 'HomeController@caution')->name('car-rental-marrakech-without-deposit');
+    //     Route::get('car-rental-marrakech-manual-automatic', 'HomeController@man_auto')->name('car-rental-marrakech-manual-automatic');
+    //     Route::get('automatic-car-rental-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_en');
+    //     Route::get('manual-car-rental-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_en');
+    // }elseif($locale && $locale == 'es'){
+    //     Route::get('alquiler-de-coches-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_es');
+    //     Route::get('alquiler-de-coches-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_es');
+    //     Route::get('alquiler-de-coches-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_es');
+    //     Route::get('alquiler-de-coches-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_es');
+    //     Route::get('alquiler-de-coches-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_es');
+    //     Route::get('alquiler-de-coches-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_es');
+    //     Route::get('alquiler-de-coches-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_es');
+    //     Route::get('alquiler-de-coches-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_es');
+    //     Route::get('alquiler-de-coches-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_es');
+    //     Route::get('alquiler-de-coches-en-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech-es');
+    //     Route::get('alquiler-coches-marrakech-barato', 'HomeController@cher')->name('alquiler-de-coches-marrakech-barato');
+    //     Route::get('alquiler-4-x-4-marrakech', 'HomeController@qat_qat')->name('alquiler-4-x-4-marrakech');
+    //     Route::get('alquiler-coche-marrakech-aeropuerto', 'HomeController@airport')->name('alquiler-coche-marrakech-aeropuerto');
+    //     Route::get('alquiler-coche-marrakech-sin-deposito', 'HomeController@caution')->name('alquiler-coche-marrakech-sin-deposito');
+    //     Route::get('alquiler-coche-marrakech-manual-automático', 'HomeController@man_auto')->name('alquiler-coche-marrakech-manual-automático');
+    //     Route::get('alquiler-coches-marrakech', 'CarController@getParcAuto')->name('parc_auto_es');
+    //     Route::get('alquiler-de-coches-automático-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_es');
+    //     Route::get('manual-alquiler-de-coches-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_es');
+    // }elseif($locale && $locale == 'noleggio'){
+    //     Route::get('noleggio-auto-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_it');
+    //     Route::get('noleggio-auto-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_it');
+    //     Route::get('noleggio-auto-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_it');
+    //     Route::get('noleggio-auto-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_it');
+    //     Route::get('noleggio-auto-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_it');
+    //     Route::get('noleggio-auto-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_it');
+    //     Route::get('noleggio-auto-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_it');
+    //     Route::get('noleggio-auto-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_it');
+    //     Route::get('noleggio-auto-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_it');
+    //     Route::get('noleggio-auto-a-marrakech', 'HomeController@loc_marrakech')->name('car-rental-in-marrakech-it');
+    //     Route::get('autonoleggio-marrakech', 'CarController@getParcAuto')->name('parc_auto_it');
+    //     Route::get('condizioni-generali', 'HomeController@generalConditions')->name('generalconditions_it');
+    //     Route::get('contattaci', 'HomeController@contact')->name('contact_it');
+    //     Route::get('noleggio-auto-marrakech-economico', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_it');
+    //     Route::get('autonoleggio-marrakech-aeroporto', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_it');
+    //     Route::get('noleggio-auto-marrakech-senza-deposito', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_it');
+    //     Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
+    //     Route::get('noleggio-4x4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_it');
+    //     Route::get('noleggio-auto-automatico-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_it');
+    //     Route::get('noleggio-auto-manuale-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_it');
+    // } elseif($locale && $locale == 'wynajem'){
+    //     Route::get('wypożyczalnia-samochodów-marrakesz', 'CarController@getParcAuto')->name('parc_auto_pl');
+    //     Route::get('ogólne-warunki', 'HomeController@generalConditions')->name('generalconditions_pl');
+    //     Route::get('pytania-i-odpowiedzi', 'HomeController@faq')->name('faq_pl');
+    //     Route::get('kontakt', 'HomeController@contact')->name('contact_pl');
+    //     Route::get('wynajem-samochodów-w-marrakeszu-tanio', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_pl');
+    //     Route::get('wynajem-samochodów-w-marrakeszu', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_pl');
+    //     Route::get('wynajem-samochodu-lotnisko-marrakesz', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_pl');
+    //     Route::get('wynajem-samochodów-w-marrakeszu-bez-kaucji', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_pl');
+    //     Route::get('wynajem-samochodów-automatycznych-w-marrakeszu', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_pl');
+    //     Route::get('wynajem-4-x-4-marrakesz', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_pl');
+    //     Route::get('wynajem-samochodów-manualnych-w-marrakeszu', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_pl');
+    //     // Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
+    //     Route::get('wynajem-samochodów-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_pl');
+    //     Route::get('wynajem-samochodów-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_pl');
+    //     Route::get('wynajem-samochodów-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_pl');
+    //     Route::get('wynajem-samochodówrw-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_pl');
+    //     Route::get('wynajem-samochodów-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_pl');
+    //     Route::get('wynajem-samochodów-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_pl');
+    //     Route::get('wynajem-samochodów-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_pl');
+    //     Route::get('wynajem-samochodów-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_pl');
+    //     Route::get('wynajem-samochodów-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes_pl');
 
-        Route::get('aluguel-carros-barato-marrakech', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_pt');
-        Route::get('aluguel-carros-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_pt');
-        Route::get('aluguel-carros-no-aeroporto-marrakech', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_pt');
-        Route::get('aluguel-carros-marrakech-sem-depósito', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_pt');
-        Route::get('aluguel-carros-automáticos-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_pt');
-        Route::get('aluguel-4x4-arrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_pt');
-        Route::get('aluguel-carros-manuais-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_pt');
-        Route::get('aluguel-de-carros-na-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_pt');
-        Route::get('aluguel-carros-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_pt');
-        Route::get('aluguel-carros-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_pt');
-        Route::get('aluguel-carros-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_pt');
-        Route::get('aluguel-carros-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_pt');
-        Route::get('aluguel-carros-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_pt');
-        Route::get('aluguel-carros-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_pt');
-        Route::get('aluguel-carros-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_pt');
-        Route::get('aluguel-carros-fez', 'HomeController@loc_fes')->name('location-de-voiture-fes_pt');
-    } else{
-        Route::get('location-de-voiture-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina');
-        Route::get('location-de-voiture-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz');
-        Route::get('location-de-voiture-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger');
-        Route::get('location-de-voiture-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat');
-        Route::get('location-de-voiture-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca');
-        Route::get('location-de-voiture-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir');
-        Route::get('location-de-voiture-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia');
-        Route::get('location-de-voiture-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira');
-        Route::get('location-de-voiture-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes');
-        Route::get('location-de-voiture-a-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech');
-        Route::get('location-de-voiture-marrakech-pas-cher', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher');
-        Route::get('location-4-x-4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech');
-        Route::get('location-voiture-marrakech-aeroport', 'HomeController@airport')->name('location-voiture-marrakech-aeroport');
-        Route::get('location-voiture-marrakech-sans-caution', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution');
-        Route::get('location-voiture-marrakech-manuelle-automatique', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique');
-        Route::get('location-voiture-automatique-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech');
-        Route::get('location-voiture-manuelle-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech');
-    }
+    // } elseif($locale && $locale == 'verhuur') {
+    //     Route::get('autoverhuur-marrakech', 'CarController@getParcAuto')->name('parc_auto_nl');
+    //     Route::get('algemene-voorwaarden', 'HomeController@generalConditions')->name('generalconditions_nl');
+    //     Route::get('veelgestelde-vragen', 'HomeController@faq')->name('faq_nl');
+    //     Route::get('contact', 'HomeController@contact')->name('contact_nl');
+    //     Route::get('autoverhuur-marrakech-goedkoop', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_nl');
+    //     Route::get('autoverhuur-in-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_nl');
+    //     Route::get('autoverhuur-marrakech-luchthaven', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_nl');
+    //     Route::get('autoverhuur-marrakech-zonder-borg', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_nl');
+    //     Route::get('automatische-autoverhuur-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_nl');
+    //     Route::get('verhuur-4-x-4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_nl');
+    //     Route::get('handgeschakelde-autoverhuur-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_nl');
+    //     // Route::get('autonoleggio-marrakech-manuale-automatico', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique_it');
+    //     Route::get('autoverhuur-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_nl');
+    //     Route::get('autoverhuur-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_nl');
+    //     Route::get('autoverhuur-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_nl');
+    //     Route::get('autoverhuur-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_nl');
+    //     Route::get('autoverhuur-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_nl');
+    //     Route::get('autoverhuur-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_nl');
+    //     Route::get('autoverhuur-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_nl');
+    //     Route::get('autoverhuur-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_nl');
+    //     Route::get('autoverhuur-fez', 'HomeController@loc_fes')->name('location-de-voiture-fes_nl');
+    // } elseif($locale && $locale == 'aluguel') {
+    //     Route::get('aluguel-de-carros-marrakech', 'CarController@getParcAuto')->name('parc_auto_pt');
+    //     Route::get('condições-gerais', 'HomeController@generalConditions')->name('generalconditions_pt');
+    //     Route::get('perguntas-frequentesn', 'HomeController@faq')->name('faq_pt');
+    //     Route::get('contato', 'HomeController@contact')->name('contact_pt');
+
+    //     Route::get('aluguel-carros-barato-marrakech', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher_pt');
+    //     Route::get('aluguel-carros-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech_pt');
+    //     Route::get('aluguel-carros-no-aeroporto-marrakech', 'HomeController@airport')->name('location-voiture-marrakech-aeroport_pt');
+    //     Route::get('aluguel-carros-marrakech-sem-depósito', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution_pt');
+    //     Route::get('aluguel-carros-automáticos-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech_pt');
+    //     Route::get('aluguel-4x4-arrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech_pt');
+    //     Route::get('aluguel-carros-manuais-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech_pt');
+    //     Route::get('aluguel-de-carros-na-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina_pt');
+    //     Route::get('aluguel-carros-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz_pt');
+    //     Route::get('aluguel-carros-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger_pt');
+    //     Route::get('aluguel-carros-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat_pt');
+    //     Route::get('aluguel-carros-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca_pt');
+    //     Route::get('aluguel-carros-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir_pt');
+    //     Route::get('aluguel-carros-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia_pt');
+    //     Route::get('aluguel-carros-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira_pt');
+    //     Route::get('aluguel-carros-fez', 'HomeController@loc_fes')->name('location-de-voiture-fes_pt');
+    // } else{
+    //     Route::get('location-de-voiture-medina', 'HomeController@loc_medina')->name('location-de-voiture-medina');
+    //     Route::get('location-de-voiture-gueliz', 'HomeController@loc_gueliz')->name('location-de-voiture-gueliz');
+    //     Route::get('location-de-voiture-tanger', 'HomeController@loc_tanger')->name('location-de-voiture-tanger');
+    //     Route::get('location-de-voiture-rabat', 'HomeController@loc_rabat')->name('location-de-voiture-rabat');
+    //     Route::get('location-de-voiture-casablanca', 'HomeController@loc_casablanca')->name('location-de-voiture-casablanca');
+    //     Route::get('location-de-voiture-agadir', 'HomeController@loc_agadir')->name('location-de-voiture-agadir');
+    //     Route::get('location-de-voiture-mohammedia', 'HomeController@loc_mohammedia')->name('location-de-voiture-mohammedia');
+    //     Route::get('location-de-voiture-essaouira', 'HomeController@loc_essaouira')->name('location-de-voiture-essaouira');
+    //     Route::get('location-de-voiture-fes', 'HomeController@loc_fes')->name('location-de-voiture-fes');
+    //     Route::get('location-de-voiture-a-marrakech', 'HomeController@loc_marrakech')->name('location-de-voiture-a-marrakech');
+    //     Route::get('location-de-voiture-marrakech-pas-cher', 'HomeController@cher')->name('location-de-voiture-marrakech-pas-cher');
+    //     Route::get('location-4-x-4-marrakech', 'HomeController@qat_qat')->name('location-4-x-4-marrakech');
+    //     Route::get('location-voiture-marrakech-aeroport', 'HomeController@airport')->name('location-voiture-marrakech-aeroport');
+    //     Route::get('location-voiture-marrakech-sans-caution', 'HomeController@caution')->name('location-voiture-marrakech-sans-caution');
+    //     Route::get('location-voiture-marrakech-manuelle-automatique', 'HomeController@man_auto')->name('location-voiture-marrakech-manuelle-automatique');
+    //     Route::get('location-voiture-automatique-marrakech', 'HomeController@loc_automatic')->name('location-voiture-automatique-marrakech');
+    //     Route::get('location-voiture-manuelle-marrakech', 'HomeController@loc_manuel')->name('location-voiture-manuelle-marrakech');
+    // }
 
 
     // Home Routes
@@ -460,10 +469,10 @@ Route::group(
     Route::get('/login', 'UserController@login')->name('login')->middleware('logged');
     Route::get('/activate-account', 'UserController@activateAccount')->name('activate_account');
     Route::post('/search_page/{id}', 'SearchController@searchPage')->name('search_page');
-    Route::post('/search', 'SearchController@index')->name('search');
+    // Route::post('/search', 'SearchController@index')->name('search');
     Route::post('/searchref', 'SearchController@ref_search')->name('searchref');
     Route::post('/search_home/devis_email', 'SearchController@devis_email')->name('devis_email');
-    Route::post('/search_home', 'SearchController@cars')->name('search_home');
+    Route::match(['get','post'],'/search', [SearchController::class,'cars'])->name('search_home');
     Route::get('/contact-us', 'HomeController@contact')->name('contact');
     Route::post('/mail/sendcontact', 'EmailController@contact')->name('send_contact');
     Route::get('/blog', 'BlogController@index')->name('blog');
@@ -504,7 +513,7 @@ Route::group(
     Route::get('{alias}', 'CarController@index')->name('single-car');
     Route::post('/bookcar', 'CarController@book')->name('book_car');
     Route::get('/car-details/{id}/{car_name}', 'CarController@details')->name('car_details');
-    Route::post('/booking', 'CarController@booking')->name('booking');
+    Route::post('/booking', 'CarController@booking')->name('booking_details');
     Route::post('/add-wishlist', 'CarController@add_to_wishlist');
     Route::post('/remove-wishlist', 'CarController@remove_from_wishlist');
 
@@ -517,3 +526,4 @@ Route::group(
     Route::get('/location/{alias}', 'LocationController@index');
     Route::post('/get_ajax_price', 'CarController@get_ajax_price')->name('get_ajax_price');
 });
+

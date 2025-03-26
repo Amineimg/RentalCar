@@ -6,6 +6,7 @@ use App\Models\Admin\Language;
 use App\Models\Admin\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\ServiceContent;
 
 class AdminServiceController extends Controller
 {
@@ -55,7 +56,32 @@ class AdminServiceController extends Controller
         }
 
         // Store the Service
-        Service::create($data);
+      $service=  Service::create($data);
+
+        foreach($languages as $language) {
+
+            // Getting name
+
+            $data['name'] = $request->name[$language->id];
+
+            // Getting content from textarea
+
+            $data['description'] = $request->description[$language->id];
+            $data['meta_title'] = $request->meta_title[$language->id];
+            $data['meta_description'] = $request->meta_description[$language->id];
+
+            $data['service'] = $service->id;
+
+            $data['language_id']  = $language->id;
+
+            ServiceContent::updateOrCreate([
+                'service'=>$service->id,
+                'language_id'=>$language->id,
+            ],$data);
+
+
+
+        }
 
         // Refresh the page
         return redirect()->back();

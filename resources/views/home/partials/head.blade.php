@@ -30,14 +30,14 @@
 
         gtag('config', 'G-RHNWYWKB99');
     </script>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10830519419"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'AW-10830519419');
     </script>
     <script type="text/javascript">
@@ -47,7 +47,7 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "kwza2hzt1a");
     </script>
-    
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -109,7 +109,7 @@
     <noscript>
         <link rel="stylesheet" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     </noscript>
-    
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/tether.min.css') }}">
@@ -131,7 +131,7 @@
 
     @yield('head')
 
-    {!! $custom_css !!}
+    {{-- {!! $custom_css !!} --}}
     <!-- Google tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL3HF1Q9ZH"></script>
     <script>
@@ -144,14 +144,14 @@
 
         gtag('config', 'G-ZL3HF1Q9ZH');
     </script>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11114720723"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'AW-11114720723');
     </script>
 </head>

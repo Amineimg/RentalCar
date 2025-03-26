@@ -31,22 +31,25 @@ class HomeController extends Controller
         $default_language = $this->default_language;
 
         // Get the cars (Eager Load)
-        $number_of_cars = get_setting('fp_cars_count', 'design');;
+        $number_of_cars = 8;
+        $cars = Car::with(['images', 'contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
+        }])->where('status', 1)->inRandomOrder()->take($number_of_cars);
+
+
         if($static_data['design_settings']['fp_show_featured_only']){
-            $cars = Car::with(['images', 'contentload' => function($query) use($default_language){
-                $query->where('language_id', $default_language->id);
-            }])->where('status', 1)->where('featured', 1)->inRandomOrder()->take($number_of_cars)->get();
-        }else{
-            $cars = Car::with(['images', 'contentload' => function($query) use($default_language){
-                $query->where('language_id', $default_language->id);
-            }])->where('status', 1)->inRandomOrder()->take($number_of_cars)->get();
+            $cars->where('featured', 1);
         }
+        $cars->get();
+
         foreach ($cars as $pr) {
             $pr->price_from = get_min_price($pr->id);
         }
 
 
-        $f_locations = Location::with('contentload')->where('featured', 1)->orderBy('order', 'asc')->get();
+        $locations= Location::with(['contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
+        }])->where('featured', 1)->orderBy("order",'asc')->get();
 
         // Get the blog (Eager Load)
         $posts = Blog::with(['contentload' => function($query) use($default_language){
@@ -55,6 +58,11 @@ class HomeController extends Controller
 
         $static_data['highlights'] = Highlight::orderBy('order', 'asc')->get();
         $static_data['services'] = Service::all();
+        return view("front.index",[
+            'cars'=>$cars,
+            'locations'=>$locations,
+            'posts'=>$posts,
+        ]);
 
         // Returning the View
         return view('home.home', compact('posts', 'default_language',

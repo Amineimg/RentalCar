@@ -10,10 +10,12 @@ use App\Models\Admin\Booking;
 use App\Models\Admin\CarDate;
 use App\Models\Admin\Location;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 use \Carbon\Carbon;
-use Session;
 use App\Http\Controllers\CarController;
+use App\Models\Admin\Carmake;
+use App\Models\Admin\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
@@ -118,62 +120,81 @@ class SearchController extends Controller
         // Get Cars
     public function cars(Request $request){
         // dd($request->all());
-        $pickup_location  = Location::where('id', $request->pickup_location)->first();
-        $dropoff_location = Location::where('id', $request->dropoff_location)->first();
-        // $entete  = 'MIME-Version: 1.0' . "\r\n";
-        // $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        // $entete .= 'From: ' . 'Jacaranda Car <noreply@jacarandacar.com>' . "\r\n";
-        // $entete .= 'Cc: ' . 'yassineromani@gmail.com' . "\r\n";
-
-        // $data_info =    "<h3><font color='black'>Ville d'arrivée          :   </font><font color='green'>".$pickup_location->contentload->location."</font></h3>".
-        //                     "<h3><font color='black'>Ville de retour          :   </font><font color='green'>".$dropoff_location->contentload->location."</font></h3>".
-        //                     "<h3><font color='black'>Date d'arrivée           :   </font><font color='green'>".$request->start_date. "  à ". $request->start_time ."</font></h3>".
-        //                     "<h3><font color='black'>Date de retour           :   </font><font color='green'>".$request->end_date. "  à ". $request->end_time ."</font></h3>";
-
-        // if(!empty($request->user_email)) {
-        //     Session::put('user_email', $request->user_email);
-        //     $data_info .= "<h3><font color='black'>Email                    :   </font><font color='green'>".$request->user_email."</font></h3>";
-        // } else Session::put('user_email', "");
-
-        // // echo( $data_info);die;
-        // mail('yassineromani@gmail.com', "Résultat d'une recherche", $data_info, $entete,'-f info@jacarandacar.com');
-
-
         $default_language = $this->default_language;
         $static_data = $this->static_data;
 
-        $locations = Location::all();
+        $locations= Location::with(['contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
 
-        if(!empty($request->pickup_location))   $request->session()->put('pickup_location', $request->pickup_location);
-        if(!empty($request->dropoff_location))  $request->session()->put('dropoff_location', $request->dropoff_location);
-        if(!empty($request->start_date))        $request->session()->put('start_date', $request->start_date);
-        if(!empty($request->end_date))          $request->session()->put('end_date', $request->end_date);
-        if(!empty($request->start_time))        $request->session()->put('start_time', $request->start_time);
-        if(!empty($request->end_time))          $request->session()->put('end_time', $request->end_time);
+        }])->where('featured', 1)->orderBy("order",'asc')->get();
+
+        $pickup_location = $dropoff_location  = Location::where('id', $request->pickup_location)->first();
+        $brands = Carmake::with(['models','contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
+
+        }])->orderBy("order",'asc')->get();
+        $categories = Category::with(['contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
+
+        }])->orderBy("order",'asc')->get();
+
+        // dd( Location::where('id', $request->pickup_location)->first());
+
+        if(!empty($request->pickup_location)){
+            $pickup_location= $request->pickup_location;
+        }
+        else{
+           $pickup_location =  Session::has('pickup_location')  && !empty(Session::get('pickup_location')) ? Session::get('pickup_location') : '';
+        }
+
+        if(!empty($request->dropoff_location)){
+            $dropoff_location= $request->dropoff_location;
+        }
+        else{
+           $dropoff_location =  Session::has('dropoff_location')  && !empty(Session::get('dropoff_location')) ? Session::get('dropoff_location') : '';
+        }
+
+        if(!empty($request->start_date)){
+            $start_date= !empty($request->start_time) ?  Carbon::parse( $request->start_date .' '.$request->start_time) :  Carbon::parse( $request->start_date);
+        }
+        else{
+           $start_date =  Session::has('start_date')  && !empty(Session::get('start_date')) ? Session::get('start_date') : Carbon::now();
+        }
+
+        if(!empty($request->end_date)){
+            $end_date= !empty($request->end_date) ?  Carbon::parse( $request->end_date .' '.$request->end_time) :  Carbon::parse( $request->end_date);
+        }
+        else{
+           $end_date =  Session::has('end_date')  && !empty(Session::get('end_date')) ? Session::get('end_date') : Carbon::now()->addDay();
+        }
+
+
+        Session::put('pickup_location', $pickup_location);
+        Session::put('dropoff_location', $dropoff_location);
+        Session::put('start_date',$start_date);
+        Session::put('end_date', $end_date);
+
+        // dd($start_date,$end_date);
 
         // Handle Data
         $ids = [];
         $seasons_ids = [];
-        if($request->start_date != '' || $request->end_date != ''){
+        if( !empty($request->start_date) || !empty($request->end_date)){
             // Bookings
-            $start_date = ($request->start_date != '') ? Carbon::createFromFormat('d/m/Y', $request->start_date)->format('Y-m-d') : Carbon::now()->format('Y-m-d');
-            $end_date   = ($request->end_date != '') ? Carbon::createFromFormat('d/m/Y', $request->end_date)->format('Y-m-d') : Carbon::now()->addDay()->format('Y-m-d');
-            $ids        = Booking::whereDate('start_date', '<', $end_date)
-                          ->WhereDate('end_date', '>', $start_date)
+            $ids        = Booking::whereDate('start_date', '<', $end_date->format("Y-m-d"))
+                          ->WhereDate('end_date', '>', $start_date->format("Y-m-d"))
                           ->get()->pluck('car_id')->toArray();
             $dates = CarDate::whereNotIn('car_id', $ids)
                                  ->whereNotNull('dates')
                                  ->pluck('dates', 'car_id');
 
             // Owners booked dates
-            $start_date = Carbon::createFromFormat('Y-m-d', $start_date);
-            $end_date   = Carbon::createFromFormat('Y-m-d', $end_date);
             if(!empty($dates)){
                 foreach($dates as $key => $value){
                     $id = $key;
                     if(!empty($value)){
                         foreach($value as $kk => $vv){
-                            if(Carbon::createFromFormat('m/d/Y', trim($key))->between($start_date, $end_date)){
+                            if(Carbon::parse($key)->between($start_date->format("Y-m-d"), $end_date->format("Y-m-d"))){
                                 $ids[] = $id;
                                 break;
                             }
@@ -184,40 +205,51 @@ class SearchController extends Controller
         }
         $cars = Car::with(['images', 'contentload' => function($query) use($default_language){
             $query->where('language_id', $default_language->id);
-        }])->where('status', 1);
+        }])->where('status', 1)
+        ->where(function($query)use($request){
+            if(isset($request->filterData) && !empty($request->filterData)){
 
-        if(!empty($request->passengers_number)){
-            $passengers_number = $request->passengers_number;
-            if(!empty( get_setting('passengers_number_max','car') ) && $passengers_number == get_setting('passengers_number_max','car') + 1) {
-                $cars->where( function($q) use($passengers_number){
-                                        $q->where('passengers_number', '>=', $passengers_number)
-                                        ->orWhere('passengers_number', '=', 0);
-                                    });
-            }else{
-                $cars->where('passengers_number', '>=', $passengers_number);
+                if(isset($request->filterData["brands"]) && !empty($request->filterData["brands"])){
+                    $query->whereHas("carmodel",function($q)use($request){
+                        return $q->whereIn('carmake_id', $request->filterData["brands"]);
+                    });
+                }
+
+                if(isset($request->filterData["categories"]) && !empty($request->filterData["categories"])){
+                    return $query->whereIn('category_id', $request->filterData["categories"]);
+
+                }
+                if(isset($request->filterData["transmission"]) && !empty($request->filterData["transmission"])){
+                    return $query->whereIn('transmission', $request->filterData["transmission"]);
+
+                }
+
+                if(isset($request->filterData["fuel"]) && !empty($request->filterData["fuel"])){
+                    return $query->whereIn('carburant', $request->filterData["fuel"]);
+
+                }
+
             }
-        }
+        });
 
-        if(!empty($request->doors)){
-            $cars->where('doors', '>=', $request->doors);
-        }
 
-        if(!empty($request->budget)){
-            $budget = explode('-', $request->budget);
-            if($budget[1] == '+'){
-                $seasons_ids = Season::select('car_id')
-                                     ->where('price_per_night', '<', [$budget[0]])
-                                     ->distinct('car_id')
-                                     ->get()->pluck('car_id')->toArray();
-            }else{
-                $seasons_ids = Season::select('car_id')
-                                     ->whereBetween('price_per_night', [$budget[0], $budget[1]])
-                                     ->distinct('car_id')
-                                     ->get()->pluck('car_id')->toArray();
-            }
 
-            $cars->whereIn('id',$seasons_ids);
-        }
+        // if(!empty($request->budget)){
+        //     $budget = explode('-', $request->budget);
+        //     if($budget[1] == '+'){
+        //         $seasons_ids = Season::select('car_id')
+        //                              ->where('price_per_night', '<', [$budget[0]])
+        //                              ->distinct('car_id')
+        //                              ->get()->pluck('car_id')->toArray();
+        //     }else{
+        //         $seasons_ids = Season::select('car_id')
+        //                              ->whereBetween('price_per_night', [$budget[0], $budget[1]])
+        //                              ->distinct('car_id')
+        //                              ->get()->pluck('car_id')->toArray();
+        //     }
+
+        //     $cars->whereIn('id',$seasons_ids);
+        // }
 
 
         // highlights
@@ -239,60 +271,23 @@ class SearchController extends Controller
             $cars->whereNotIn('id',[$selected_car_id]);
         }
 
-        $cars = $cars->orderBy('alias', 'asc')->get();
+        $cars = $cars->orderBy('alias', 'asc');
 
-        $min_filter_doors = 0;
-        $max_filter_doors = 0;
-        $filter_doors = [];
-        foreach ($cars as $pr) {
-            $pr->price_from = get_min_price($pr->id);
 
-            if( !empty($pr->doors) && ($pr->doors < $min_filter_doors || empty( $min_filter_doors)) ){
-                $min_filter_doors = $pr->doors;
-            }
-            if( !empty($pr->doors) && ($pr->doors > $max_filter_doors || empty( $max_filter_doors)) ){
-                $max_filter_doors = $pr->doors;
-            }
-        }
-
-        if( $max_filter_doors > ($min_filter_doors + 6) ){
-            $max_filter_doors =  $min_filter_doors + 6;
-        }
-
-        for($i=$min_filter_doors; $i <= $max_filter_doors; $i++){
-            $filter_doors[] = $i;
-        }
-
-        //dd($min_filter_doors, $max_filter_doors, $filter_doors);
 
         $services = [];
         $featured_cars = null;
         $featured_services = null;
 
-        //dd($filter_doors, $min_filter_doors, $max_filter_doors);
+        $date1 = Carbon::parse($request->start_date . ' ' . $request->start_time);
+        $date2 = Carbon::parse($request->start_date . ' ' . $request->end_time);
 
-        $pickup_location  = Location::with(['contentload' => function($query) use($default_language){
-            $query->where('language_id', $default_language->id);
-        }])->where('id', $request->pickup_location)->first();
 
-        $dropoff_location  = Location::with(['contentload' => function($query) use($default_language){
-            $query->where('language_id', $default_language->id);
-        }])->where('id', $request->dropoff_location)->first();
-
-        $start_d = $request->start_date.' '.$request->start_time;
-        $end_d   = $request->start_date.' '.$request->end_time;
-        $d1 = explode("/", $request->start_date);
-        $d2 = explode("/", $request->end_date);
-        $t1 = explode(":", $request->start_time);
-        $t2 = explode(":", $request->end_time);
-
-        $datedebut = Carbon::create($d1[2], $d1[1], $d1[0], $t1[0], $t1[1], 0);
-        $datefin = Carbon::create($d2[2], $d2[1], $d2[0], $t2[0], $t2[1], 0);
 
         // Calculer la différence en jours entre les deux dates
-        $nombreDeJours = $datedebut->diffInDays($datefin);
+        $nombreDeJours = $start_date->diffInDays($end_date);
         // Calculer la différence en heures entre les deux dates
-        $diffEnHeures = $datedebut->diffInHours($datefin) % 24;
+        $diffEnHeures = $date1->diffInHours($date2) % 24;
 
         // Vérifier si les heures sont déplacées de plus de 4 heures
         if ($diffEnHeures > 4) {
@@ -304,7 +299,15 @@ class SearchController extends Controller
             $car->booking_price = $this->CarController->get_price_infos($request, $car, $nombreDeJours);
         }
 
-        $cars = $cars->sortBy('booking_price');
+        $cars = $cars->get();
+
+        return view("front.listing-list",[
+            "cars"=>$cars,
+            "locations"=>$locations,
+            "brands"=>$brands,
+            "categories"=>$categories,
+            "filterDate"=>isset($request->filterData) ? $request->filterData : null,
+        ]);
 
         return view('home.search', compact('static_data', 'default_language', 'featured_cars','selected_car', 'cars', 'filter_doors', 'pickup_location', 'dropoff_location', 'nombreDeJours'));
     }

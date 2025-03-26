@@ -1,5 +1,7 @@
 <?php
 
+use App\Constants\Constant;
+use App\Http\Helpers\Helpers;
 use Carbon\Carbon;
 
 return [
@@ -230,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Carbon' => Carbon::class,
+        'Helpers' => Helpers::class,
+        'Constant' => Constant::class,
 
 
     ],
