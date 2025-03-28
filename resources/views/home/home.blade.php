@@ -69,35 +69,35 @@
 
 <?php ob_start(); ?>
 <body class="home-page">
-    
+
     {{--<div class="cover"></div>--}}
 
     <div class="wrapper">
 
         <!--<div class="container-fluid header-container" @if ($static_data['design_settings']['slider_background']) style="background-image: url('{{ asset('/assets/images/home/location-de-voiture-marrakech.jpg') }}')" @endif>-->
-        <div class="container-fluid header-container {{$static_data['design_settings']['slider_background'] ? 'home_slider_background' : ''}}" > 
-            @include('home.partials.top-header') 
+        <div class="container-fluid header-container {{$static_data['design_settings']['slider_background'] ? 'home_slider_background' : ''}}" >
+            @include('home.partials.top-header')
             <div class="row">
 
                 <div class="container" id="slider">
 
                     <div class="col-sm-12">
-    
+
                         <h1 class="slider-heading">{{ $static_data['strings']['opt_slider_heading'] }}</h1>
-    
+
                         <h4 class="slider-subheading">{{ $static_data['strings']['opt_slider_subheading'] }}</h4>
-    
+
                         @include('home.partials.search_home')
-    
+
                     </div>
-    
+
                     <div id="scroll-down" class="col-sm-12 text-centered">
-    
+
                         <a class="scroll-down-button" aria-label="{{$static_data['strings']['scroll-down-button']}}" href="#first-section"><i class="fa fa-angle-down"
                                 aria-hidden="true"></i></a>
-    
+
                         <div class="discover-more"></div>
-    
+
                     </div>
 
                 </div>
@@ -132,7 +132,7 @@
 
                         <div class="opt-fl-text-title" style="text-align:justify;">
 
-                            <a href="https://www.jacarandacar.com/rental/cheap-car-hire-marrakech"><img   
+                            <a href="https://www.jacarandacar.com/rental/cheap-car-hire-marrakech"><img
                                     src="{{ url('/') .
                                         '/assets/images/home/locations/cheap-car-rental-in-marrakech.png
                                                                         ' }}"
@@ -160,7 +160,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('car-rental-in-marrakech') }}"><img   
+                            <a href="{{ route('car-rental-in-marrakech') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/car-rental-marrakech.png' }}"
                                     title="Location voitures Gueliz Marrakech"
                                     alt="Location voitures Gueliz Marrakech" style="width: 100%;"
@@ -185,7 +185,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="https://www.jacarandacar.com/rental/car-rental-marrakech-airport"> <img   
+                            <a href="https://www.jacarandacar.com/rental/car-rental-marrakech-airport"> <img
                                     src="{{ url('/') . '/assets/images/home/locations/car-hire-marrakech-airport.png' }}"
                                     title="location voiture marrakech aéroport"
                                     alt="location voiture marrakech aéroport" style="width: 100%;"
@@ -217,7 +217,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="https://jacarandacar.com/rental/car-rental-marrakech-without-deposit"><img   
+                            <a href="https://jacarandacar.com/rental/car-rental-marrakech-without-deposit"><img
                                     src="{{ asset('assets/images/home/locations/marrakech-car-rental-no-deposit.png') }} "
                                     title="Car rental Marrakech without deposit"
                                     alt="Car rental Marrakech without deposit" style="width: 100%;"
@@ -249,7 +249,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-automatique-marrakech_en') }}"><img   
+                            <a href="{{ route('location-voiture-automatique-marrakech_en') }}"><img
                                     src="{{ asset('assets/images/home/locations/automatic-car-rental-marrakech.webp') }} "
                                     title="Automatic car rental in Marrakech"
                                     alt="Automatic car rental in Marrakech" style="width: 100%;"
@@ -273,9 +273,9 @@
 
 
                     </div>
-                    
+
                     <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -291,13 +291,13 @@
                             <h3 class="title"><a href="{{ route('4-x-4-hire-marrakech') }}">4x4 rental Marrakech</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>Concerned about your means of transportation during your stay in Marrakech? Jacarandacar, 
-                                your 4x4 rental agency in Marrakech, with qualified staff possessing experience in the rental field and a young team of guides and assistants, 
-                                offers you a diverse fleet of recent 4x4 vehicles equipped with various additional options available for short or long-term rental, 
-                                tailored to your needs, all at highly attractive and well-studied prices. 
-                                Explore Morocco and embark on adventures in the deserts with our range of comfortable 4x4 vehicles, 
+                                <p>Concerned about your means of transportation during your stay in Marrakech? Jacarandacar,
+                                your 4x4 rental agency in Marrakech, with qualified staff possessing experience in the rental field and a young team of guides and assistants,
+                                offers you a diverse fleet of recent 4x4 vehicles equipped with various additional options available for short or long-term rental,
+                                tailored to your needs, all at highly attractive and well-studied prices.
+                                Explore Morocco and embark on adventures in the deserts with our range of comfortable 4x4 vehicles,
                                 and enjoy our 24/7 assistance...</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('4-x-4-hire-marrakech') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -310,12 +310,12 @@
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
-                
+
                 <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -331,10 +331,10 @@
                             <h3 class="title"><a href="{{ route('location-voiture-manuelle-marrakech_en') }}">Manual car rental Marrakech</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>For lovers of traditional driving, we offer a variety of manual cars in Marrakech. 
-                                Whether you are looking for a compact vehicle to navigate the narrow streets of the Medina or a 
+                                <p>For lovers of traditional driving, we offer a variety of manual cars in Marrakech.
+                                Whether you are looking for a compact vehicle to navigate the narrow streets of the Medina or a
                                 more spacious model for your getaways in the region...</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('location-voiture-manuelle-marrakech_en') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -347,10 +347,10 @@
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
-                    
+
 
                 </div>
             @elseif(Session::get('language') == 'es')
@@ -360,7 +360,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('alquiler-de-coches-marrakech-barato') }}"><img   
+                            <a href="{{ route('alquiler-de-coches-marrakech-barato') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech-pas-cher.webp' }}"
                                     title="location voiture marrakech" alt="location voiture marrakech"
                                     style="width: 100%;" class="responsive-img"></a>
@@ -389,7 +389,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('car-rental-in-marrakech-es') }}"><img   
+                            <a href="{{ route('car-rental-in-marrakech-es') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                                     title="Location voitures Gueliz Marrakech"
                                     alt="Location voitures Gueliz Marrakech" style="width: 100%;"
@@ -416,7 +416,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('alquiler-coche-marrakech-aeropuerto') }}"><img   
+                            <a href="{{ route('alquiler-coche-marrakech-aeropuerto') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                                     title="location voiture marrakech aéroport"
                                     alt="location voiture marrakech aéroport" style="width: 100%;"
@@ -449,7 +449,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('alquiler-coche-marrakech-sin-deposito') }}"><img   
+                            <a href="{{ route('alquiler-coche-marrakech-sin-deposito') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-sans-caution-marrakech_.webp' }}"
                                     title="location voiture marrakech aéroport"
                                     alt="location voiture marrakech aéroport" style="width: 100%;"
@@ -483,7 +483,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-automatique-marrakech_es') }}"><img   
+                            <a href="{{ route('location-voiture-automatique-marrakech_es') }}"><img
                                     src="{{ asset('assets/images/home/locations/location-voiture-automatique-marrakech_.webp') }}"
                                     style="width: 100%;" class="responsive-img"
                                     alt="Alquiler de coches automáticos en Marrakech"
@@ -547,9 +547,9 @@
 
                     </div>
                     <!-------------------------------------------------->
-                    
+
                     <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -565,9 +565,9 @@
                             <h3 class="title"><a href="{{ route('location-voiture-manuelle-marrakech_es') }}">Alquiler de coches manuales en Marrakech</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>Para los amantes de la conducción tradicional, ofrecemos una variedad de coches manuales en Marrakech. 
+                                <p>Para los amantes de la conducción tradicional, ofrecemos una variedad de coches manuales en Marrakech.
                                 Tanto si buscas un vehículo compacto para recorrer las estrechas calles de la Medina como un modelo más espacioso para tus escapadas a la región,..</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('location-voiture-manuelle-marrakech_es') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -580,8 +580,8 @@
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
 
 
@@ -593,7 +593,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-de-voiture-marrakech-pas-cher_it') }}"><img   
+                            <a href="{{ route('location-de-voiture-marrakech-pas-cher_it') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech-pas-cher.webp' }}"
                                     title="Autonoleggio marrakech" alt="Autonoleggio marrakech" style="width: 100%;"
                                     class="responsive-img"></a>
@@ -623,7 +623,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('car-rental-in-marrakech-it') }}"><img   
+                            <a href="{{ route('car-rental-in-marrakech-it') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                                     title="Autonoleggio Guéliz Marrakech" alt="Autonoleggio Guéliz Marrakech"
                                     style="width: 100%;" class="responsive-img"></a>
@@ -650,7 +650,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-marrakech-aeroport_it') }}"><img   
+                            <a href="{{ route('location-voiture-marrakech-aeroport_it') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                                     title="autonoleggio aeroporto di Marrakech"
                                     alt="autonoleggio aeroporto di Marrakech" style="width: 100%;"
@@ -683,7 +683,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-marrakech-sans-caution_it') }}"><img   
+                            <a href="{{ route('location-voiture-marrakech-sans-caution_it') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-sans-caution-marrakech_.webp' }}"
                                     title="autonoleggio aeroporto di Marrakech"
                                     alt="autonoleggio aeroporto di Marrakech" style="width: 100%;"
@@ -717,7 +717,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-automatique-marrakech_it') }}"><img   
+                            <a href="{{ route('location-voiture-automatique-marrakech_it') }}"><img
                                     src="{{ asset('assets/images/home/locations/location-voiture-automatique-marrakech_.webp') }}"
                                     style="width: 100%;" class="responsive-img"
                                     alt="Noleggio auto automatiche a Marrakech"
@@ -781,9 +781,9 @@
 
                     </div>
                     <!-------------------------------------------------->
-                    
+
                     <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -799,9 +799,9 @@
                             <h3 class="title"><a href="{{ route('location-voiture-manuelle-marrakech_it') }}">Noleggio auto manuale Marrakech</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>Per gli amanti della guida tradizionale, offriamo una varietà di auto manuali a Marrakech. 
+                                <p>Per gli amanti della guida tradizionale, offriamo una varietà di auto manuali a Marrakech.
                                 Che tu stia cercando un veicolo compatto per percorrere le strette strade della Medina o un modello più spazioso per le tue fughe nella regione,..</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('location-voiture-manuelle-marrakech_it') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -814,8 +814,8 @@
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
 
 
@@ -827,7 +827,7 @@
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-de-voiture-marrakech-pas-cher_pl') }}"><img   
+                            <a href="{{ route('location-de-voiture-marrakech-pas-cher_pl') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech-pas-cher.webp' }}"
                                     title="Tanio wynajem samochodów w Marrakeszu !" alt="Tanio wynajem samochodów w Marrakeszu !"
                                     style="width: 100%;" class="responsive-img"></a>
@@ -854,7 +854,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-de-voiture-a-marrakech_pl') }}"><img   
+                            <a href="{{ route('location-de-voiture-a-marrakech_pl') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                                     title="Wynajem samochodów w Marrakeszu"
                                     alt="Wynajem samochodów w Marrakeszu" style="width: 100%;"
@@ -865,8 +865,8 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                             <div class="opt-fl-text">
 
-                                <p>Dla Państwa pobytu w Maroku jedno miejsce: Jacaranda Car - wynajem samochodów w Marrakeszu, specjalizujący się w wynajmie samochodów, terenówek w Marrakeszu, 
-                                oferuje Państwu wynajem samochodów wysokiej jakości w bardzo konkurencyjnych cenach. Wynajem samochodów w Marrakeszu...<br> 
+                                <p>Dla Państwa pobytu w Maroku jedno miejsce: Jacaranda Car - wynajem samochodów w Marrakeszu, specjalizujący się w wynajmie samochodów, terenówek w Marrakeszu,
+                                oferuje Państwu wynajem samochodów wysokiej jakości w bardzo konkurencyjnych cenach. Wynajem samochodów w Marrakeszu...<br>
                                 <a href="{{ route('location-de-voiture-a-marrakech_pl') }}">Czytaj więcej >></a>
                                 </p>
 
@@ -878,7 +878,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-marrakech-aeroport_pl') }}"><img   
+                            <a href="{{ route('location-voiture-marrakech-aeroport_pl') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                                     title="Wypożyczalnia samochodów na lotnisku w Marrakeszu"
                                     alt="Wypożyczalnia samochodów na lotnisku w Marrakeszu" style="width: 100%;"
@@ -905,7 +905,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-voiture-marrakech-sans-caution_pl') }}"><img   
+                            <a href="{{ route('location-voiture-marrakech-sans-caution_pl') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-sans-caution-marrakech_.webp' }}"
                                     title="Wynajem samochodów bez kaucji"
                                     alt="Wynajem samochodów bez kaucji" style="width: 100%;"
@@ -932,7 +932,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{route('location-voiture-automatique-marrakech_pl')}}"><img   
+                            <a href="{{route('location-voiture-automatique-marrakech_pl')}}"><img
                                     src="{{ asset('assets/images/home/locations/location-voiture-automatique-marrakech_.webp') }}"
                                     style="width: 100%;" class="responsive-img"
                                     alt="Wynajem samochodów automatycznych w Marrakeszu"
@@ -943,7 +943,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                                     href="{{route('location-voiture-automatique-marrakech_pl')}}">Wynajem samochodów automatycznych w Marrakeszu</a></h3>
 
                             <div class="opt-fl-text">
-                                <p><b>Jazda Bezproblemowa z Naszymi Samochodami Automatycznymi</b><br> 
+                                <p><b>Jazda Bezproblemowa z Naszymi Samochodami Automatycznymi</b><br>
                                 Rozumiemy, że dla niektórych podróżnych jazda bezproblemowa jest priorytetem. Dlatego oferujemy szeroki wybór samochodów automatycznych w Marrakeszu, aby sprostać Państwa potrzebom...<br><a
                                         href="{{route('location-voiture-automatique-marrakech_pl')}}">Czytaj więcej >></a></p>
 
@@ -972,11 +972,11 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             <h3 class="title"><a href="{{ route('location-4-x-4-marrakech_pl') }}">Wynajem 4x4 w Marrakeszu</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>Zadbacie o swój środek transportu podczas pobytu w Marrakeszu? Jacarandacar, Twoje biuro wynajmu samochodów terenowych w Marrakeszu, 
-                                z wykwalifikowanym personelem posiadającym doświadczenie w dziedzinie wynajmu oraz młody zespół przewodników i asystentów, 
-                                oferuje zróżnicowany park najnowszych modeli samochodów terenowych wyposażonych w różnorodne dodatkowe opcje do wynajęcia na krótki lub długi okres, 
-                                dopasowany do Twoich potrzeb, wszystko po bardzo atrakcyjnych i starannie przemyślanych cenach. 
-                                Odkryj Maroko i przeżyj przygodę na pustyniach dzięki naszej wygodnej gamie samochodów terenowych i skorzystaj z naszej pomocy dostępnej 24 godziny na dobę, 
+                                <p>Zadbacie o swój środek transportu podczas pobytu w Marrakeszu? Jacarandacar, Twoje biuro wynajmu samochodów terenowych w Marrakeszu,
+                                z wykwalifikowanym personelem posiadającym doświadczenie w dziedzinie wynajmu oraz młody zespół przewodników i asystentów,
+                                oferuje zróżnicowany park najnowszych modeli samochodów terenowych wyposażonych w różnorodne dodatkowe opcje do wynajęcia na krótki lub długi okres,
+                                dopasowany do Twoich potrzeb, wszystko po bardzo atrakcyjnych i starannie przemyślanych cenach.
+                                Odkryj Maroko i przeżyj przygodę na pustyniach dzięki naszej wygodnej gamie samochodów terenowych i skorzystaj z naszej pomocy dostępnej 24 godziny na dobę,
                                 7 dni w tygodniu.</p>
 
 
@@ -988,9 +988,9 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     </div>
                     <!-------------------------------------------------->
-                    
+
                     <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -1007,7 +1007,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                             <div class="opt-fl-text">
                                 <p>Dla miłośników tradycyjnej jazdy proponujemy różnorodność samochodów z manualną skrzynią biegów w Marrakeszu. Czy szukasz kompaktowego pojazdu do poruszania się po wąskich uliczkach w Medynie, czy może bardziej przestronnego modelu na wycieczki po okolicy,..</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('location-voiture-manuelle-marrakech_pl') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -1020,8 +1020,8 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
 
 
@@ -1033,7 +1033,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                        <a href="{{route('location-de-voiture-marrakech-pas-cher_nl')}}"><img   
+                        <a href="{{route('location-de-voiture-marrakech-pas-cher_nl')}}"><img
                                 src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech-pas-cher.webp' }}"
                                 title="Goedkope autoverhuur in Marrakech!" alt="Goedkope autoverhuur in Marrakech!"
                                 style="width: 100%;" class="responsive-img"></a>
@@ -1061,7 +1061,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                        <a href="{{ route('location-de-voiture-a-marrakech_nl') }}"><img   
+                        <a href="{{ route('location-de-voiture-a-marrakech_nl') }}"><img
                                 src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                                 title="Autoverhuur Marrakech"
                                 alt="Autoverhuur Marrakech" style="width: 100%;"
@@ -1083,7 +1083,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                        <a href="{{route('location-voiture-marrakech-aeroport_nl')}}"><img   
+                        <a href="{{route('location-voiture-marrakech-aeroport_nl')}}"><img
                                 src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                                 title="Autoverhuur op de luchthaven van Marrakech"
                                 alt="Autoverhuur op de luchthaven van Marrakech" style="width: 100%;"
@@ -1110,7 +1110,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                        <a href="{{route('location-voiture-marrakech-sans-caution_nl')}}"><img   
+                        <a href="{{route('location-voiture-marrakech-sans-caution_nl')}}"><img
                                 src="{{ url('/') . '/assets/images/home/locations/location-voiture-sans-caution-marrakech_.webp' }}"
                                 title="Autoverhuur zonder borg"
                                 alt="Autoverhuur zonder borg" style="width: 100%;"
@@ -1137,7 +1137,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                        <a href="{{route('location-voiture-automatique-marrakech_nl')}}"><img   
+                        <a href="{{route('location-voiture-automatique-marrakech_nl')}}"><img
                                 src="{{ asset('assets/images/home/locations/location-voiture-automatique-marrakech_.webp') }}"
                                 style="width: 100%;" class="responsive-img"
                                 alt="Autoverhuur met automatische transmissie in Marrakech"
@@ -1208,7 +1208,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text">
                             <p>Voor liefhebbers van traditioneel rijden bieden wij een verscheidenheid aan handgeschakelde auto's in Marrakech aan. Of u nu op zoek bent naar een compact voertuig om door de smalle straatjes van de medina te navigeren, of naar een ruimer model voor uw uitstapjes in de regio,..</p>
-                            
+
                             <br>
                             <a
                                 href="{{ route('location-voiture-manuelle-marrakech_nl') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -1226,7 +1226,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 <!------------------------------------------------------------------------------->
 
 
-            </div>  
+            </div>
             @elseif (Session::get('language') == 'pt')
             <div class="row">
 
@@ -1258,7 +1258,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                    <a href="{{ route('location-de-voiture-a-marrakech_pt') }}"><img   
+                    <a href="{{ route('location-de-voiture-a-marrakech_pt') }}"><img
                         src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                         title="Aluguer de carros em Marrakech"
                         alt="Aluguer de carros em Marrakech" style="width: 100%;"
@@ -1277,7 +1277,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text-title">
 
-                    <a href="{{route('location-voiture-marrakech-aeroport_pt')}}"><img   
+                    <a href="{{route('location-voiture-marrakech-aeroport_pt')}}"><img
                         src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                         title="Aluguel de carros no aeroporto de Marrakech"
                         alt="Aluguel de carros no aeroporto de Marrakech" style="width: 100%;"
@@ -1389,7 +1389,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     <div class="opt-fl-text">
                         <p>Para os amantes da condução tradicional, oferecemos uma variedade de carros com câmbio manual em Marrakech. Seja você está procurando um veículo compacto para navegar pelas ruas estreitas da medina ou um modelo mais espaçoso para suas excursões na região, ..</p>
-                        
+
                         <br>
                         <a href="{{ route('location-voiture-manuelle-marrakech_pt') }}">{{ $static_data['strings']['read_more'] }}</a>
                     </div>
@@ -1402,7 +1402,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 <!------------------------------------------------------------------------------->
 
 
-            </div> 
+            </div>
 
             @else
                 <div class="row">
@@ -1411,7 +1411,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="https://www.jacarandacar.com/location-de-voiture-marrakech-pas-cher"><img   
+                            <a href="https://www.jacarandacar.com/location-de-voiture-marrakech-pas-cher"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech-pas-cher.webp' }}"
                                     title="location voiture marrakech" alt="location voiture marrakech"
                                     style="width: 100%;" class="responsive-img"></a>
@@ -1441,7 +1441,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{ route('location-de-voiture-a-marrakech') }}"><img   
+                            <a href="{{ route('location-de-voiture-a-marrakech') }}"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-a-marrakech_.webp' }}"
                                     title="Location voitures Gueliz Marrakech"
                                     alt="Location voitures Gueliz Marrakech" style="width: 100%;"
@@ -1466,7 +1466,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="https://www.jacarandacar.com/location-voiture-marrakech-aeroport"><img   
+                            <a href="https://www.jacarandacar.com/location-voiture-marrakech-aeroport"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-de-voiture-aeroport-marrakech_.webp' }}"
                                     title="location voiture marrakech aéroport"
                                     alt="location voiture marrakech aéroport" style="width: 100%;"
@@ -1498,7 +1498,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="https://jacarandacar.com/location-voiture-marrakech-sans-caution"><img   
+                            <a href="https://jacarandacar.com/location-voiture-marrakech-sans-caution"><img
                                     src="{{ url('/') . '/assets/images/home/locations/location-voiture-sans-caution-marrakech_.webp' }}"
                                     title="location voiture marrakech aéroport"
                                     alt="location voiture marrakech aéroport" style="width: 100%;"
@@ -1531,7 +1531,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                         <div class="opt-fl-text-title">
 
-                            <a href="{{route('location-voiture-automatique-marrakech')}}"><img   
+                            <a href="{{route('location-voiture-automatique-marrakech')}}"><img
                                     src="{{ asset('assets/images/home/locations/location-voiture-automatique-marrakech_.webp') }}"
                                     style="width: 100%;" class="responsive-img"
                                     alt="location voiture automatique Marrakech"
@@ -1544,7 +1544,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                             <div class="opt-fl-text">
                                 <p><b>Conduisez en Toute Simplicité avec nos Voitures Automatiques</b><br>
-                                        Nous comprenons que pour certains voyageurs, la conduite en toute simplicité est une priorité. 
+                                        Nous comprenons que pour certains voyageurs, la conduite en toute simplicité est une priorité.
                                         C'est pourquoi nous proposons une large sélection de voitures automatiques à Marrakech pour répondre à vos besoins.....<br><a
                                         href="{{route('location-voiture-automatique-marrakech')}}">Lire
                                         plus >></a></p>
@@ -1593,9 +1593,9 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
                     </div>
                     <!-------------------------------------------------->
-                    
+
                     <!-------------------------------------------------------------->
-                    
+
                     <div class="col-md-4 col-sm-12 box">
 
                         <div class="opt-fl-text-title">
@@ -1611,9 +1611,9 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             <h3 class="title"><a href="{{ route('location-voiture-manuelle-marrakech') }}">Location voiture manuelle Marrakech</a></h3>
 
                             <div class="opt-fl-text">
-                                <p>Pour les amateurs de conduite traditionnelle, nous proposons une variété de voitures manuelles à Marrakech. 
+                                <p>Pour les amateurs de conduite traditionnelle, nous proposons une variété de voitures manuelles à Marrakech.
                                 Que vous recherchiez un véhicule compact pour naviguer dans les ruelles étroites de la Médina ou un modèle plus spacieux pour vos escapades dans la région,..</p>
-                                
+
                                 <br>
                                 <a
                                     href="{{ route('location-voiture-manuelle-marrakech') }}">{{ $static_data['strings']['read_more'] }}</a>
@@ -1626,8 +1626,8 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
 
                     </div>
-                    
-                    
+
+
                 <!------------------------------------------------------------------------------->
 
 
@@ -1906,7 +1906,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             effort. You can book your car online with just a few clicks, and our dedicated team is
                             always ready to assist you and answer all your questions.
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Cheap car rental in Marrakech" alt="Cheap car rental in Marrakech"
                                 class="responsive-img"><br>
@@ -2060,7 +2060,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             Puede reservar su automóvil en línea con solo unos pocos clics,
                             y nuestro equipo dedicado siempre está listo para ayudarlo y responder todas sus preguntas.
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Alquiler de coches baratos en Marrakech"
                                 alt="Alquiler de coches baratos en Marrakech" class="responsive-img"><br>
@@ -2216,7 +2216,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             tue
                             tutte le tue domande.
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Noleggio auto low cost in Marrakech" alt="Noleggio auto low cost in Marrakech"
                                 class="responsive-img"><br>
@@ -2270,7 +2270,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     <div class="col-md-6">
                         <p>
                             W Marrakeszu są także dobre, niedrogie oferty na <b>nocleg</b> w luksusowych willach z basenem o 03-05 pokojach lub w riadach.<br>
-                            Możesz wybrać swoją <b>Willę</b> lub <b>Apartament</b> lub <b>Riad</b> w Marrakeszu w medynie lub w palmiarni poprzez naszych partnerów z 
+                            Możesz wybrać swoją <b>Willę</b> lub <b>Apartament</b> lub <b>Riad</b> w Marrakeszu w medynie lub w palmiarni poprzez naszych partnerów z
                             nieruchomości Marrakesz z pełnym komfortem (wyposażona kuchnia, telewizor plasma, klimatyzacja, basen itp...).
 
                         </p>
@@ -2327,7 +2327,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 <div class="row">
                     <h2 class="slider-heading" style="color:black;">
                         DLACZEGO WYBRAĆ JACARANDA CAR NA SWOJĄ WYPOŻYCZALNIĘ SAMOCHODÓW W MARRAKESZU ? </h2>
-                    <p>Kiedy planujesz swoją podróż <b>do Marrakeszu</b>, ważne jest znalezienie odpowiedniej usługi <b>wynajmu</b> <b>samochodu</b>, 
+                    <p>Kiedy planujesz swoją podróż <b>do Marrakeszu</b>, ważne jest znalezienie odpowiedniej usługi <b>wynajmu</b> <b>samochodu</b>,
                     aby zapewnić sobie przyjemne i bezproblemowe doświadczenie podróży. W Jacaranda Car z dumą oferujemy wysokiej jakości usługę <b>
                         <a href="{{ route('parc_auto_pl') }}">wynajmu samochodów</a></b>, która spełni wszystkie Twoje potrzeby.</p>
                     <div class="row">
@@ -2335,32 +2335,32 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             <img    src="{{ url('/') . '/assets/images/home/car-rental-marrakech-suv.webp' }}"
                                 title="Tanie wypożyczenie samochodu w Marrakeszu" alt="Tanie wypożyczenie samochodu w Marrakeszu"
                                 class="responsive-img"><br>
-                            <b>Duży wybór pojazdów</b><br> Posiadamy zróżnicowany flotę pojazdów, począwszy od 
-                            <b><a href="https://jacarandacar.com/car-rental-marrakech">kompaktowych samochodów</a></b>, 
+                            <b>Duży wybór pojazdów</b><br> Posiadamy zróżnicowany flotę pojazdów, począwszy od
+                            <b><a href="https://jacarandacar.com/car-rental-marrakech">kompaktowych samochodów</a></b>,
                             przez przestronne SUV-y, aż po luksusowe limuzyny. Bez względu na Twój styl podróżowania lub liczbę osób towarzyszących, mamy idealny samochód dla Ciebie.
                         </p>
                         <p class="why col-md-6">
                             <img    src="{{ url('/') . '/assets/images/home/location-voiture-marrakech-bon-prix.webp' }}"
                                 title="Tanie wypożyczenie samochodu w Marrakeszu" alt="Tanie wypożyczenie samochodu w Marrakeszu"
                                 class="responsive-img"><br>
-                            <b>Ceny konkurencyjne</b><br> W Jacaranda Car wierzymy w znaczenie oferowania <b>cen konkurencyjnych</b> bez kompromisów w jakości obsługi. 
+                            <b>Ceny konkurencyjne</b><br> W Jacaranda Car wierzymy w znaczenie oferowania <b>cen konkurencyjnych</b> bez kompromisów w jakości obsługi.
                             Możesz skorzystać z naszych przystępnych cen, nie rezygnując z komfortu i niezawodności naszych samochodów.
                         </p>
                         <p class="why col-md-6">
                             <img    src="{{ url('/') . '/assets/images/home/louer-voiture.webp' }}"
                                 title="Tanie wypożyczenie samochodu w Marrakeszu" alt="Tanie wypożyczenie samochodu w Marrakeszu"
                                 class="responsive-img"><br>
-                            <b>Łatwość rezerwacji</b><br> Zupiększylismy proces rezerwacji, 
-                            aby zaoszczędzić Twój czas i energię. Możesz zarezerwować swój samochód online za pomocą kilku kliknięć, 
+                            <b>Łatwość rezerwacji</b><br> Zupiększylismy proces rezerwacji,
+                            aby zaoszczędzić Twój czas i energię. Możesz zarezerwować swój samochód online za pomocą kilku kliknięć,
                             a nasz oddany zespół jest zawsze gotowy, aby Ci pomóc i odpowiedzieć na wszystkie Twoje pytania.
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Tanie wypożyczenie samochodu w Marrakeszu" alt="Tanie wypożyczenie samochodu w Marrakeszu"
                                 class="responsive-img"><br>
-                            <b>Obsługa klienta na najwyższym poziomie</b><br> Państwa satysfakcja jest naszym najwyższym priorytetem. 
-                            Nasz przyjazny i profesjonalny zespół jest tu, aby pomóc na każdym etapie wypożyczenia samochodu, 
-                            począwszy od rezerwacji, aż do zwrotu pojazdu. Zobowiązujemy się do świadczenia obsługi klienta na najwyższym poziomie, 
+                            <b>Obsługa klienta na najwyższym poziomie</b><br> Państwa satysfakcja jest naszym najwyższym priorytetem.
+                            Nasz przyjazny i profesjonalny zespół jest tu, aby pomóc na każdym etapie wypożyczenia samochodu,
+                            począwszy od rezerwacji, aż do zwrotu pojazdu. Zobowiązujemy się do świadczenia obsługi klienta na najwyższym poziomie,
                             aby sprawić, że Państwa doświadczenie będzie jak najbardziej przyjemne.
                         </p>
                         <p class="why col-md-3"></p>
@@ -2368,16 +2368,16 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             <img    src="{{ url('/') . '/assets/images/home/location-marrakech-facile.webp' }}"
                                 title="Tanie wypożyczenie samochodu w Marrakeszu" alt="Tanie wypożyczenie samochodu w Marrakeszu"
                                 class="responsive-img"><br>
-                                <b>Elastyczność i wygoda</b><br> Rozumiemy, że Twoje plany podróży mogą się zmieniać. 
-                                Dlatego oferujemy szeroką elastyczność w godzinach odbioru i zwrotu wynajętego samochodu. 
+                                <b>Elastyczność i wygoda</b><br> Rozumiemy, że Twoje plany podróży mogą się zmieniać.
+                                Dlatego oferujemy szeroką elastyczność w godzinach odbioru i zwrotu wynajętego samochodu.
                                 Dodatkowo proponujemy opcje dostawy i odbioru pojazdu dla Twojej wygody.
                         </p>
                         <p class="why col-md-3"></p>
 
                     </div>
 
-                    <p>Gdy wybierzesz Jacaranda Car na <b>wynajem samochodów w Marrakeszu</b>, 
-                    możesz być spokojny, wiedząc, że korzystasz z niezawodnej obsługi, 
+                    <p>Gdy wybierzesz Jacaranda Car na <b>wynajem samochodów w Marrakeszu</b>,
+                    możesz być spokojny, wiedząc, że korzystasz z niezawodnej obsługi,
                     dużej gamy pojazdów i konkurencyjnych cen. Zaufaj nam, aby uczynić Twój <b>wyjazd do Marrakeszu</b> jak najbardziej przyjemnym.
                     </p>
                 </div>
@@ -2433,7 +2433,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                                 class="responsive-img"><br>
                                 <b>Reserveringsgemak</b><br> We hebben het reserveringsproces vereenvoudigd om u tijd en energie te besparen. U kunt uw auto online reserveren in slechts een paar klikken, en ons toegewijde team staat altijd klaar om u te helpen en al uw vragen te beantwoorden."
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Goedkope autoverhuur in Marrakech" alt="Goedkope autoverhuur in Marrakech"
                                 class="responsive-img"><br>
@@ -2645,7 +2645,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                             quelques clics, et notre équipe dévouée est toujours prête à vous assister et répondre à
                             toutes vos questions.
                         </p>
-                        <p class="why col-md-6"><img   
+                        <p class="why col-md-6"><img
                                 src="{{ url('/') . '/assets/images/home/service-qualite.webp' }}"
                                 title="Cheap car rental in Marrakech" alt="Cheap car rental in Marrakech"
                                 class="responsive-img"><br>
@@ -2858,10 +2858,10 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
         </div>
         <iframe src="https://widget.taggbox.com/122559" style="width:100%;height:370px;border:none;"></iframe>
     </div-->
-    
-    
+
+
     <!--HP start FAQ section-->
-    
+
     <div class="container mt-4">
         <h2 class="slider-heading" style="color:black;">
             @if(Session::get('language') == 'en')
@@ -2880,10 +2880,10 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 Questions fréquemment posées
             @endif
         </h2>
-        
+
         @if(Session::get('language') == 'en')
             <div class="row" style='padding: 30px 0;'>
-            
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -2902,14 +2902,14 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
                         Is Car Delivery Free?
                     </strong>
                     <ul class="faq-text">
-                        <li>Yes, you can be delivered for free to the airport or to the hotel or even to your home at no extra charge, 
+                        <li>Yes, you can be delivered for free to the airport or to the hotel or even to your home at no extra charge,
                         this service is free only in Marrakech, for other cities there is a supplement which varies depending on the city</li>
                     </ul>
                     <button class="faq-toggle">
@@ -2918,7 +2918,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -2935,7 +2935,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -2952,7 +2952,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -2969,7 +2969,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -2986,7 +2986,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3003,7 +3003,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3020,7 +3020,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3028,7 +3028,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </strong>
                     <ul class="faq-text">
                         <li>
-                            Simply fill out the reservation form on our website and send it to us, you will have confirmation of availability in less than an hour. 
+                            Simply fill out the reservation form on our website and send it to us, you will have confirmation of availability in less than an hour.
                             Once this confirmation has been received, you will only have to confirm your reservation to us and your car will be blocked for the desired dates.
                         </li>
                     </ul>
@@ -3038,7 +3038,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3055,7 +3055,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3072,11 +3072,11 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
             </div>
         @elseif(Session::get('language') == 'es')
             <div class="row" style='padding: 30px 0;'>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3095,7 +3095,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-    
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3111,7 +3111,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-    
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3128,7 +3128,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-    
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3145,7 +3145,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-    
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3162,7 +3162,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3179,7 +3179,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3196,7 +3196,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3214,7 +3214,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3231,7 +3231,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3248,7 +3248,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                 </button>
             </div>
             </div>
-            
+
             <div class="col-md-6">
                 <div class="faq">
                 <strong class="faq-title">
@@ -3268,7 +3268,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
         </div>
         @elseif(Session::get('language') == 'it')
             <div class="row" style='padding: 30px 0;'>
-            
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3287,7 +3287,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3303,7 +3303,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3320,7 +3320,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3337,7 +3337,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3354,7 +3354,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3371,7 +3371,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3388,7 +3388,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3406,7 +3406,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3423,7 +3423,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3440,7 +3440,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3460,7 +3460,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
             </div>
         @elseif(Session::get('language') == 'pl')
             <div class="row" style='padding: 30px 0;'>
-            
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3479,7 +3479,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3494,7 +3494,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3511,7 +3511,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3528,7 +3528,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3545,7 +3545,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3562,7 +3562,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3579,7 +3579,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3587,7 +3587,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </strong>
                     <ul class="faq-text">
                         <li>
-                            Wystarczy wypełnić formularz rezerwacyjny dostępny na naszej stronie internetowej i przesłać go do nas, otrzymasz potwierdzenie dostępności w ciągu godziny. 
+                            Wystarczy wypełnić formularz rezerwacyjny dostępny na naszej stronie internetowej i przesłać go do nas, otrzymasz potwierdzenie dostępności w ciągu godziny.
                             Po otrzymaniu tego potwierdzenia, wystarczy potwierdzić rezerwację po swojej stronie, a samochód zostanie zarezerwowany na wybrane daty.
                         </li>
                     </ul>
@@ -3597,7 +3597,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3614,7 +3614,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3631,7 +3631,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3651,7 +3651,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
             </div>
         @elseif(Session::get('language') == 'nl')
             <div class="row" style='padding: 30px 0;'>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3670,7 +3670,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3686,7 +3686,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3703,7 +3703,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3720,7 +3720,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3737,7 +3737,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3754,7 +3754,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3771,7 +3771,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3789,7 +3789,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3806,7 +3806,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3823,7 +3823,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -3843,7 +3843,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
             </div>
         @elseif(Session::get('language') == 'pt')
             <div class="row" style='padding: 30px 0;'>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -3928,7 +3928,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -3945,7 +3945,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -3962,7 +3962,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -3980,7 +3980,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -3997,7 +3997,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -4014,7 +4014,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                         <strong class="faq-title">
@@ -4035,7 +4035,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
         @else
             <div class="row" style='padding: 30px 0;'>
-            
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4054,14 +4054,14 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
                         La Livraison De La Voiture Est-Elle Gratuite ?
                     </strong>
                     <ul class="faq-text">
-                        <li>Oui, vous pouvez être livré gratuitement à l’aéroport ou bien à l’hôtel ou même chez vous sans supplément, ce service est gratuit uniquement sur Marrakech, 
+                        <li>Oui, vous pouvez être livré gratuitement à l’aéroport ou bien à l’hôtel ou même chez vous sans supplément, ce service est gratuit uniquement sur Marrakech,
                         pour les autres villes il faut compter un supplément qui varie selon les villes</li>
                     </ul>
                     <button class="faq-toggle">
@@ -4070,7 +4070,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4087,7 +4087,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4104,7 +4104,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-        
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4121,7 +4121,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4138,7 +4138,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4155,7 +4155,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4163,7 +4163,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </strong>
                     <ul class="faq-text">
                         <li>
-                            Il suffit de remplir le formulaire de réservation qui est sur notre site web et de nous l’envoyer, vous aurez une confirmation de disponibilité en moins d’une heure. 
+                            Il suffit de remplir le formulaire de réservation qui est sur notre site web et de nous l’envoyer, vous aurez une confirmation de disponibilité en moins d’une heure.
                             Une fois cette confirmation reçue vous n’aurez qu’à nous confirmer votre réservation de votre côté et votre voiture sera bloquée pour les dates souhaitées.
                         </li>
                     </ul>
@@ -4173,7 +4173,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4190,7 +4190,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4207,7 +4207,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
                     </button>
                 </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="faq">
                     <strong class="faq-title">
@@ -4229,9 +4229,9 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
 
 
     </div>
-    
+
     <!--HP end FAQ section-->
-    
+
     {{--<div class="modal fade" id="popup_msg_promo">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -4245,7 +4245,7 @@ Szukasz niedrogiego wynajmu samochodu na pobyt w Marrakeszu? Nasza agencja dosta
             </div>
         </div>
     </div>--}}
-    
+
 @endsection
-    
-    
+
+

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Constants\Constant;
+use App\Http\Helpers\Helpers;
 use App\Mail\AdminBookingMail;
 use App\Mail\ClientBookingMail;
 use App\Models\Admin\Booking;
@@ -22,10 +24,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Collection;
-use Session;
 use App\Models\Admin\Language;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
 use Locale;
 
 class CarController extends Controller
@@ -39,7 +41,6 @@ class CarController extends Controller
     }
 
     public function index($alias){
-
         $static_data = $this->static_data;
         $default_language = $this->default_language;
         $car = Car::with(['images', 'front_image', 'contentload' => function ($query) use ($default_language) {
@@ -173,16 +174,14 @@ class CarController extends Controller
     }
 
     public function booking(Request $request){
+        // dd($request->all());
         $static_data      = $this->static_data;
         $default_language = $this->default_language;//dd($static_data);
         $car = Car::with(['images', 'front_image', 'contentload' => function ($query) use ($default_language) {
             $query->where('language_id', $default_language->id);
         }])->where('id', $request->car_id)->first();
 
-        $car_services = [];
-        if(!empty($car->services)){
-            $car_services = Service::whereIn('id', $car->services)->get();
-        }
+        $services = Service::get();
 
         $seasons = Season::where('car_id', $request->car_id)->orderBy('start_date', 'ASC')->get();
 
@@ -190,72 +189,77 @@ class CarController extends Controller
         $code = Session::get('language');
         $current_language = Language::where('code', $code)->first()->id;
 
-        //IF REQUEST IS COMING FROM SEARCH PAGE
-        if(!$request->home){
-            $pickup_loc  = LocationContent::where('location_id', Session::get('pickup_location'))->where('language_id', $current_language)->first();
-            $dropoff_loc = LocationContent::where('location_id', Session::get('dropoff_location'))->where('language_id', $current_language)->first();
 
-            $pickup_location  = Location::where('id', Session::get('pickup_location'))->first();
-            $dropoff_location = Location::where('id', Session::get('dropoff_location'))->first();
-
-            $x=Session::get('start_time');
-            $y=Session::get('end_time');
-
-
-            $start_date = Session::get('start_date').' '.Session::get('start_time');
-            $end_date   = Session::get('end_date').' '.Session::get('end_time');
-
-        }else{
-            //IF REQUEST IS COMMING FROM HOME,PARC OR CAR_DETAILS PAGE
-            $pickup_loc  = LocationContent::where('location_id', $request->pickup_location)->where('language_id', $current_language)->first();
-            $dropoff_loc = LocationContent::where('location_id', $request->dropoff_location)->where('language_id', $current_language)->first();
-
-            $pickup_location  = Location::where('id', $request->pickup_location)->first();
-            $dropoff_location = Location::where('id', $request->dropoff_location)->first();
-
-            $x=$request->start_time;
-            $y=$request->end_time;
-
-            $start_date = $request->start_date.' '.$request->start_time;
-            $end_date   = $request->end_date.' '.$request->end_time;
-
-
-            Session::put('start_date', $request->start_date);
-            Session::put('start_time', $request->start_time);
-            Session::put('end_date', $request->end_date);
-            Session::put('end_time', $request->end_time);
+        if(!empty($request->pickup_location)){
+            $pickup_location= $request->pickup_location;
+        }
+        else{
+           $pickup_location =  Session::has('pickup_location')  && !empty(Session::get('pickup_location')) ? Session::get('pickup_location') : '';
         }
 
-        $zzz = '';
-
-        $nights  = Carbon::createFromFormat('d/m/Y H:s', $end_date)->diffInDays(Carbon::createFromFormat('d/m/Y H:s', $start_date));
-        $nights2 = Carbon::createFromFormat('d/m/Y H:s', $end_date)->diffInHours(Carbon::createFromFormat('d/m/Y H:s', $start_date));
-
-        if($x>$y){
-            $hour_time = ($nights2 - ($nights*24)) * -1;
-        }else{
-            $hour_time = $nights2 - ($nights*24);
+        if(!empty($request->dropoff_location)){
+            $dropoff_location= $request->dropoff_location;
+        }
+        else{
+           $dropoff_location =  Session::has('dropoff_location')  && !empty(Session::get('dropoff_location')) ? Session::get('dropoff_location') : '';
         }
 
-        if($hour_time>=4){
-            $zzz .= 'ccc';
-            $nights = $nights+1;
-        }else if($hour_time>=0 && $hour_time<4){
-            $zzz .= 'ddd';
-        }else if($hour_time<0 && $nights!=0){
-            $zzz .= 'eee';
-            $nights = $nights+1;
-        }else{
-            $zzz .= 'fff';
-            $nights = $nights+1;
+        if(!empty($request->start_date)){
+            $start_date= !empty($request->start_time) ?  Carbon::parse( $request->start_date .' '.$request->start_time) :  Carbon::parse( $request->start_date);
+        }
+        else{
+           $start_date =  Session::has('start_date')  && !empty(Session::get('start_date')) ? Session::get('start_date') : Carbon::now();
         }
 
-        $price = $this->get_price_infos($request, $car, $nights);
+        if(!empty($request->end_date)){
+            $end_date= !empty($request->end_date) ?  Carbon::parse( $request->end_date .' '.$request->end_time) :  Carbon::parse( $request->end_date);
+        }
+        else{
+            // dd( Session::has('end_date')  && !empty(Session::get('end_date')),Session::get('end_date'));
+           $end_date =  Session::has('end_date')  && !empty(Session::get('end_date')) ? Session::get('end_date') : Carbon::now()->addDay();
+        }
+        // dd(Session::get('end_date'));
+
+
+        Session::put('pickup_location', $pickup_location);
+        Session::put('dropoff_location', $dropoff_location);
+        Session::put('start_date',$start_date);
+        Session::put('end_date', $end_date);
+        $pickup_location_model = Location::where('id', $pickup_location)->first();
+        $dropoff__location_model = Location::where('id', $dropoff_location)->first();
+
+
+        $date1 = Carbon::parse( Session::get('start_date')->format("Y-m-d H:i"));
+        $date2 = Carbon::parse(Session::get('start_date')->format("Y-m-d").' '. Session::get('end_date')->format("H:i"));
+        // dd($date1,$date2);
+
+
+
+        // Calculer la différence en jours entre les deux dates
+        $nombreDeJours = $start_date->diffInDays($end_date);
+        // Calculer la différence en heures entre les deux dates
+        $diffEnHeures = $date1->diffInHours($date2) % 24;
+
+        // Vérifier si les heures sont déplacées de plus de 4 heures
+        if ($diffEnHeures > 4) {
+            // Si les heures sont déplacées de plus de 4 heures, ajouter un jour
+            $nombreDeJours++;
+        }
+
+        $price = $this->get_price_infos($request, $car, $nombreDeJours);
 
         // current language id
-        $code = Session::get('language');
-        $current_language = Language::where('code', $code)->first()->id;
+        return view("front.bookings.booking-detail",[
+            'car' => $car,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'price' => $price,
+            'nombreDeJours' => $nombreDeJours,
+            'services' => $services,
+            'pickup_location' => $pickup_location_model,
+            'dropoff_location' => $dropoff__location_model,
 
+        ]);
         return view('home.booking', compact(
                                             'car',
                                             'car_services',
@@ -273,14 +277,13 @@ class CarController extends Controller
     }
 
     public function get_price_infos ($request, $car, $nights) {
-        $start_date = !empty($request->start_date) ? $request->start_date : Session::get('start_date');
-        $end_date = !empty($request->end_date) ? $request->end_date : Session::get('end_date');
+        $start_date = ($request->start_date != '') ? Carbon::parse($request->start_date) : Session::get('start_date');
+        $end_date   = ($request->end_date != '') ? Carbon::parse($request->end_date) : Session::get('end_date');
 
-        $d1 = explode("/", $start_date);
-        $d2 = explode("/", $end_date);
 
-        $datedebut = Carbon::create($d1[2], $d1[1], $d1[0], 0, 0, 0);
-        $datefin = Carbon::create($d2[2], $d2[1], $d2[0], 0, 0, 0);
+
+        $datedebut = $start_date;
+        $datefin = $end_date;
         $period = \Carbon\CarbonPeriod::create($datedebut, $datefin); // la periode de la reservation
         if(count($period) > $nights) { // si l'utilisateur ne depace pas 4 heures enlever un jour de la pediode
             $datefin->subDay();
@@ -322,51 +325,123 @@ class CarController extends Controller
     }
 
     public function book(Request $request){
-        $static_data = $this->static_data;
+       $static_data = $this->static_data;
         $default_language = $this->default_language;
         $validator = Validator::make($request->all(), [
-            'name'          => 'required',
+            'first_name'          => 'required',
+            'last_name'          => 'required',
             'email'         => 'email|required',
-            'start_date'    => 'required',
-            'end_date'      => 'required',
-            'car_id'        => 'required',
+            // 'start_date'    => 'required',
+            // 'end_date'      => 'required',
+            // 'car_id'        => 'required',
             'payment_method'=> 'required',
-            'nights_number' => 'required',
-            'total'         => 'required',
-            'price_base'    => 'required',
+            // 'nights_number' => 'required',
+            // 'total'         => 'required',
+            // 'price_base'    => 'required',
         ]);
+
+        if(!empty($request->pickup_location)){
+            $pickup_location= $request->pickup_location;
+        }
+        else{
+           $pickup_location =  Session::has('pickup_location')  && !empty(Session::get('pickup_location')) ? Session::get('pickup_location') : '';
+        }
+
+        if(!empty($request->dropoff_location)){
+            $dropoff_location= $request->dropoff_location;
+        }
+        else{
+           $dropoff_location =  Session::has('dropoff_location')  && !empty(Session::get('dropoff_location')) ? Session::get('dropoff_location') : '';
+        }
+
+        if(!empty($request->start_date)){
+            $start_date= !empty($request->start_time) ?  Carbon::parse( $request->start_date .' '.$request->start_time) :  Carbon::parse( $request->start_date);
+        }
+        else{
+           $start_date =  Session::has('start_date')  && !empty(Session::get('start_date')) ? Session::get('start_date') : Carbon::now();
+        }
+
+        if(!empty($request->end_date)){
+            $end_date= !empty($request->end_date) ?  Carbon::parse( $request->end_date .' '.$request->end_time) :  Carbon::parse( $request->end_date);
+        }
+        else{
+            // dd( Session::has('end_date')  && !empty(Session::get('end_date')),Session::get('end_date'));
+           $end_date =  Session::has('end_date')  && !empty(Session::get('end_date')) ? Session::get('end_date') : Carbon::now()->addDay();
+        }
+
+        Session::put('pickup_location', $pickup_location);
+        Session::put('dropoff_location', $dropoff_location);
+        Session::put('start_date',$start_date);
+        Session::put('end_date', $end_date);
+        $pickup_location_model = Location::where('id', $pickup_location)->first();
+        $dropoff__location_model = Location::where('id', $dropoff_location)->first();
+        $car = Car::with(['images', 'front_image', 'contentload' => function ($query) use ($default_language) {
+            $query->where('language_id', $default_language->id);
+        }])->where('id', $request->car_id)->first();
+
+        $date1 = Carbon::parse( Session::get('start_date')->format("Y-m-d H:i"));
+        $date2 = Carbon::parse(Session::get('start_date')->format("Y-m-d").' '. Session::get('end_date')->format("H:i"));
+        $nombreDeJours = $start_date->diffInDays($end_date);
+        $diffEnHeures = $date1->diffInHours($date2) % 24;
+
+        if ($diffEnHeures > 4) {
+            $nombreDeJours++;
+        }
+
+        $price = $this->get_price_infos($request, $car, $nombreDeJours);
+
+
         if ($validator->fails()) {
             return response()->json($static_data['strings']['something_happened'], 400);
         } else {
             $data = $request->all();
-            $services = null;
-            $i=0;
-            foreach($data['services_data'] as $key=>$item){
-                $services[$i]['id']   = $key;
+            $services = [];
+            $totalServices =0;
+            foreach($data['services'] as $key=>$item){
+                $services[$key]['id']   = $key;
                 //caluculate service price
                 $service = Service::find($key);
-                $services[$i]['name']  = $service->service[1];
-                $services[$i]['count'] = $item;
-                $services[$i]['price'] = $service->price;
-                $i++;
+                $services[$key]['name']  =Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$service);
+                $services[$key]['count'] = $item;
+                $services[$key]['price'] = $service->price;
+                $totalServices+= $item>0 ? ($item * $service->price) : 0;
             }
-            $data['services'] = json_encode($services);
-        //    dd($data['services']);
-            $data['start_date']   = Carbon::createFromFormat('d/m/Y H:s', $request->start_date);
-            $data['end_date']     = Carbon::createFromFormat('d/m/Y H:s', $request->end_date);
+        $totalPrice = $price  + ($pickup_location_model->tarif ?? 0) + ($dropoff__location_model->tarif ?? 0) + $totalServices;
+        if (isset($request->payment_method ) &&  $request->payment_method== Constant::BANK_PAYMENT) {
+            $totalPrice+=  $totalPrice * 0.03;
+        }
 
-            $client_data['name']          = $request->name;
+            $data['services'] = json_encode($services);
+            //    dd($data['services']);
+            $data['start_date']   = $start_date;
+            $data['end_date']     = $end_date;
+            $data['completed']     = 0;
+            $data['status']     = 0;
+            $data['total'] = $totalPrice;
+            $data['franchise'] = $car->franchise;
+            $data['owner_id'] = null;
+
+            $client_data['name']          = $request->first_name . ' '.$request->last_name;
             $client_data['email']         = $request->email;
             $client_data['phone']         = $request->phone;
             $client_data['flight_number'] = $request->flight_number;
-
+            $client_data['description'] = $request->description;
 
             $data['client_data']          =json_encode($client_data);
-            $data['car_name'] = Car::findOrFail($request->car_id)->alias;
-
+            $data['car_name']=  $car->alias;
             $booking = Booking::create($data);
-            $this->sendBookingMails($request);
-            return view('home.thanks_for_booking_page',compact('static_data','default_language'));
+            // $this->sendBookingMails($request);
+
+            return view('front.bookings.booking-success',[
+                'price'=>$price,
+                'nombreDeJours'=>$nombreDeJours,
+                'booking'=>$booking,
+                'client'=>json_decode($booking->client_data) ,
+                'services'=>$services ,
+                'car'=>$car,
+                'pickup_location'=>$pickup_location_model,
+                'dropoff_location'=>$dropoff__location_model,
+            ]);
         }
     }
 

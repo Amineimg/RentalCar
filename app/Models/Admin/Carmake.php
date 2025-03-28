@@ -11,8 +11,8 @@ class Carmake extends Model
 
     // Enable columns to be filled with data
     protected $fillable = [
-        'featured_image', 
-        'alias', 
+        'featured_image',
+        'alias',
         'order',
     ];
 
@@ -30,6 +30,11 @@ class Carmake extends Model
     // Getting the content all Languages
     public function contentload(){
         return $this->hasOne('App\Models\Admin\CarmakeContent');
+    }
+
+     // Getting the content all Languages
+     public function models(){
+        return $this->hasMany(Carmodel::class,"carmake_id","id");
     }
 
     // Featured image

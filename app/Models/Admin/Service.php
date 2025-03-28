@@ -11,11 +11,11 @@ class Service extends Model
 
     // Allow columns to be filled with data
     protected $fillable = [
-        'service', 
-        'image', 
-        'max_number', 
-        'price', 
-        'created_at', 
+        'service',
+        'image',
+        'max_number',
+        'price',
+        'created_at',
         'updated_at'
     ];
     // Storing arrays in base
@@ -26,5 +26,9 @@ class Service extends Model
     // Add prefix to the image column when retrieved from db
     public function getImageAttribute($value){
         return '/images/services/' . $value;
+    }
+
+    public function contentload(){
+        return $this->hasOne(ServiceContent::class);
     }
 }
