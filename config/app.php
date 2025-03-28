@@ -2,6 +2,7 @@
 
 use App\Constants\Constant;
 use App\Http\Helpers\Helpers;
+use App\Models\Admin\Language;
 use Carbon\Carbon;
 
 return [
@@ -17,7 +18,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'jacarandacar '),
+    'name' => env('APP_NAME', 'Dehbi Lux '),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,7 +85,7 @@ return [
     |
     */
 
-    'locale' => 'fr',
+    'locale' => env('APP_LOCALE', 'fr'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +98,12 @@ return [
     |
     */
 
-    'fallback_locale' => 'fr',
+    'available_locales' => ['en', 'fr', 'es', 'ar'],
+
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+
+    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -234,6 +240,7 @@ return [
         'Carbon' => Carbon::class,
         'Helpers' => Helpers::class,
         'Constant' => Constant::class,
+        'Language' => Language::class,
 
 
     ],

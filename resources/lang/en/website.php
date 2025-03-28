@@ -1,5 +1,8 @@
 <?php
 return [
+    'home_page_title' => 'Car Rental Marrakech',
+    'brand_name' => 'DEHBI LUX',
+    'home_page_description' => 'Dehbi Lux - Your simple car rental solution in Marrakech with DEHBILUX.',
     'pickup_location' => 'Pickup Location',
     'dropoff_location' => 'Dropoff Location',
     'start_date' => 'Start Date',
@@ -9,5 +12,146 @@ return [
     'convoyage' => 'Conveyance',
     'departure' => 'Departure',
     'return' => 'Return',
+    'search' => 'Search',
+    'how_it_works' => 'How It Works',
+    'how_it_works_description' => 'Booking a car rental is a straightforward process that typically involves the following steps',
+    'how_it_works_title_step_1' => '1 Choose Date & Locations',
+    'how_it_works_description_step_1' => 'Determine the date & location for your car rental. Consider factors such as your travel itinerary, pickup/drop-off locations (e.g., airport, city center), and duration of rental.',
+    'how_it_works_title_step_2' => '2. Pick-Up Locations',
+    'how_it_works_description_step_2' => 'Check the availability of your desired vehicle type for your chosen dates and location. Ensure that the rental rates, taxes, fees, and any additional charges are clear.',
+    'how_it_works_title_step_3' => '3. Book your Car',
+    'how_it_works_description_step_3' => "Once you've found the perfect car rental option, proceed to make a reservation. Provide the required information, including your personal details, driver's license, contact info, and payment details.",
+    'recommended_car_title' => "Recommended Car Rental Deals",
+    'recommended_car_description' => "Here are some versatile options that cater to different needs",
+    'show_all' => "Show All",
+    'book_now' => "Book Now",
+    'fact_numbers' => "Facts By The Numbers",
+    'fact_numbers_description' => "Here are some interesting facts presented by the numbers",
+    'happy_customers' => "Happy Customers",
+    'count_of_cars' => "Count of Cars",
+    'car_center_solutions' => "Car Center Solutions",
+    'total_kilometer' => "Total Kilometers",
+    'why_choose_us' => "Why Choose Us",
+    'why_choose_us_description' => "We are innovative and passionate about the work we do.",
+    'why_choose_us_title_step_1' => "Easy & Fast Booking",
+    'why_choose_us_description_step_1' => "Completely streamlined business testing process with fully researched customer service. Globally extensive content with quality.",
+    'why_choose_us_title_step_2' => "Many Pickup Locations",
+    'why_choose_us_description_step_2' => "Enthusiastically magnetic initiatives with cross-platform sources. Dynamically target testing procedures through effective methods.",
+    'why_choose_us_title_step_3' => "Customer Satisfaction",
+    'why_choose_us_description_step_3' => "Globally user-centric interactive methods. Seamlessly revolutionize unique portals through corporate collaboration.",
+
+    'reviews_title' => "What People Say About Us?",
+    'reviews_description' => "Discover what our customers think about us",
+    'reviews' => [
+        [
+            "name" => "Laverne Marier",
+            "from_where" => "Nevada, USA",
+            "description" => "Renting a car from Dreams rent made our family vacation unforgettable with top-notch customer service. The spacious SUV we rented comfortably fit our family and all our luggage, and it was a smooth ride throughout our trip.",
+            "rating" => 5,
+        ]
+    ],
+
+    'faq_title' => "Frequently Asked Questions",
+    'faq_description' => "Find answers to your questions from our previous answers",
+    'faqs' => [
+        [
+            "question" => "How can I book a rental car in Marrakech?",
+            "answer" => "You can book directly on our website, by phone, or via WhatsApp. Simply choose your vehicle, rental dates, and provide your information."
+        ],
+        [
+            "question" => "What payment methods are accepted?",
+            "answer" => "We accept cash payments, credit cards (Visa, Mastercard)."
+        ],
+        [
+            "question" => "Can I modify or cancel my reservation?",
+            "answer" => "Yes, according to our cancellation policy. Fees may apply if cancellation is made late."
+        ],
+        [
+            "question" => "Is Car Delivery Free?",
+            "answer" => "Yes, you can have free delivery at the airport, hotel, or even at your home without extra charge. This service is free only in Marrakech. For other cities, there is an additional fee that varies by city."
+        ],
+        [
+            "question" => "Are The Insurance Options Full Coverage?",
+            "answer" => "Yes, but there is a deductible to pay if you are responsible in case of an accident."
+        ],
+        [
+            "question" => "What Are The Steps To Book A Car At Dehbi Lux?",
+            "answer" => "Simply fill out the reservation form on our website and send it to us. You'll receive a confirmation of availability within an hour. Once you receive this confirmation, just confirm your reservation on your end and your car will be reserved for the desired dates."
+        ],
+        [
+            "question" => "What should I do if I don't receive my booking confirmation?",
+            "answer" => "You should contact your Dehbi Lux agency by email, providing your reservation number and email address; or better yet, contact by phone."
+        ],
+        [
+            "question" => "What Do The Prices Displayed On This Site Include?",
+            "answer" => "Full coverage insurance,
+                    Unlimited mileage.,
+                    24/7 assistance.,
+                    Free delivery and return at Marrakech airport as well as your hotel or residence in Marrakech.,
+                    No hidden fees to pay."
+        ],
+    ],
+    "blogs_title" => "News & Insights For You",
+    "blogs_description" => "This blog post provides valuable insights into the benefits",
+    "filter" => "Filter",
+    "brands" => "Brands",
+    "brand" => "Brand",
+    "categories" => "Categories",
+    "fuel_type" => "Fuel Type",
+    "transmission" => "Transmission",
+    "transmission_auto" => "Automatic",
+    "transmission_manual" => "Manual",
+    "diesel" => "Diesel",
+    "petrol" => "Petrol",
+    "persons" => "Persons",
+    "air_condition" => "AC",
+    "day" => "Day",
+    "featured" => "Featured",
+    "list_empty" => "Empty list",
+    "from" => "From",
+    "car_details" => "Car Details",
+    "location" => "Location",
+    "time" => "Time",
+    "booking_total" => "Total Booking",
+    "accessories" => "Accessories",
+    "booking_info" => "Booking Info",
+    "first_name" => "First Name",
+    "last_name" => "Last Name",
+    "full_name" => "Full Name",
+    "email" => "Email Address",
+    "phone" => "Phone",
+    "flight_number" => "Flight Number",
+    "choose_paiement_mode" => "Choose Payment Method",
+    "booking_description" => "Additional Information",
+    "read_condition" => "I have Read and Accept Terms & Conditions",
+    "for" => "For",
+    "days" => "Days",
+    "checkout" => "Checkout",
+    "booking_thanks" => "Thank you! Your Order has been Received",
+    "booking_number" => "Order Number",
+    "resume" => "Resume",
+    "accessories_pricing" => "Accessories Pricing",
+    "pieces" => "Pieces",
+    "total" => "Total",
+    "payment_details" => "Payment Details",
+    "paiement_mode" => "Payment Method",
+    "back_to_home" => "Back To Home",
+    "client_info" => "Client Information",
+    "by_bank_card" => "By Credit Card",
+    "cache" => "Cash",
+
+
+
+        "airport_delivery" => "Airport Delivery",
+        "home_delivery" => "Home Delivery",
+        "specifications" => "Specifications",
+        "doors" => "Doors",
+        "check_availability" => "Check Availability",
+        "links" => "Links",
+        "copy_right" => "All rights reserved - DEHBI LUX | Car rental in Marrakech with affordable franchise buyback",
+        "powered_by" => "Powered By",
+        "address" => "Address",
+        "message" => "Message",
+        "submit" => "Submit",
 
 ];

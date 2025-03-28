@@ -1915,75 +1915,76 @@ strong {
   background: #F8FAFC;
 }
 
-.hero-sec-main .header-two {
-  background: transparent;
+ .header-two {
+  background: white;
   box-shadow: none;
 }
-.hero-sec-main .header-two.header-fixed {
-  background: #0A152F;
+.header-two.header-fixed {
+  background: white;
   position: fixed;
   z-index: 999;
 }
-.hero-sec-main .header-two.header-fixed .header-two-top {
+ .header-two.header-fixed .header-two-top {
   display: none;
 }
-.hero-sec-main .header-two .header-two-top {
+.header-two .header-two-top {
   padding: 10px;
-  border-bottom: 1px solid #676767;
+  border-bottom: 1px solid #FFA633;
+  background-color: black;
 }
 @media (max-width: 991.98px) {
-  .hero-sec-main .header-two .header-two-top {
+.header-two .header-two-top {
     display: none;
   }
 }
-.hero-sec-main .header-two .header-two-top .header-top-items {
+ .header-two .header-two-top .header-top-items {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.hero-sec-main .header-two .header-two-top .header-top-items .header-address {
+.header-two .header-two-top .header-top-items .header-address {
   display: flex;
   align-items: center;
 }
-.hero-sec-main .header-two .header-two-top .header-top-items .header-address li {
+.header-two .header-two-top .header-top-items .header-address li {
   color: #ffffff;
   font-size: 14px;
   margin-right: 15px;
 }
-.hero-sec-main .header-two .header-two-top .header-top-items .header-address li:last-child {
+ .header-two .header-two-top .header-top-items .header-address li:last-child {
   margin-right: 0;
 }
-.hero-sec-main .header-two .header-two-top .header-top-items .header-address li span {
+.header-two .header-two-top .header-top-items .header-address li span {
   margin-right: 5px;
 }
-.hero-sec-main .header-two .header-nav {
+.header-two .header-nav {
   padding: 0;
 }
-.hero-sec-main .header-two .header-nav .main-nav > li a {
-  color: #ffffff;
+.header-two .header-nav .main-nav > li a {
+  color: black;
   font-weight: normal;
 }
-.hero-sec-main .header-two .header-nav .main-nav > li a.active {
+.header-two .header-nav .main-nav > li a.active {
   color: #FFA633;
 }
-.hero-sec-main .header-two .header-nav .main-nav > li.active > a {
+ .header-two .header-nav .main-nav > li.active > a {
   color: #FFA633;
 }
-.hero-sec-main .header-two .header-nav .header-navbar-rht .login-link {
+.header-two .header-nav .header-navbar-rht .login-link {
   padding: 0;
   font-weight: 500;
   color: #ffffff;
 }
-.hero-sec-main .header-two .header-nav .header-navbar-rht .login-link:hover {
+.header-two .header-nav .header-navbar-rht .login-link:hover {
   color: #FFA633;
 }
-.hero-sec-main .banner-slider {
+.banner-slider {
   background-image: none;
   padding: 70px 0;
   height: 660px;
 }
 @media (max-width: 991.98px) {
-  .hero-sec-main .banner-slider {
+   .banner-slider {
     height: 100%;
     background: transparent;
     padding: 50px 0;
@@ -3443,7 +3444,7 @@ table .badge {
 }
 
 .services {
-  padding: 80px 0 56px;
+  padding: 320px 0 56px;
 }
 @media (max-width: 991.98px) {
   .services {
@@ -4770,7 +4771,7 @@ table .badge {
 }
 .banner-sec-two .banner-img-slider::after {
   content: "";
-  background: linear-gradient(102.39deg, rgba(6, 19, 26, 0.8) 2.09%, rgba(0, 0, 0, 0.64) 81.2%);
+  background: linear-gradient(102.39deg, rgba(68, 66, 66, 0.64) 2.09%, rgba(59, 58, 58, 0.64) 81.2%);
   left: 0;
   top: 0;
   right: 0;

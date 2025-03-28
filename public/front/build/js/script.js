@@ -119,36 +119,36 @@ Version      : 1.0
 
 	// Datepicker
 
-    if ($('.datetimepicker').length > 0) {
-        $('.datetimepicker').each(function () {
-            var minDate = $(this).data('min-date'); // Get min date from HTML attribute
-            console.log(minDate)
-            $(this).datetimepicker({
-                format: 'DD-MM-YYYY',
-                minDate: minDate ? moment(minDate, 'YYYY-MM-DD') : false, // Apply min date if set
-                icons: {
-                    up: "fas fa-angle-up",
-                    down: "fas fa-angle-down",
-                    next: 'fas fa-angle-right',
-                    previous: 'fas fa-angle-left'
-                }
-            });
-        });
-    }
+    // if ($('.datetimepicker').length > 0) {
+    //     $('.datetimepicker').each(function () {
+    //         var minDate = $(this).data('min-date'); // Get min date from HTML attribute
+    //         console.log(minDate)
+    //         $(this).datetimepicker({
+    //             format: 'DD-MM-YYYY',
+    //             minDate: minDate ? moment(minDate, 'YYYY-MM-DD') : false, // Apply min date if set
+    //             icons: {
+    //                 up: "fas fa-angle-up",
+    //                 down: "fas fa-angle-down",
+    //                 next: 'fas fa-angle-right',
+    //                 previous: 'fas fa-angle-left'
+    //             }
+    //         });
+    //     });
+    // }
 
 
 	// Timepicker
 
 	if($('.timepicker').length > 0) {
-		$('.timepicker').datetimepicker({
-			format: "hh:mm",
-			icons: {
-				up: "fa fa-angle-up",
-				down: "fa fa-angle-down",
-				next: 'fa fa-angle-right',
-				previous: 'fa fa-angle-left'
-			}
-		});
+		// $('.timepicker').datetimepicker({
+		// 	format: "hh:mm",
+		// 	icons: {
+		// 		up: "fa fa-angle-up",
+		// 		down: "fa fa-angle-down",
+		// 		next: 'fa fa-angle-right',
+		// 		previous: 'fa fa-angle-left'
+		// 	}
+		// });
 	}
 
 

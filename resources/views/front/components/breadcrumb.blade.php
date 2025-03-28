@@ -7,9 +7,11 @@
                     <h2 class="breadcrumb-title">{{ $title }}</h2>
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:void(0);">{{ $li_1 }}</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">{{ $li_2 }}</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __("menu.home")}}</a></li>
+                            <li class="breadcrumb-item"><a href="{{ isset($li_1_url) ? $li_1_url : '' }}">{{ $li_1 }}</a></li>
+                            @if (isset($li_2))
+                                <li class="breadcrumb-item active" aria-current="page">{{ $li_2 }}</li>
+                            @endif
                         </ol>
                     </nav>
                 </div>

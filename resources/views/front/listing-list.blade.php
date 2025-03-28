@@ -4,14 +4,17 @@
 <div class="main-wrapper listing-page">
     @component('front.components.breadcrumb')
         @slot('title')
-            Car Listings
+           {{ __("menu.parking")}}
         @endslot
         @slot('li_1')
-            Listings
+            {{ __("menu.parking")}}
+
         @endslot
-        @slot('li_2')
-            Car Listings
+        @slot('li_1_url')
+            {{ route('search_home')}}
+
         @endslot
+
     @endcomponent
     <!-- Search -->
    @component('front.components.search_v1',["locations"=>$locations ?? []])
@@ -98,7 +101,7 @@
                     <form action="{{ route('search_home') }}" method="POST" autocomplete="off" class="sidebar-form">
                         @csrf
                         <div class="sidebar-heading">
-                            <h3>Filter</h3>
+                            <h3>{{ __("website.filter") }}</h3>
                         </div>
                         {{-- <div class="product-search">
                             <div class="form-custom">
@@ -120,7 +123,7 @@
                                         <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Car Brand
+                                            {{ __("website.brands") }}
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
@@ -175,12 +178,12 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapseTwo" aria-expanded="true"
                                             aria-controls="collapseTwo">
-                                            Car Category
+                                            {{ __("website.categories") }}
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
                                     data-bs-parent="#accordionExample2">
                                     <div class="card-body-chat">
                                         <div id="checkBoxes2">
@@ -229,12 +232,12 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapsefuel" aria-expanded="true"
                                             aria-controls="collapsefuel">
-                                            Transmission
+                                            {{ __("website.transmission") }}
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
                                 </div>
-                                <div id="collapsefuel" class="collapse" aria-labelledby="headingfuel"
+                                <div id="collapsefuel" class="collapse show" aria-labelledby="headingfuel"
                                     data-bs-parent="#accordionExample2">
 
                                     <div class="card-body-chat">
@@ -262,12 +265,12 @@
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
                                             data-bs-target="#collapsetransmission" aria-expanded="true"
                                             aria-controls="collapsetransmission">
-                                            Fuel Type
+                                            {{ __("website.fuel_type") }}
                                             <span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
                                         </a>
                                     </h6>
                                 </div>
-                                <div id="collapsetransmission" class="collapse" aria-labelledby="headingtransmiss"
+                                <div id="collapsetransmission" class="collapse show" aria-labelledby="headingtransmiss"
                                     data-bs-parent="#accordionExample2">
                                     {{-- <div class="card-body-chat">
                                         <div class="fuel-list">
@@ -306,10 +309,10 @@
                         </div>
                         <button type="submit"
                             class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary filter-btn">
-                            <span><i class="feather-filter me-2"></i></span>Filter results
+                            <span><i class="feather-filter me-2"></i></span>{{ __("website.filter") }}
                         </button>
                         {{-- <a href="#" class="reset-filter"></a> --}}
-                        <input class="reset-filter" type="reset" value="Reset Filter">
+                        <input class="reset-filter form-control" type="reset" value="Reset Filter">
 
                     </form>
                 </div>
@@ -317,33 +320,33 @@
                 <div class="col-xl-9 col-lg-8 col-sm-12 col-12">
                     <div class="row">
                         @forelse ($cars as $car)
-                            <div class="col-xxl-4 col-lg-6 col-md-6 col-12">
+                            <div class="col-xxl-5 col-lg-6 col-md-6 col-12">
                                 <div class="listing-item">
                                     <div class="listing-img">
                                         <div class="img-slider owl-carousel">
                                             <div class="slide-images">
                                                 <a href="{{ url('listing-details') }}">
                                                     <img src="{{ URL::asset('images/data/'.$car->front_image->image ??  '') }}"
-                                                        class="img-fluid" alt="aaaa">
+                                                        class="img-fluid" alt="">
                                                 </a>
                                             </div>
                                             @forelse ($car->images as $image)
                                                 <div class="slide-images">
                                                     <a href="{{ url('listing-details') }}">
                                                         <img src="{{ URL::asset('images/data/'.$image->image ?? '') }}"
-                                                        class="img-fluid" alt="Toyota">
+                                                        class="img-fluid" alt="">
                                                     </a>
                                                 </div>
                                             @empty
 
                                             @endforelse
                                         </div>
-                                        {{-- <div class="fav-item justify-content-end">
+                                        <div class="fav-item justify-content-end">
                                             <span class="img-count"><i class="feather-image"></i>04</span>
                                             <a href="javascript:void(0)" class="fav-icon">
                                                 <i class="feather-heart"></i>
                                             </a>
-                                        </div> --}}
+                                        </div>
                                         <span class="featured-text">{{ Helpers::getAttributeFromTranslate("name",Helpers::getDefaultLanguage('id'),1,$car->carmodel->carmake) }}</span>
                                     </div>
                                     <div class="listing-content">
@@ -375,13 +378,13 @@
                                             <ul>
                                                 <li>
                                                     <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-01.svg') }}" alt="Auto"></span>
-                                                    <p>{{ $car->transmission=="automatic" ? 'Auto matic' : 'manual' }}</p>
+                                                    <p>{{ $car->transmission=="automatic" ? __("website.transmission_auto") : __("website.transmission_manual")  }}</p>
                                                 </li>
                                                 <li>
                                                     <span><img
                                                             src="{{ URL::asset('/front/build/img/icons/car-parts-03.svg') }}"
                                                             alt="Petrol"></span>
-                                                    <p>{{ $car->carburant=="diesel" ? 'diesel' : 'petrol' }}</>
+                                                    <p>{{ $car->carburant=="diesel" ? __("website.diesel") : __("website.petrol") }}</>
                                                 </p>
                                                 </li>
 
@@ -389,7 +392,7 @@
                                                     <span><img
                                                             src="{{ URL::asset('/front/build/img/icons/car-parts-06.svg') }}"
                                                             alt="Persons"></span>
-                                                    <p>{{ $car->passengers_number }} Persons</p>
+                                                    <p>{{ $car->passengers_number.' '.__("website.persons") }} </p>
                                                 </li>
 
                                             </ul>
@@ -399,23 +402,29 @@
                                                         <span><img
                                                             src="{{ URL::asset('/front/build/img/icons/car-parts-07.svg') }}"
                                                             alt="Persons"></span>
-                                                            <p>air conditioner</p>
+                                                            <p>{{ __("website.air_condition") }}</p>
                                                     </li>
                                                 @endif
-                                                {{-- <li>
-                                                    <span><img
+                                                <li>
+                                                    {{-- <span><img
                                                             src="{{ URL::asset('/front/build/img/icons/car-parts-05.svg') }}"
                                                             alt="2018"></span>
-                                                    <p>2022</p>
-                                                </li> --}}
+                                                    <p>2022</p> --}}
+                                                </li>
+                                                <li>
+                                                    {{-- <span><img
+                                                            src="{{ URL::asset('/front/build/img/icons/car-parts-05.svg') }}"
+                                                            alt="2018"></span>
+                                                    <p>2022</p> --}}
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="listing-location-details">
                                             <div class="listing-price">
-                                                {{-- <span><i class="feather-map-pin"></i></span>Washington --}}
+                                                <span></span>{{ __("website.from") }}
                                             </div>
                                             <div class="listing-price">
-                                                <h6>{{ Helpers::moneyFormatDevise($car->price_per_night) }} <span>/ Day</span></h6>
+                                                <h6>{{ Helpers::moneyFormatDevise($car->price_per_night) }} <span>/ {{ __("website.day") }}</span></h6>
                                             </div>
                                         </div>
                                         <div class="listing-button">
@@ -423,21 +432,24 @@
                                                 @csrf
                                                 <input type="hidden" name="car_id" value="{{ $car->id }}">
                                                 <button type="submit"  class="btn btn-order">
-                                                    <span><i class="feather-calendar me-2"></i></span>Rent Now
+                                                    <span><i class="feather-calendar me-2"></i></span>{{ __("website.book_now") }}
                                                 </button>
                                             </form>
                                             {{-- <a href="{{url('listing-details')}}" class="btn btn-order"><span><i
                                                         class="feather-calendar me-2"></i></span>Rent Now</a> --}}
                                         </div>
                                     </div>
-                                    <div class="feature-text">
-                                        <span class="bg-danger">Featured</span>
-                                    </div>
+                                    @if ($car->featured==1)
+                                        <div class="feature-text">
+                                            <span class="bg-danger">{{ __("website.featured") }}</span>
+                                        </div>
+                                    @endif
+
                                 </div>
                             </div>
                         @empty
                             <div class="col-xxl-4 col-lg-6 col-md-6 col-12">
-                                <span>La liste est vide</span>
+                                <span>{{ __("website.list_empty") }}</span>
                             </div>
                         @endforelse
                     </div>

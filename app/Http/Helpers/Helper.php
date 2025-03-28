@@ -202,7 +202,7 @@ if (!function_exists('generateDataRangeB')) {
 // Get static data for home
 if(!function_exists('static_home')){
     function static_home(){
-        Session::put('language', app()->getLocale());
+        // Session::put('language', app()->getLocale());
 
         // Settings and Langugages
         $static_data['site_settings'] = Setting::where('type', 'site')->get()->pluck('value', 'key')->toArray();

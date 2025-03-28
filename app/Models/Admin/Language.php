@@ -11,7 +11,7 @@ class Language extends Model
     ];
 
     // Get flag link
-    public function getFlagAttribute($value){
-        return '/assets/images/flags/'. $value;
+    public function getFlagPathAttribute($value){
+        return '/front/build/img/flags/'. $this->flag;
     }
 }

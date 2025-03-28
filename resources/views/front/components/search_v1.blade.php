@@ -6,7 +6,7 @@
                 <ul class="align-items-center">
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-map"></i>Location</label>
+                            <label><i class="bx bx-map"></i>{{ __("website.pickup_location") }}</label>
                             <div class="group-img">
                                 <select class="form-control select" name="pickup_location">
                                     @forelse ($locations as $location)
@@ -20,14 +20,14 @@
                     </li>
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-calendar"></i>Pickup Date</label>
+                            <label><i class="bx bx-calendar"></i>{{ __("website.start_date") }}</label>
                         </div>
                         <div class="input-block-wrapp">
                             <div class="input-block date-widget">
                                 <div class="group-img">
-                                    <input type="text" class="form-control datetimepicker" name="start_date"
-                                      value="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}"
-                                        placeholder="04/11/2023">
+                                        <input type="text" class="form-control datetimepicker start_date" name="start_date"
+                                        value="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}"
+                                            placeholder="04/11/2023">
                                     <span><i class="feather-calendar"></i></span>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                     </li>
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-calendar"></i>Pickup time</label>
+                            <label><i class="bx bx-calendar"></i>{{ __("website.start_time") }}</label>
                         </div>
                         <div class="input-block-wrapp">
                             <div class="input-block time-widge">
@@ -53,7 +53,7 @@
                 <ul class="align-items-center">
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-map"></i>Location</label>
+                            <label><i class="bx bx-map"></i>{{ __("website.dropoff_location") }}</label>
                             <div class="group-img">
                                 <select name="dropoff_location" class=" form-control select " id="">
 
@@ -68,7 +68,7 @@
                     </li>
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-calendar"></i>drop off Date</label>
+                            <label><i class="bx bx-calendar"></i>{{ __("website.end_date") }}</label>
                         </div>
                         <div class="input-block-wrapp">
                             <div class="input-block date-widget">
@@ -84,7 +84,7 @@
                     </li>
                     <li class="column-group-main">
                         <div class="input-block">
-                            <label><i class="bx bx-calendar"></i>Pickup time</label>
+                            <label><i class="bx bx-calendar"></i>{{ __("website.end_time") }}</label>
                         </div>
                         <div class="input-block-wrapp">
                             <div class="input-block time-widge">
@@ -104,7 +104,7 @@
                     <div class="input-block">
                         <div class="search-btn">
                             <button class="btn search-button" type="submit"> <i class="fa fa-search"
-                                    aria-hidden="true"></i>Search</button>
+                                    aria-hidden="true"></i>{{ __("website.search") }}</button>
                         </div>
                     </div>
                 </li>
