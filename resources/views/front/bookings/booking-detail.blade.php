@@ -3,14 +3,11 @@
 @section('content')
     @component('front.components.breadcrumb')
         @slot('title')
-            Checkout
+            {{ __("website.checkout") }}
         @endslot
 
         @slot('li_1')
-            Checkout
-        @endslot
-        @slot('li_2')
-            Checkout
+            {{ __("website.checkout") }}
         @endslot
     @endcomponent
 
@@ -24,7 +21,7 @@
 
                             <div class="booking-sidebar-card">
                                 <div class="booking-sidebar-head">
-                                    <h5>Car Details</h5>
+                                    <h5>{{ __("website.car_details") }}</h5>
                                 </div>
                                 <div class="booking-sidebar-body">
                                     <div class="booking-car-detail">
@@ -41,9 +38,7 @@
 
                                 </div>
                                 <div class="booking-sidebar-head d-flex justify-content-between align-items-center">
-                                    <h5>Location & Time</h5>
-                                    <a href="{{ url('booking-checkout') }}" class="d-flex align-items-center"><i
-                                            class="bx bx-edit-alt me-2"></i>Edit</a>
+                                    <h5>{{ __("website.location").' & '.__("website.time") }}</h5>
                                 </div>
                                 <div class="booking-sidebar-body">
                                     <ul class="location-address-info">
@@ -71,7 +66,7 @@
                             </div>
                             <div class="total-rate-card">
                                 <div class="vehicle-total-price">
-                                    <h5 >Estimated Total</h5>
+                                    <h5 >{{ __("website.booking_total") }}</h5>
                                     <span class="total"></span>
                                 </div>
                             </div>
@@ -87,9 +82,7 @@
                                 @csrf
                                 <div class="booking-sidebar-card">
                                     <div class="booking-sidebar-head d-flex justify-content-between align-items-center">
-                                        <h5>Add-ons</h5>
-                                        <a href="{{ url('booking-adon') }}" class="d-flex align-items-center"><i
-                                                class="bx bx-edit-alt me-2"></i>Edit</a>
+                                        <h5>{{ __("website.accessories") }}</h5>
                                     </div>
                                     <div class="booking-sidebar-body">
                                         <div class="booking-vehicle-rates">
@@ -151,7 +144,7 @@
                                     <div class="booking-info-head justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <span><i class="bx bx-add-to-queue"></i></span>
-                                            <h5>Billing Info</h5>
+                                            <h5>{{ __("website.booking_info") }}</h5>
                                         </div>
                                         {{-- <div class="d-flex align-items-center">
                                             <h6>Returning customer?</h6>
@@ -165,44 +158,44 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">First Name <span class="text-danger"> *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Enter First Name" name="first_name">
+                                                    <label class="form-label">{{ __("website.first_name") }}<span class="text-danger"> *</span></label>
+                                                    <input type="text" class="form-control" placeholder="{{ __("website.first_name") }}" name="first_name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Last Name <span class="text-danger">
+                                                    <label class="form-label">{{ __("website.last_name") }} <span class="text-danger">
                                                             *</span></label>
                                                     <input type="text" class="form-control"
-                                                        placeholder="Enter Last Name" name="last_name">
+                                                        placeholder="{{ __("website.last_name") }}" name="last_name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Email Address <span class="text-danger">
+                                                    <label class="form-label">{{ __("website.email") }}<span class="text-danger">
                                                             *</span></label>
-                                                    <input type="text" class="form-control" placeholder="Enter Email" name="email">
+                                                    <input type="text" class="form-control" placeholder="{{ __("website.email") }}" name="email">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Phone Number <span class="text-danger">
+                                                    <label class="form-label">{{ __("website.phone") }} <span class="text-danger">
                                                             *</span></label>
                                                     <input type="text" class="form-control"
-                                                        placeholder="Enter Phone Number" name="phone">
+                                                        placeholder="{{ __("website.phone") }}" name="phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Vole Number <span
+                                                    <label class="form-label">{{ __("website.flight_numner") }} <span
                                                             class="text-danger"> *</span></label>
                                                     <input type="text" class="form-control"
-                                                        placeholder="Vole Number" name="flight_number">
+                                                        placeholder="{{ __("website.flight_numner") }}" name="flight_number">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">Choisissez le mode de paiement<span
+                                                    <label class="form-label">{{ __("website.choose_paiement_mode") }}<span
                                                             class="text-danger"> *</span></label>
                                                     <select class=" form-control select payment_method" name="payment_method" id="">
                                                         @forelse (Constant::getPaymentTypes() as $item)
@@ -215,8 +208,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="input-block">
-                                                    <label class="form-label">Additional Information</label>
-                                                    <textarea class="form-control" placeholder="Enter Additional Information" rows="5" name="description"></textarea>
+                                                    <label class="form-label">{{ __("website.booking_description") }}</label>
+                                                    <textarea class="form-control" placeholder="{{ __("website.booking_description") }}" rows="5" name="description"></textarea>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="car_id" value="{{ isset($car) ? $car->id : null }}">
@@ -232,19 +225,20 @@
 
                                                     <tbody>
                                                         <tr>
-                                                            <td scope="row">Location {{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }} pour {{ $nombreDeJours }} Jours</td>
+                                                            {{-- @dd($price) --}}
+                                                            <td scope="row">{{ __("website.location") }} {{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }} {{ __("website.for") }} {{ $nombreDeJours }} {{ __("website.days") }}</td>
                                                             <td scope="row">{{ Helpers::moneyFormatDevise($price) }}</td>
                                                         </tr>
                                                         @if ($pickup_location->tarif>0)
                                                         <tr>
-                                                            <td>{{ __("website.convoyage").' : '.$pickup_location_city}} ( Départ )</td>
+                                                            <td>{{ __("website.convoyage").' : '.$pickup_location_city}} ({{   __("website.departure") }})</td>
                                                             <td>{{ Helpers::moneyFormatDevise($pickup_location->tarif) }}</td>
 
                                                         </tr>
                                                         @endif
                                                         @if ($dropoff_location->tarif>0)
                                                             <tr>
-                                                                <td>{{ __("website.convoyage").' : '.$dropoff_location_city}} ( Retour )</td>
+                                                                <td>{{ __("website.convoyage").' : '.$dropoff_location_city}} ( {{   __("website.return") }} )</td>
                                                                 <td>{{ Helpers::moneyFormatDevise($dropoff_location->tarif) }}</td>
                                                             </tr>
                                                         @endif
@@ -273,8 +267,7 @@
                                 </div>
                                 <div class="booking-info-btns d-flex justify-content-end">
                                     {{-- <a href="{{ url('booking-adon') }}" class="btn btn-secondary">Back to Add-ons</a> --}}
-                                    <button class="btn btn-primary continue-book-btn" type="submit">Confirm & Pay
-                                        Now</button>
+                                    <button class="btn btn-primary continue-book-btn" type="submit">{{ __("website.book_now") }}</button>
                                 </div>
                             </form>
                         </div>
@@ -343,7 +336,7 @@
             var money = formatMoney(total);
 
             $(".resume .booking_total").remove();
-            var text = ` <tr class='booking_total'><td> <strong> Total de la réservation </strong>  </td> <td> <span class="">${money}</span> </td> </tr>`;
+            var text = ` <tr class='booking_total'><td> <strong> {{ __("website.booking_total") }}</strong>  </td> <td> <span class="">${money}</span> </td> </tr>`;
                 $('.resume tbody').append(text)
 
 

@@ -498,7 +498,15 @@ class CarController extends Controller
             $seasons_table['normale']['p2']  = $car_price->d_10.' '. userCurrencySymbol();
             $seasons_table['normale']['p3']  = $car_price->d_11.' '. userCurrencySymbol();
         }
+        $locations= Location::with(['contentload' => function($query) use($default_language){
+            $query->where('language_id', $default_language->id);
 
+        }])->where('featured', 1)->orderBy("order",'asc')->get();
+
+        return view('front.cars.listing-details',[
+            'car' => $car,
+            'locations' => $locations,
+        ]);
         if(!empty(request('test'))){
             //dd($car->seasons, $seasons_table);
             return view('home.car_details-2',compact('static_data','car', 'seasons_table', 'seasons_table_th'));

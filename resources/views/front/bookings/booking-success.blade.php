@@ -21,8 +21,8 @@
                     <span class="success-icon">
                         <i class="fa-solid fa-check-double"></i>
                     </span>
-                    <h5>Thank you! Your Order has been Recieved</h5>
-                    <h5 class="order-no">Order Number : <span>#{{ $booking->id }}</span></h5>
+                    <h5>{{ __("website.booking_thanks") }}</h5>
+                    <h5 class="order-no">{{ __("website.booking_number") }} : <span>#{{ $booking->id }}</span></h5>
                 </div>
                 <div class="booking-header">
                     <div class="booking-img-wrap">
@@ -31,11 +31,11 @@
                         </div>
                         <div class="book-info">
                             <h6>{{  Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }}</h6>
-                            <p> Marque : {{ Helpers::getAttributeFromTranslate("name",Helpers::getDefaultLanguage('id'),1,$car->carmodel->carmake) }}</p>
+                            <p> {{ __("website.brand") }} : {{ Helpers::getAttributeFromTranslate("name",Helpers::getDefaultLanguage('id'),1,$car->carmodel->carmake) }}</p>
                         </div>
                     </div>
                     <div class="book-amount">
-                        <p>Total Amount</p>
+                        <p>{{ __("website.booking_total") }}</p>
                         <h6>{{ Helpers::moneyFormatDevise($booking->total) }}</h6>
 
                     </div>
@@ -50,7 +50,7 @@
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
                             <div class="book-head">
-                                <h6>Location & Time</h6>
+                                <h6>{{ __("website.location").' & '.__("website.time") }}</h6>
                             </div>
                             <div class="book-body">
                                 <ul class="location-lists">
@@ -75,7 +75,7 @@
                                 </ul>
                             </div>
                                 <div class="book-head">
-                                    <h6>Resume</h6>
+                                    <h6>{{ __("website.resume") }}</h6>
                                 </div>
                                 <div class="book-body">
                                     <ul class="pricing-lists">
@@ -84,7 +84,7 @@
                                         @endphp
                                         <li>
                                             <div>
-                                                <h6>Location {{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }} pour {{ $nombreDeJours }} Jours</h6>
+                                                <h6>{{ __("website.location") }} {{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }} {{ __("website.for") }} {{ $nombreDeJours }} {{ __("website.days") }}</h6>
                                             </div>
                                             <span>{{ Helpers::moneyFormatDevise($price) }}</span>
 
@@ -92,7 +92,7 @@
                                         @if ($pickup_location->tarif>0)
                                         <li>
                                             <div>
-                                                <h6>{{ __("website.convoyage").' : '.$pickup_location_city}} ( Départ )</h6>
+                                                <h6>{{ __("website.convoyage").' : '.$pickup_location_city}} ( {{   __("website.departure") }} )</h6>
                                             </div>
                                             <span>{{ Helpers::moneyFormatDevise($pickup_location->tarif) }}</span>
 
@@ -101,14 +101,14 @@
                                         @if ($dropoff_location->tarif>0)
                                         <li>
                                             <div>
-                                                <h6>{{ __("website.convoyage").' : '.$dropoff_location_city}} ( Retour )</h6>
+                                                <h6>{{ __("website.convoyage").' : '.$dropoff_location_city}} ( {{   __("website.return") }} )</h6>
                                             </div>
                                             <span>{{ Helpers::moneyFormatDevise($dropoff_location->tarif) }}</span>
 
                                         </li>
                                         @endif
                                         <li class="total">
-                                            <p>Subtotal</p>
+                                            <p>{{   __("website.total") }}</p>
                                             <span>{{ Helpers::moneyFormatDevise($totalWithoutServices) }}</span>
                                         </li>
                                     </ul>
@@ -159,7 +159,7 @@
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
                             <div class="book-head">
-                                <h6>Add-ons Pricing</h6>
+                                <h6>{{ __("website.accessories_pricing") }} </h6>
                             </div>
                             <div class="book-body">
                                 <ul class="pricing-lists">
@@ -178,7 +178,7 @@
                                                 $totalServices+=$totalService;
                                             @endphp
                                             <span>{{ Helpers::moneyFormatDevise($service['price']) }}</span>
-                                            <span>{{ $service['count'] }} Pieces</span>
+                                            <span>{{ $service['count'] }} {{ __("website.pieces") }}</span>
 
                                         </li>
                                         @endif
@@ -187,7 +187,7 @@
 
                                     @endforelse
                                     <li class="total">
-                                        <p>Subtotal</p>
+                                        <p>{{ __("website.total") }}</p>
                                         <span>{{ Helpers::moneyFormatDevise($totalServices) }}</span>
                                     </li>
                                 </ul>
@@ -204,14 +204,14 @@
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
                             <div class="book-head">
-                                <h6>Billing Information</h6>
+                                <h6>{{ __("website.client_info") }}</h6>
                             </div>
                             <div class="book-body">
                                 <ul class="billing-lists">
-                                    <li>Full name Name : {{ $client->name }}</li>
-                                    <li>Email : {{ $client->email }}</li>
-                                    <li>Phone : {{ $client->phone }}</li>
-                                    <li>Flight Number : {{ $client->flight_number }}</li>
+                                    <li> {{ __("website.full_name") }}  : {{ $client->name }}</li>
+                                    <li>{{ __("website.email") }} : {{ $client->email }}</li>
+                                    <li>{{ __("website.phone") }} : {{ $client->phone }}</li>
+                                    <li>{{ __("website.flight_number") }} : {{ $client->flight_number }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -222,13 +222,13 @@
                     <div class="col-lg-6 col-md-6 d-flex">
                         <div class="book-card flex-fill">
                             <div class="book-head">
-                                <h6>Payment Details</h6>
+                                <h6>{{ __("website.payment_details") }}</h6>
                             </div>
                             <div class="book-body">
                                 <ul class="location-lists">
                                     <li>
-                                        <h6>Payment Mode</h6>
-                                        <p>{{ $booking->payment_method == Constant::BANK_PAYMENT ? 'Par carte bancaire' : 'Cache' }}</p>
+                                        <h6>{{ __("website.paiement_mode") }}</h6>
+                                        <p>{{ $booking->payment_method == Constant::BANK_PAYMENT ? __("website.by_bank_card") :__("website.cache") }}</p>
                                     </li>
                                     {{-- <li>
                                         <h6>Transaction ID</h6>
@@ -263,7 +263,7 @@
                 </div>
             </div>
             <div class="print-btn text-center">
-                <a href="javascript:void(0);" class="btn btn-secondary">Print Order</a>
+                <a href="{{ route('home') }}" class="btn btn-secondary">{{ __("website.back_to_home") }}</a>
             </div>
         </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Helpers;
 
 use App\Models\Admin\Language;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
 class Helpers {
@@ -18,9 +19,9 @@ class Helpers {
         return "error parsing number";
     }
     public static function getDefaultLanguage($returnWhat='object'){
-        $code = explode('-',Session::get('language'));
+        $code =App::getLocale();
         // dd(Session::get('language'));
-        if($code[0]){
+        if($code){
             $default_language = Language::where('code', $code)->first();
         }else{
             $default_language = Language::where('default', 1)->first();
@@ -33,10 +34,14 @@ class Helpers {
             return $default_language->id;
         case 'code':
             return $default_language->code;
+        case 'language':
+            return $default_language->language;
+        case 'flagPath':
+            return $default_language->flagPath;
 
         default:
             return $default_language;
-            break;
+        break;
        }
     }
 

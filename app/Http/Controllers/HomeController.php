@@ -64,9 +64,11 @@ class HomeController extends Controller
             'posts'=>$posts,
         ]);
 
-        // Returning the View
-        return view('home.home', compact('posts', 'default_language',
-            'cars', 'static_data', 'f_locations'));
+        return view("front.index",[
+            'cars'=>$cars,
+            'locations'=>$locations,
+            'posts'=>$posts,
+        ]);
     }
 
     public function generalconditions(){
@@ -90,7 +92,7 @@ class HomeController extends Controller
         // Get Static Data
         $static_data = $this->static_data;
         $default_language = $this->default_language;
-        return view('home.contact', compact('static_data', 'default_language'));
+        return view('front.contact-us', []);
     }
 
     // Location de voiture Rabat
@@ -396,5 +398,10 @@ class HomeController extends Controller
         Review::create($data);
         Session::flash('reviewDone', true);
         return Review::all();
+    }
+
+    public function changeLang(){
+        return redirect()->back();
+
     }
 }

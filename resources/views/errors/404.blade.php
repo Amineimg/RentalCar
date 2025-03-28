@@ -1,18 +1,12 @@
-<?php
-$default_language = default_language();
-$static_data = static_home();
-?>
-@extends('layouts.home_layout', ['static_data', $static_data ]) 
-@section('title')
-    <title>404! - {{ $static_data['site_settings']['site_name'] }}</title>
-@endsection
-@section('bg')
-        {{asset('/assets/images/home/').'/'.$static_data['design_settings']['slider_background']}}
-@endsection
+<?php $page = 'error-404'; ?>
+@extends('front.layout.mainlayout')
 @section('content')
-    <div class="row  marginalized">
-        <div class="col-sm-12">
-            <h1 class="section-title-dark">404! <br>{{ $static_data['strings']['you_broke_internet'] }}</h1>
+    <div class="error-box">
+        <img src="{{ URL::asset('/front/build/img/404.png') }}" class="img-fluid" alt="Page not found">
+        <h3>Oops! Page not found!</h3>
+        <p>The page you requested was not found.</p>
+        <div class="back-button">
+            <a href="{{ url('/') }}" class="btn btn-primary">Back to Home</a>
         </div>
     </div>
 @endsection

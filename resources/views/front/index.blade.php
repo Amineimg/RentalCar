@@ -31,7 +31,7 @@
     <!-- /Banner -->
 
     <!-- Search -->
-    <div class="section-search">
+    {{-- <div class="section-search">
         <div class="container">
             <div class="search-box-banner">
                 <form action="{{ url('listing-grid') }}">
@@ -122,8 +122,8 @@
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2>How It Works</h2>
-                <p>Booking a car rental is a straightforward process that typically involves the following steps</p>
+                <h2>{{ __("website.how_it_works") }}</h2>
+                <p>{{ __("website.how_it_works_description") }}</p>
             </div>
             <!-- /Heading title -->
             <div class="services-work">
@@ -135,10 +135,8 @@
                                     src="{{ URL::asset('/front/build/img/icons/services-icon-01.svg') }}" alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>1. Choose Date & Locations</h3>
-                                <p>Determine the date & location for your car rental. Consider factors such as your travel
-                                    itinerary, pickup/drop-off locations (e.g., airport, city center), and duration of
-                                    rental.</p>
+                                <h3>{{ __("website.how_it_works_title_step_1") }}</h3>
+                                <p>{{ __("website.how_it_works_description_step_1") }}</p>
                             </div>
                         </div>
                     </div>
@@ -149,9 +147,8 @@
                                     src="{{ URL::asset('/front/build/img/icons/services-icon-02.svg') }}" alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>2. Pick-Up Locations</h3>
-                                <p>Check the availability of your desired vehicle type for your chosen dates and location.
-                                    Ensure that the rental rates, taxes, fees, and any additional charges.</p>
+                                <h3>{{ __("website.how_it_works_title_step_2") }}</h3>
+                                <p>{{ __("website.how_it_works_description_step_2") }}</p>
                             </div>
                         </div>
                     </div>
@@ -162,10 +159,8 @@
                                     src="{{ URL::asset('/front/build/img/icons/services-icon-03.svg') }}" alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>3. Book your Car</h3>
-                                <p>Once you've found car rental option, proceed to make a reservation. Provide the required
-                                    information, including your details, driver's license, contact info, and payment
-                                    details.</p>
+                                <h3>{{ __("website.how_it_works_title_step_3") }}</h3>
+                                <p>{{ __("website.how_it_works_description_step_3") }}</p>
                             </div>
                         </div>
                     </div>
@@ -176,7 +171,7 @@
     <!-- /services -->
 
     <!-- Popular Services -->
-    <section class="section popular-services popular-explore">
+    {{-- <section class="section popular-services popular-explore">
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
@@ -5988,97 +5983,16 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- /Popular Services -->
 
     <!-- Popular Cartypes -->
-    <section class="section popular-car-type">
-        <div class="container">
-            <!-- Heading title-->
-            <div class="section-heading" data-aos="fade-down">
-                <h2>Most Popular Cartypes</h2>
-                <p>Most popular worldwide Car Category due to their reliability, affordability, and features.</p>
-            </div>
-            <!-- /Heading title -->
-            <div class="row">
-                <div class="popular-slider-group">
-                    <div class="owl-carousel popular-cartype-slider owl-theme">
-                        <!-- owl carousel item -->
-                        <div class="listing-owl-item">
-                            <div class="listing-owl-group">
-                                <div class="listing-owl-img">
-                                    <img src="{{ URL::asset('/front/build/img/cars/mp-vehicle-01.svg') }}" class="img-fluid"
-                                        alt="Popular Cartypes">
-                                </div>
-                                <h6>Crossover</h6>
-                                <p>35 Cars</p>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
 
-                        <!-- owl carousel item -->
-                        <div class="listing-owl-item">
-                            <div class="listing-owl-group">
-                                <div class="listing-owl-img">
-                                    <img src="{{ URL::asset('/front/build/img/cars/mp-vehicle-02.svg') }}" class="img-fluid"
-                                        alt="Popular Cartypes">
-                                </div>
-                                <h6>Sports Coupe</h6>
-                                <p>45 Cars</p>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="listing-owl-item">
-                            <div class="listing-owl-group">
-                                <div class="listing-owl-img">
-                                    <img src="{{ URL::asset('/front/build/img/cars/mp-vehicle-03.svg') }}" class="img-fluid"
-                                        alt="Popular Cartypes">
-                                </div>
-                                <h6>Sedan</h6>
-                                <p>15 Cars</p>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="listing-owl-item">
-                            <div class="listing-owl-group">
-                                <div class="listing-owl-img">
-                                    <img src="{{ URL::asset('/front/build/img/cars/mp-vehicle-04.svg') }}" class="img-fluid"
-                                        alt="Popular Cartypes">
-                                </div>
-                                <h6>Pickup</h6>
-                                <p>17 Cars</p>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="listing-owl-item">
-                            <div class="listing-owl-group">
-                                <div class="listing-owl-img">
-                                    <img src="{{ URL::asset('/front/build/img/cars/mp-vehicle-05.svg') }}" class="img-fluid"
-                                        alt="Popular Cartypes">
-                                </div>
-                                <h6>Family MPV</h6>
-                                <p>24 Cars</p>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-                    </div>
-                </div>
-            </div>
-            <!-- View More -->
-            <div class="view-all text-center" data-aos="fade-down">
-                <a href="{{ url('listing-grid') }}" class="btn btn-view d-inline-flex align-items-center">View all
-                    Cars <span><i class="feather-arrow-right ms-2"></i></span></a>
-            </div>
-            <!-- View More -->
-        </div>
-    </section>
     <!-- /Popular Cartypes -->
+      <!-- Rental deals -->
+      <x-slider-cars />
+
+    <!-- /Rental deals -->
 
     <!-- Facts By The Numbers -->
     <section class="section facts-number">
@@ -6091,8 +6005,8 @@
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2 class="title text-white">Facts By The Numbers</h2>
-                <p class="description">Here are some dreamsrent interesting facts presented by the numbers</p>
+                <h2 class="title text-white">{{ __("website.fact_numbers") }}</h2>
+                <p class="description">{{ __("website.fact_numbers_description") }}</p>
             </div>
             <!-- /Heading title -->
             <div class="counter-group">
@@ -6105,7 +6019,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">16</span>K+</h4>
-                                    <p>Happy Customers</p>
+                                    <p>{{ __("website.happy_customers") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6118,7 +6032,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">2547</span>+</h4>
-                                    <p>Count of Cars</p>
+                                    <p>{{ __("website.count_of_cars") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6131,7 +6045,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">625</span>+</h4>
-                                    <p>Car Center Solutions</p>
+                                    <p>{{ __("website.car_center_solutions") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6144,7 +6058,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">15000</span>+</h4>
-                                    <p>Total Kilometer</p>
+                                    <p>{{ __("website.total_kilometer") }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6155,362 +6069,12 @@
     </section>
     <!-- /Facts By The Numbers -->
 
-    <!-- Rental deals -->
-    <section class="section popular-services">
-        <div class="container">
-            <!-- Heading title-->
-            <div class="section-heading" data-aos="fade-down">
-                <h2>Recommended Car Rental deals</h2>
-                <p>Here are some versatile options that cater to different needs</p>
-            </div>
-            <!-- /Heading title -->
-            <div class="row">
-                <div class="popular-slider-group">
-                    <div class="owl-carousel rental-deal-slider owl-theme">
-                        <!-- owl carousel item -->
-                        <div class="rental-car-item">
-                            <div class="listing-item mb-0">
-                                <div class="listing-img">
-                                    <a href="{{ url('listing-details') }}">
-                                        <img src="{{ URL::asset('/front/build/img/cars/rental-car-01.jpg') }}"
-                                            class="img-fluid" alt="Toyota">
-                                    </a>
-                                    <div class="fav-item justify-content-end">
-                                        <a href="javascript:void(0)" class="fav-icon">
-                                            <i class="feather-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="listing-content">
-                                    <div class="listing-features">
-                                        <div class="fav-item-rental">
-                                            <div class="featured-text">$400<span>/day</span></div>
-                                        </div>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <span>(5.0)</span>
-                                        </div>
-                                        <h3 class="listing-title">
-                                            <a href="{{ url('listing-details') }}">BMW 640 XI Gran Turismo</a>
-                                        </h3>
-                                    </div>
-                                    <div class="listing-details-group">
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-01.svg') }}"
-                                                        alt="Auto"></span>
-                                                <p>Auto</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-02.svg') }}"
-                                                        alt="10 KM"></span>
-                                                <p>10 KM</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-03.svg') }}"
-                                                        alt="Petrol"></span>
-                                                <p>Diesel</p>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-04.svg') }}"
-                                                        alt="Power"></span>
-                                                <p>Power</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-07.svg') }}"
-                                                        alt="2018"></span>
-                                                <p>AC</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-06.svg') }}"
-                                                        alt="Persons"></span>
-                                                <p>5 Persons</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="listing-button">
-                                        <a href="{{ url('listing-details') }}" class="btn btn-order"><span><i
-                                                    class="feather-calendar me-2"></i></span>Rent Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="rental-car-item">
-                            <div class="listing-item mb-0">
-                                <div class="listing-img">
-                                    <a href="{{ url('listing-details') }}">
-                                        <img src="{{ URL::asset('/front/build/img/cars/rental-car-02.jpg') }}"
-                                            class="img-fluid" alt="Toyota">
-                                    </a>
-                                    <div class="fav-item justify-content-end">
-                                        <a href="javascript:void(0)" class="fav-icon">
-                                            <i class="feather-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="listing-content">
-                                    <div class="listing-features">
-                                        <div class="fav-item-rental">
-                                            <div class="featured-text">$210<span>/day</span></div>
-                                        </div>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <span>(5.0)</span>
-                                        </div>
-                                        <h3 class="listing-title">
-                                            <a href="{{ url('listing-details') }}">Camz Ferrari Portofino M</a>
-                                        </h3>
-                                    </div>
-                                    <div class="listing-details-group">
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-01.svg') }}"
-                                                        alt="Auto"></span>
-                                                <p>Auto</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-02.svg') }}"
-                                                        alt="10 KM"></span>
-                                                <p>30 KM</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-03.svg') }}"
-                                                        alt="Petrol"></span>
-                                                <p>Diesel</p>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-04.svg') }}"
-                                                        alt="Power"></span>
-                                                <p>Power</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-07.svg') }}"
-                                                        alt="2018"></span>
-                                                <p>AC</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-06.svg') }}"
-                                                        alt="Persons"></span>
-                                                <p>5 Persons</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="listing-button">
-                                        <a href="{{ url('listing-details') }}" class="btn btn-order"><span><i
-                                                    class="feather-calendar me-2"></i></span>Rent Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="rental-car-item">
-                            <div class="listing-item mb-0">
-                                <div class="listing-img">
-                                    <div class="img-slider owl-carousel owl-theme">
-                                        <div class="slide-images">
-                                            <a href="{{ url('listing-details') }}">
-                                                <img src="{{ URL::asset('/front/build/img/cars/rental-car-03.jpg') }}"
-                                                    class="img-fluid" alt="Toyota">
-                                            </a>
-                                        </div>
-                                        <div class="slide-images">
-                                            <a href="{{ url('listing-details') }}">
-                                                <img src="{{ URL::asset('/front/build/img/cars/rental-car-03-slider1.jpg') }}"
-                                                    class="img-fluid" alt="Toyota">
-                                            </a>
-                                        </div>
-                                        <div class="slide-images">
-                                            <a href="{{ url('listing-details') }}">
-                                                <img src="{{ URL::asset('/front/build/img/cars/rental-car-03-slider2.jpg') }}"
-                                                    class="img-fluid" alt="Toyota">
-                                            </a>
-                                        </div>
-                                        <div class="slide-images">
-                                            <a href="{{ url('listing-details') }}">
-                                                <img src="{{ URL::asset('/front/build/img/cars/rental-car-03-slider3.jpg') }}"
-                                                    class="img-fluid" alt="Toyota">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="fav-item justify-content-end">
-                                        <a href="javascript:void(0)" class="fav-icon">
-                                            <i class="feather-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="listing-content">
-                                    <div class="listing-features">
-                                        <div class="fav-item-rental">
-                                            <div class="featured-text">$380<span>/day</span></div>
-                                        </div>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <span>(5.0)</span>
-                                        </div>
-                                        <h3 class="listing-title">
-                                            <a href="{{ url('listing-details') }}">Mercedes-Benz</a>
-                                        </h3>
-                                    </div>
-                                    <div class="listing-details-group">
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-01.svg') }}"
-                                                        alt="Auto"></span>
-                                                <p>Auto</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-02.svg') }}"
-                                                        alt="10 KM"></span>
-                                                <p>30 KM</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-03.svg') }}"
-                                                        alt="Petrol"></span>
-                                                <p>Diesel</p>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-04.svg') }}"
-                                                        alt="Power"></span>
-                                                <p>Power</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-07.svg') }}"
-                                                        alt="2018"></span>
-                                                <p>AC</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-06.svg') }}"
-                                                        alt="Persons"></span>
-                                                <p>5 Persons</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="listing-button">
-                                        <a href="{{ url('listing-details') }}" class="btn btn-order"><span><i
-                                                    class="feather-calendar me-2"></i></span>Rent Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                        <!-- owl carousel item -->
-                        <div class="rental-car-item">
-                            <div class="listing-item mb-0">
-                                <div class="listing-img">
-                                    <a href="{{ url('listing-details') }}">
-                                        <img src="{{ URL::asset('/front/build/img/cars/rental-car-04.jpg') }}"
-                                            class="img-fluid" alt="Toyota">
-                                    </a>
-                                    <div class="fav-item justify-content-end">
-                                        <a href="javascript:void(0)" class="fav-icon">
-                                            <i class="feather-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="listing-content">
-                                    <div class="listing-features">
-                                        <div class="fav-item-rental">
-                                            <span class="featured-text">$250/day</span>
-                                        </div>
-                                        <div class="list-rating">
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <i class="fas fa-star filled"></i>
-                                            <span>(4.5)</span>
-                                        </div>
-                                        <h3 class="listing-title">
-                                            <a href="{{ url('listing-details') }}">Range Rover</a>
-                                        </h3>
-                                    </div>
-                                    <div class="listing-details-group">
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-01.svg') }}"
-                                                        alt="Auto"></span>
-                                                <p>Auto</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-02.svg') }}"
-                                                        alt="10 KM"></span>
-                                                <p>28 KM</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-03.svg') }}"
-                                                        alt="Petrol"></span>
-                                                <p>Petrol</p>
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-04.svg') }}"
-                                                        alt="Power"></span>
-                                                <p>Power</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-07.svg') }}"
-                                                        alt="2018"></span>
-                                                <p>AC</p>
-                                            </li>
-                                            <li>
-                                                <span><img src="{{ URL::asset('/front/build/img/icons/car-parts-06.svg') }}"
-                                                        alt="Persons"></span>
-                                                <p>5 Persons</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="listing-button">
-                                        <a href="{{ url('listing-details') }}" class="btn btn-order"><span><i
-                                                    class="feather-calendar me-2"></i></span>Rent Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /owl carousel item -->
-
-                    </div>
-                </div>
-            </div>
-            <!-- View More -->
-            <div class="view-all text-center" data-aos="fade-down">
-                <a href="{{ url('listing-grid') }}" class="btn btn-view d-inline-flex align-items-center">Go to all
-                    Cars <span><i class="feather-arrow-right ms-2"></i></span></a>
-            </div>
-            <!-- View More -->
-        </div>
-    </section>
-    <!-- /Rental deals -->
 
     <!--Why Choose Us-->
     <!-- About us Testimonials -->
     <!-- FAQ  -->
     <!-- Pricing Plan -->
-    @component('front.components.client-section')
+    @component('front.components.client-section',["posts"=>$posts])
     @endcomponent
     <!-- /Pricing Plan -->
     <!-- /FAQ  -->

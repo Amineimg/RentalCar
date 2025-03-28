@@ -456,6 +456,7 @@ Route::group(
 
 
     // Home Routes
+Route::group(  [ 'middleware' => 'language_middleware'],function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/user/resend', 'UserController@resend')->name('resend_activation_mail');
     Route::post('/user/changeLanguage', 'UserController@changeLanguage')->name('change_language');
@@ -510,7 +511,7 @@ Route::group(
     Route::post('/filter/cars', 'FilterController@cars');
 
     // Cars
-    Route::get('{alias}', 'CarController@index')->name('single-car');
+    // Route::get('{alias}', 'CarController@index')->name('single-car');
     Route::post('/bookcar', 'CarController@book')->name('book_car');
     Route::get('/car-details/{id}/{car_name}', 'CarController@details')->name('car_details');
     Route::post('/booking', 'CarController@booking')->name('booking_details');
@@ -525,5 +526,7 @@ Route::group(
     Route::get('/location/{id}/villas', 'LocationController@get_cars');
     Route::get('/location/{alias}', 'LocationController@index');
     Route::post('/get_ajax_price', 'CarController@get_ajax_price')->name('get_ajax_price');
+    Route::get('/change-lang', [HomeController::class,'changeLang'])->name('change_lang');
+});
 });
 
