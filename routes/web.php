@@ -476,7 +476,7 @@ Route::group(  [ 'middleware' => ['language_middleware','web']],function(){
     Route::post('/search_home/devis_email', 'SearchController@devis_email')->name('devis_email');
     Route::match(['get','post'],'/search', [SearchController::class,'cars'])->name('search_home');
     Route::get('/contact-us', 'HomeController@contact')->name('contact');
-    Route::post('/mail/sendcontact', 'EmailController@contact')->name('send_contact');
+    Route::post('/mail/sendcontact', 'HomeController@submitContact')->name('send_contact');
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/logout', 'UserController@logout')->name('logout');
     Route::get('/page/{alias}', 'PageController@index')->name('page');

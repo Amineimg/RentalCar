@@ -151,5 +151,8 @@ return [
     "address" => "Adresse",
     "message" => "Message",
     "submit" => "Soumettre",
+    "contact_us" => "Contactez-nous",
+    "subject" => "Sujet",
+
 
 ];

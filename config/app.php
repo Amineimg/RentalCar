@@ -19,7 +19,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Dehbi Lux '),
+    'name' => env('APP_NAME', 'Dehbi Lux'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/oyama'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 

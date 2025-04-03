@@ -31,5 +31,10 @@ return [
     "payment_method_check" => "Payment Method",
     "booking" => "Booking",
     "description_3" => "You have received a new booking request from",
+    "new_message" => "New Message",
+    "contact_email_msg" => "You have received a new message from the contact form on your website.",
+    "contact_email_msg_2" => "You have received a new message from the contact form on your website. Here are the details:",
+    "reply_to" => "Reply to",
+
 
 ];

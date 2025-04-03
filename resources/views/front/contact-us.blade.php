@@ -57,32 +57,32 @@
                         <img src="{{ URL::asset('/build/img/contact-info.jpg') }}" class="img-fluid" alt="Contact">
                     </div> --}}
                     <div class="col-lg-8">
-                        <form action="#">
+                        <form action="{{ route('send_contact') }}" method="POST" class="contact-form">
+                            @csrf
                             <div class="row">
                                 <h1>{{ __("website.contact_us") }}</h1>
                                 <div class="col-md-12">
                                     <div class="input-block">
                                         <label>{{ __("website.full_name") }} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <input type="text" class="form-control" placeholder="" name='name' required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-block">
-                                        <label>{{ __("website.email") }}<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <label>{{ __("website.subject") }}<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="" name='subject' required>>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-block">
                                         <label>{{ __("website.email") }} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="">
+                                        <input type="text" class="form-control" placeholder="" name='email' required>>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="input-block">
                                         <label>{{ __("website.message") }} <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="4" cols="50" placeholder="">
-                                        </textarea>
+                                        <textarea class="form-control" rows="4" cols="50" placeholder="" required> name='message'> </textarea>
                                     </div>
                                 </div>
                             </div>
