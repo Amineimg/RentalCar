@@ -12,6 +12,7 @@ use App\Models\Admin\Location;
 use Illuminate\Support\Facades\Validator;
 use \Carbon\Carbon;
 use App\Http\Controllers\CarController;
+use App\Http\Services\BookingService;
 use App\Models\Admin\Carmake;
 use App\Models\Admin\Category;
 use Illuminate\Http\Request;
@@ -296,7 +297,7 @@ class SearchController extends Controller
         }
 
         foreach($cars as $car) {
-            $car->booking_price = $this->CarController->get_price_infos($request, $car, $nombreDeJours);
+            $car->booking_price =  BookingService::get_price_infos($start_date,$end_date,$car,$nombreDeJours);
         }
 
         $cars = $cars->get();

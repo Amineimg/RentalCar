@@ -18,6 +18,7 @@ use App\Models\Admin\Highlight;
 use Illuminate\Support\Collection;
 use App\Models\Admin\ExtraService;
 use App\Http\Resources\CarResource;
+use App\Http\Services\BookingService;
 use App\Models\Admin\Currency;
 use App\Models\Admin\LocationContent;
 use Illuminate\Support\Facades\Session;
@@ -263,7 +264,7 @@ class CarApiController extends Controller
             $nights = $nights+1;
         }
 
-        $price = $this->get_price_infos($request, $car, $nights);
+       $price =  BookingService::get_price_infos($request->start_date,$request->end_date,$car,$nights);
 
         // current language id
         $code = Session::get('language');
@@ -282,53 +283,7 @@ class CarApiController extends Controller
         return response()->json($response);
     }
 
-    public function get_price_infos ($request, $car, $nights) {
-        $start_date = !empty($request->start_date) ? $request->start_date : Session::get('start_date');
-        $end_date = !empty($request->end_date) ? $request->end_date : Session::get('end_date');
 
-        $d1 = explode("/", $start_date);
-        $d2 = explode("/", $end_date);
-
-        $datedebut = Carbon::create($d1[2], $d1[1], $d1[0], 0, 0, 0);
-        $datefin = Carbon::create($d2[2], $d2[1], $d2[0], 0, 0, 0);
-        $period = \Carbon\CarbonPeriod::create($datedebut, $datefin); // la periode de la reservation
-        if(count($period) > $nights) { // si l'utilisateur ne depace pas 4 heures enlever un jour de la pediode
-            $datefin->subDay();
-            $period = \Carbon\CarbonPeriod::create($datedebut, $datefin);
-        }
-
-        $price= 0;
-        foreach ($period as $date) {
-            $day_price = Price::where(['car_id' => $car->id, 'date' => $date])->first();
-            if( count($period) >= 11 ) {
-                if(empty($day_price)){
-                    $price = $car->d_11 * count($period);
-                    break;
-                }
-                $price += $day_price->d_11;
-            } elseif( count($period) >= 5 ) {
-                if(empty($day_price)){
-                    $price = $car->d_10 * count($period);
-                    break;
-                }
-                $price += $day_price->d_10;
-            } elseif( count($period) >= 2 ) {
-                if(empty($day_price)){
-                    $price = $car->price_per_night * count($period);
-                    break;
-                }
-                $price += $day_price->d_4;
-            } elseif( count($period) == 1 ) {
-                if(empty($day_price)){
-                    $price = $car->price_per_night + $car->franchise;
-                    break;
-                }
-                $price = $day_price->d_4 + $car->franchise;
-            }
-        }
-
-        return $price;
-    }
 
     public function book(Request $request){
         $static_data = $this->static_data;

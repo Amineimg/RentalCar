@@ -437,7 +437,7 @@
                         <div class="location-content">
                             <div class="tab-content">
                                 <div class="tab-pane fade active show" id="delivery">
-                                    <form class="" action="{{ route('booking_details') }}" method="POST">
+                                    <form class="" action="{{ route('booking_details',['car_alias'=>$car->alias]) }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="car_id" value="{{ $car->id }}">
 

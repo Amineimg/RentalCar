@@ -160,7 +160,13 @@
                                                 <div class="input-block">
                                                     <label class="form-label">{{ __("website.first_name") }}<span class="text-danger"> *</span></label>
                                                     <input type="text" class="form-control" placeholder="{{ __("website.first_name") }}" name="first_name">
-                                                </div>
+                                                        {{-- @dd($errors)    --}}
+                                                            @error('first_name')
+                                                                <span class="text-danger">
+                                                                    {{ $message }}
+                                                                </span>
+                                                            @enderror
+                                                    </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
@@ -168,6 +174,11 @@
                                                             *</span></label>
                                                     <input type="text" class="form-control"
                                                         placeholder="{{ __("website.last_name") }}" name="last_name">
+                                                        @if ($errors->has('last_name'))
+                                                            <em class="invalid-feedback">
+                                                                {{ $errors->first('last_name') }}
+                                                            </em>
+                                                        @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -175,6 +186,11 @@
                                                     <label class="form-label">{{ __("website.email") }}<span class="text-danger">
                                                             *</span></label>
                                                     <input type="text" class="form-control" placeholder="{{ __("website.email") }}" name="email">
+                                                    @if ($errors->has('email'))
+                                                        <span class="text-danger">
+                                                            {{ $errors->first('email') }}
+                                                        </span>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -183,14 +199,23 @@
                                                             *</span></label>
                                                     <input type="text" class="form-control"
                                                         placeholder="{{ __("website.phone") }}" name="phone">
+                                                        @if ($errors->has('phone'))
+                                                            <span class="text-danger">
+                                                                {{ $errors->first('phone') }}
+                                                            </span>
+                                                        @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="input-block">
-                                                    <label class="form-label">{{ __("website.flight_numner") }} <span
-                                                            class="text-danger"> *</span></label>
+                                                    <label class="form-label">{{ __("website.flight_number") }}</label>
                                                     <input type="text" class="form-control"
-                                                        placeholder="{{ __("website.flight_numner") }}" name="flight_number">
+                                                        placeholder="{{ __("website.flight_number") }}" name="flight_number">
+                                                        @if ($errors->has('flight_number'))
+                                                            <em class="invalid-feedback">
+                                                                {{ $errors->first('flight_number') }}
+                                                            </em>
+                                                        @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -204,6 +229,11 @@
 
                                                         @endforelse
                                                     </select>
+                                                    @if ($errors->has('payment_method'))
+                                                        <em class="invalid-feedback">
+                                                            {{ $errors->first('payment_method') }}
+                                                        </em>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -256,7 +286,7 @@
                                             </div>
                                             <div class="col-md-12 mt-2">
                                                 <div class="input-block m-0">
-                                                    <label class="custom_check d-inline-flex location-check m-0"><span>I have Read and Accept Terms & Conditions</span> <span class="text-danger"> *</span>
+                                                    <label class="custom_check d-inline-flex location-check m-0"><span>{{ __("website.read_condition") }}</span> <span class="text-danger"> *</span>
                                                         <input type="checkbox" name="remeber" name="general_condition">
                                                         <span class="checkmark"></span>
                                                     </label>

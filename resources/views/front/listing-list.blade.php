@@ -428,15 +428,15 @@
                                             </div>
                                         </div>
                                         <div class="listing-button">
-                                            <form action="{{ route('booking_details') }}" method="POST">
+                                            {{-- <form action="{{ route('booking_details') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="car_id" value="{{ $car->id }}">
                                                 <button type="submit"  class="btn btn-order">
                                                     <span><i class="feather-calendar me-2"></i></span>{{ __("website.book_now") }}
                                                 </button>
-                                            </form>
-                                            {{-- <a href="{{url('listing-details')}}" class="btn btn-order"><span><i
-                                                        class="feather-calendar me-2"></i></span>Rent Now</a> --}}
+                                            </form> --}}
+                                            <a href="{{ route('booking_details',['car_alias'=>$car->alias]) }}" class="btn btn-order"><span><i
+                                                        class="feather-calendar me-2"></i></span>{{ __("website.book_now") }}</a>
                                         </div>
                                     </div>
                                     @if ($car->featured==1)

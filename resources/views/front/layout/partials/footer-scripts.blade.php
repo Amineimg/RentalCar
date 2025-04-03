@@ -101,27 +101,28 @@
 
 
             });
-            // $('.end_date').each(function () {
-            //     var minDate = $(this).data('min-date'); // Get min date from HTML attribute
-            //     var currentDate = $(this).data('current-date'); // Get min date from HTML attribute
-            //     console.log( moment(minDate, 'YYYY-MM-DD'))
-            //     $(this).datetimepicker({
-            //         format: 'DD-MM-YYYY',
-            //         minDate: minDate && moment(minDate, 'DD-MM-YYYY').isValid() ? moment(minDate, 'DD-MM-YYYY') : false, // Apply min date if set and valid
-            //         date: currentDate && moment(currentDate, 'DD-MM-YYYY').isValid() ? moment(currentDate, 'DD-MM-YYYY') : false, // Set current date as the default
-            //         icons: {
-            //             up: "fas fa-angle-up",
-            //             down: "fas fa-angle-down",
-            //             next: 'fas fa-angle-right',
-            //             previous: 'fas fa-angle-left'
-            //         }
-            //     })
+            $('.end_date').each(function () {
+                var minDate = $(this).data('min-date'); // Get min date from HTML attribute
+                var currentDate = $(this).data('current-date'); // Get min date from HTML attribute
+                console.log( moment(minDate, 'YYYY-MM-DD'))
+                $(this).datetimepicker({
+                    format: 'DD-MM-YYYY',
+                    minDate: minDate && moment(minDate, 'DD-MM-YYYY').isValid() ? moment(minDate, 'DD-MM-YYYY') : false, // Apply min date if set and valid
+                    date: currentDate && moment(currentDate, 'DD-MM-YYYY').isValid() ? moment(currentDate, 'DD-MM-YYYY') : false, // Set current date as the default
+                    icons: {
+                        up: "fas fa-angle-up",
+                        down: "fas fa-angle-down",
+                        next: 'fas fa-angle-right',
+                        previous: 'fas fa-angle-left'
+                    }
+                })
 
-            // });
+            });
         }
         if($('.timepicker').length > 0) {
             $('.timepicker').datetimepicker({
                 format: "hh:mm",
+                date: new Date() ,
                 icons: {
                     up: "fa fa-angle-up",
                     down: "fa fa-angle-down",
