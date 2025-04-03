@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Admin\Blog;
 use App\Models\Admin\Car;
 use App\Models\Admin\Review;
@@ -9,6 +10,8 @@ use App\Models\Admin\Location;
 use App\Models\Admin\Highlight;
 use App\Models\Admin\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -87,6 +90,21 @@ class HomeController extends Controller
         $static_data = $this->static_data;
         $default_language = $this->default_language;
         return view('front.contact-us', []);
+    }
+    public function submitContact(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'subject' => 'required|string|max:255',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        $data = $request->only(['name', 'email', 'message','subject']);
+        $to = Config::get('mail.from.address');
+
+        Mail::to($to)->send(new ContactMail($data));
+
+        return back()->with('success', 'Your message has been sent successfully!');
     }
 
     // Location de voiture Rabat

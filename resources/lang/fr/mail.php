@@ -31,4 +31,8 @@ return [
     "payment_method_check"=>"Méthode de paiement",
     "booking"=>"Réservation",
     "description_3"=>"Vous recevez une nouvelle demande de réservation de",
+    "new_message" => "Nouveau message",
+    "contact_email_msg" => "Vous avez reçu un nouveau message du formulaire de contact de votre site Web. Voici les détails :",
+    "reply_to" => "Reply to",
+
 ];

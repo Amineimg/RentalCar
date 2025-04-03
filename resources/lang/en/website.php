@@ -140,18 +140,18 @@ return [
     "by_bank_card" => "By Credit Card",
     "cache" => "Cash",
 
-
-
-        "airport_delivery" => "Airport Delivery",
-        "home_delivery" => "Home Delivery",
-        "specifications" => "Specifications",
-        "doors" => "Doors",
-        "check_availability" => "Check Availability",
-        "links" => "Links",
-        "copy_right" => "All rights reserved - DEHBI LUX | Car rental in Marrakech with affordable franchise buyback",
-        "powered_by" => "Powered By",
-        "address" => "Address",
-        "message" => "Message",
-        "submit" => "Submit",
+    "airport_delivery" => "Airport Delivery",
+    "home_delivery" => "Home Delivery",
+    "specifications" => "Specifications",
+    "doors" => "Doors",
+    "check_availability" => "Check Availability",
+    "links" => "Links",
+    "copy_right" => "All rights reserved - DEHBI LUX | Car rental in Marrakech with affordable franchise buyback",
+    "powered_by" => "Powered By",
+    "address" => "Address",
+    "message" => "Message",
+    "submit" => "Submit",
+    "contact_us" => "Contact Us",
+    "subject" => "Subject",
 
 ];

@@ -29,13 +29,13 @@ class EmailController extends Controller
 
     public function contact(Request $request)
     {
-        
+
         $static_data = $this->static_data;
         $default_language = $this->default_language;
-        
+
         $currency_code = get_setting('currency_code', 'site');
-        $currency = currency()->getCurrency($request->currency_code);  
-    
+        $currency = currency()->getCurrency($request->currency_code);
+
         if ($request->ajax()) {
             // Validate request
             /*
@@ -74,9 +74,9 @@ class EmailController extends Controller
                 $mail_data['mail_after_text'] = '';
                 $mail_data['regards'] = $static_data['strings']['regards'];
                 $mail_data['reply'] = $static_data['strings']['reply'];
-                
+
                 // Create the mail and send it
-                
+
                 Mail::send('emails.contact', ['mail_data' => $mail_data, 'data' => $mail_data], function ($m) use ($mail_data) {
                     $m->from('noreply@jacarandacar.com', 'Jacarandacar');
                     $m->to('info@jacarandacar.com', 'Jacarandacar')->subject($mail_data['subject']);
@@ -106,7 +106,7 @@ class EmailController extends Controller
                 //$entete .= 'Cc: ' . 'yassineseocom@gmail.com' . "\r\n";
                 //$entete .= 'Cc: ' . 'jacarandacar2021@gmail.com' . "\r\n";
                 $entete .= 'Reply-To: '. $mail_data['email'] . "\r\n";
-                
+
                 $email  = view('emails.contact',compact('mail_data'))->render();
 
                 //mail('info@jacarandacar.com', $mail_data['subject'], $email , $entete, '-f info@jacarandacar.com');
@@ -115,7 +115,7 @@ class EmailController extends Controller
                 //return view('home.sentConfirm',compact('static_data','default_language'));
 
                 */
-                
+
             //}
             } else {
                 return response()->json($static_data['strings']['something_happened'], 400);
