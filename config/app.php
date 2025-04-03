@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Constants\Constant;
 use App\Http\Helpers\Helpers;
 use App\Models\Admin\Language;
@@ -241,7 +242,6 @@ return [
         'Helpers' => Helpers::class,
         'Constant' => Constant::class,
         'Language' => Language::class,
-
 
     ],
 

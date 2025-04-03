@@ -63,12 +63,6 @@ class HomeController extends Controller
             'locations'=>$locations,
             'posts'=>$posts,
         ]);
-
-        return view("front.index",[
-            'cars'=>$cars,
-            'locations'=>$locations,
-            'posts'=>$posts,
-        ]);
     }
 
     public function generalconditions(){

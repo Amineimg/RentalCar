@@ -1,0 +1,24 @@
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+@endif
+{{-- <div class="alert alert-success">
+    fdsfd
+</div> --}}
+
+@if(Session::has('error'))
+    <div class="alert alert-danger">
+        {{ Session::get('error') }}
+    </div>
+@endif
+
+@if(Session::has('errors') )
+    <div class="alert alert-danger">
+        <ul>
+            @foreach(Session::get('errors')->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif

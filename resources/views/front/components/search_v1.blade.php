@@ -25,9 +25,7 @@
                         <div class="input-block-wrapp">
                             <div class="input-block date-widget">
                                 <div class="group-img">
-                                        <input type="text" class="form-control datetimepicker start_date" name="start_date"
-                                        value="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}"
-                                            placeholder="04/11/2023">
+                                    <input type="text" class="form-control datetimepicker start_date" name="start_date" placeholder="{{ Carbon::now()->format("d-m-Y") }}" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}">
                                     <span><i class="feather-calendar"></i></span>
                                 </div>
                             </div>
@@ -73,10 +71,8 @@
                         <div class="input-block-wrapp">
                             <div class="input-block date-widget">
                                 <div class="group-img">
-                                    <input type="text" class="form-control datetimepicker" name="end_date"
-                                    value="{{Session::has("end_date") && !empty(Session::get("end_date")) ? Carbon::parse(Session::get("end_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}"
-
-                                        placeholder="04/11/2023">
+                                    <input type="text" class="form-control datetimepicker end_date" name="end_date"
+                                    placeholder="{{ Carbon::now()->format("d-m-Y") }}" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("end_date") && !empty(Session::get("end_date")) ? Carbon::parse(Session::get("end_date"))->format("d-m-Y") : Carbon::now()->addDay()->format("d-m-Y") }}" >
                                     <span><i class="feather-calendar"></i></span>
                                 </div>
                             </div>

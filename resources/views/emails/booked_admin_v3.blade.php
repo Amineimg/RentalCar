@@ -584,7 +584,7 @@
                                                                             : </span></strong>
                                                                 </h1>
                                                                 <p style="margin: 0; padding-left:5px;">
-                                                                    {{ isset($data['franchise']) ? $data['franchise'] : '' }} €
+                                                                    {{ isset($data['franchise']) ? $data['franchise'] : '' }}
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -929,18 +929,8 @@
                                                                 <div
                                                                     style="color:#393d47;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify;mso-line-height-alt:19.2px;">
                                                                     <p style="margin: 0;">
-                                                                        {{ __('mail.hind_phone', [], 'fr') }}
+                                                                        {{ __('mail.phone', [], 'fr') }} {{ Config::get('dehbi.primary_phone') }}
                                                                     </p>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="pad"
-                                                                style="padding-left:20px;padding-right:20px;">
-                                                                <div
-                                                                    style="color:#393d47;direction:ltr;font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:justify;mso-line-height-alt:19.2px;">
-                                                                    <p style="margin: 0;">
-                                                                        {{ __('mail.younes_phone', [], 'fr') }} </p>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -1060,24 +1050,7 @@
                                                                                         <strong href="">
                                                                                             <span
                                                                                                 class="tinyMce-placeholder"
-                                                                                                style="word-break: break-word;">{{ __('mail.hind_phone', [], 'fr') }}</span>
-                                                                                        </strong>
-
-                                                                                        </a>
-                                                                                </h1>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="pad"
-                                                                                style="text-align:center;width:100%;">
-                                                                                <h1
-                                                                                    style="margin: 0; color: #2a3940; direction: ltr; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: left; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 21.599999999999998px;">
-                                                                                    <strong>
-                                                                                        <strong href="">
-
-                                                                                            <span
-                                                                                                class="tinyMce-placeholder"
-                                                                                                style="word-break: break-word;">{{ __('mail.younes_phone', [], 'fr') }}</span>
+                                                                                                style="word-break: break-word;">{{ __('mail.phone', [], 'fr') }} {{ Config::get('dehbi.primary_phone') }}</span>
                                                                                         </strong>
 
                                                                                         </a>

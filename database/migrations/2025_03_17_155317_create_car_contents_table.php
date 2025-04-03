@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('car_contents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('car_id')->nullable();
-            $table->foreign('car_id')->references("id")->on("languages")->onDelete("cascade");
+            $table->foreign('car_id')->references("id")->on("cars")->onDelete("cascade");
             $table->unsignedBigInteger('language_id')->nullable();
             $table->foreign('language_id')->references("id")->on("languages")->onDelete("cascade");
             $table->string('name', 255);

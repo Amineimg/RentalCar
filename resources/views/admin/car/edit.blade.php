@@ -40,7 +40,7 @@
                                         <div class="col s12">
                                             <div class="form-group {{$errors->has('name.'.$language->id.'') ? 'has-error' : ''}}">
                                                 {{Form::label('name['.$language->id.']', get_string('car_name'))}}
-                                                {{Form::text('name['.$language->id.']',  $car->content($language->id)->name, ['class' => 'form-control', 'placeholder' => get_string('car_name')])}}
+                                                {{Form::text('name['.$language->id.']',  $car->content($language->id)->name ?? '', ['class' => 'form-control', 'placeholder' => get_string('car_name')])}}
                                                 @if($errors->has('name.'.$language->id.''))
                                                     <span class="wrong-error">* {{$errors->first('name.'.$language->id.'')}}</span>
                                                 @endif
@@ -48,21 +48,21 @@
                                         </div>
                                         <div class="col s12 mtop10 mbot20">
                                             {{Form::label('description['.$language->id.']', get_string('description'))}}
-                                            {{Form::textarea('description['.$language->id.']', $car->content($language->id)->description, ['class' => 'form-control'])}}
+                                            {{Form::textarea('description['.$language->id.']', $car->content($language->id)->description ?? '', ['class' => 'form-control'])}}
                                             @if($errors->has('description.'.$language->id.''))
                                                 <span class="wrong-error">* {{$errors->first('description.'.$language->id.'')}}</span>
                                             @endif
                                         </div>
                                         <div class="col s12 mtop10 mbot20">
                                             {{Form::label('meta_title['.$language->id.']', get_string('meta_title'))}}
-                                            {{Form::text('meta_title['.$language->id.']',  $car->content($language->id)->meta_title, ['class' => 'form-control', 'placeholder' => get_string('car_name')])}}
+                                            {{Form::text('meta_title['.$language->id.']',  $car->content($language->id)->meta_title ?? '', ['class' => 'form-control', 'placeholder' => get_string('car_name')])}}
                                             @if($errors->has('meta_title.'.$language->id.''))
                                                 <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
                                             @endif
                                         </div>
                                         <div class="col s12 mtop10 mbot20">
                                             {{Form::label('meta_description['.$language->id.']', get_string('meta_description'))}}
-                                            {{Form::textarea('meta_description['.$language->id.']', $car->content($language->id)->meta_description, ['class' => 'form-control'])}}
+                                            {{Form::textarea('meta_description['.$language->id.']', $car->content($language->id)->meta_description ?? '', ['class' => 'form-control'])}}
                                             @if($errors->has('meta_description.'.$language->id.''))
                                                 <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>
                                             @endif
