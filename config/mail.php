@@ -58,8 +58,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'info@jacarandacar.com'),
-        'name' => env('MAIL_FROM_NAME', 'Jacarandacar'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@dehbicarrental.com'),
+        'name' => env('MAIL_FROM_NAME', 'DEHBI LUX'),
     ],
 
     /*

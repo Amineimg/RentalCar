@@ -2,6 +2,7 @@
 
 namespace App\Http\Helpers;
 
+use App\Models\Admin\Currency;
 use App\Models\Admin\Language;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -43,6 +44,30 @@ class Helpers {
             return $default_language;
         break;
        }
+    }
+
+    public static function getDefaultCurrency($returnWhat='object'){
+        $code = Session::has('currency') ? Session::get('currency') : get_setting('currency_code', 'site');
+        $currency = Currency::where('code',$code)->first();
+        // dd($currency);
+        switch ($returnWhat) {
+            case 'object':
+                return $currency;
+            case 'id':
+                return $currency->id;
+            case 'code':
+                return $currency->code;
+            case 'name':
+                return $currency->name;
+            case 'symbol':
+                return $currency->symbol;
+            case 'symbol':
+                return $currency->symbol;
+
+            default:
+                return $currency;
+            break;
+           }
     }
 
 }

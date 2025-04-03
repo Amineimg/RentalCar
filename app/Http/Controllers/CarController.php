@@ -305,7 +305,7 @@ class CarController extends Controller
                 return redirect()->back()->with('errors', $validator->errors())->with('success', 'Operation successful!');
 
             }
-        
+
             // dd($request->all());
        $static_data = $this->static_data;
         $default_language = $this->default_language;
@@ -396,7 +396,14 @@ class CarController extends Controller
             $data['client_data']          =json_encode($client_data);
             $data['car_name']=  $car->alias;
             $booking = Booking::create($data);
-            $this->sendBookingMails($request);
+            $bookingMailData=[
+
+                "pickupLocation"=>$pickup_location_model,
+                "dropOffLocation"=>$dropoff__location_model,
+                "periods"=>$nombreDeJours,
+            ];
+            BookingService::sendBookingMails($booking,$bookingMailData);
+
 
             return view('front.bookings.booking-success',[
                 'price'=>$price,
@@ -410,7 +417,7 @@ class CarController extends Controller
                 'errors' => session()->get('errors')
 
             ]);
-        
+
     } catch (Exception $th) {
             dd($th->getMessage());
     }
@@ -485,97 +492,7 @@ class CarController extends Controller
         return view('home.car_details',compact('static_data', 'car', 'seasons_table', 'seasons_table_th'));
     }
 
-    public function sendBookingMails($request){
-        $from = $admin_email = Config::get("mail.from.address");
 
-        $static_data = $this->static_data;
-        $currency_code = get_setting('currency_code', 'site');
-        $currency = Currency::where('code',$request->currency_code)->first()->toArray();
-
-        //dd($currency, $request->currency_code);
-        $currency = $currency['symbol'] ? $currency['symbol'] : '';
-
-        $data = $request->all();
-        $data['completed']    = get_setting('autoapprove_booking', 'car');
-        $data['start_date']   = Carbon::createFromFormat('d/m/Y H:s', $data['start_date'])->format('Y-m-d H:s');
-        $dtotal = $data['total'];
-        if ($currency_code != $request->currency_code) {
-            $data['total']    = $data['total'].' '. userCurrencySymbol();
-        }
-        //dd($data['total'], $dtotal  );
-        $data['end_date']     = Carbon::createFromFormat('d/m/Y H:s', $data['end_date'])->format('Y-m-d H:s');
-        $data['user_id']      = ($static_data['user']) ? $static_data['user']->id : 0;
-        $data['user_data']['name'] = $data['name'];
-        $data['user_data']['email']      = $data['email'];
-        $data['user_data']['phone']      = $data['phone'];
-        $data['user_data']['flight_number']      = $data['flight_number'];
-        $data['gps'] = $request->services_data[30];
-        $data['siege'] = $request->services_data[31];
-        $data['siege2'] = $request->services_data[32];
-        // dd($data['siege']);
-
-        //dd($static_data['strings']);
-        // Generate helper data
-        $mail_data = $data;
-        $car           = Car::where('id', $request->car_id)->first();
-        $data['owner_id']   = $car->user_id;
-        $data['status']     = 0;
-        $mail_data['car'] = isset($car->contentload->name) ? $car->contentload->name : '';
-        $mail_data['currency'] = $currency;
-        $mail_data['subject']  = $static_data['strings']['booking_mail_subject'] ;
-        $mail_data['admin_email']  = $static_data['site_settings']['contact_email'];
-        $mail_data['site_name']    = $static_data['strings']['home_meta_title'];
-        $mail_data['from']         = $static_data['strings']['from_2'];
-        $mail_data['to']           = $static_data['strings']['to'];
-        $mail_data['client_info']  = $static_data['strings']['client_info'];
-        $mail_data['name_text']    = $static_data['strings']['name'];
-        $mail_data['email_text']   = $static_data['strings']['email'];
-        $mail_data['phone_text']   = $static_data['strings']['phone'];
-        $mail_data['thank']        = $static_data['strings']['thank_you_for_book_mail'];
-        $mail_data['regards']      = $static_data['strings']['regards'];
-        $mail_data['str_car'] = $static_data['strings']['car'];
-        $mail_data['str_total'] = $static_data['strings']['total'];
-        $mail_data['mail_after_text_book'] = $static_data['strings']['mail_after_text_book'];
-        $mail_data['lang'] = Locale::getDisplayLanguage(app()->getLocale(), app()->getLocale());
-        \Log::info($mail_data["admin_email"]=='info@jacarandacar.com');
-        // dd($mail_data);
-
-
-
-        // Create the mail and send it
-        $client_data=[
-            "client"=>
-            [
-                "full_name"=>$mail_data["name"],
-                "email"=>$mail_data["email"],
-                "phone"=>$mail_data["phone"],
-                "flight_number"=>$mail_data['flight_number'],
-            ],
-            "pickup_location"=>$mail_data['pickup_location'],
-            "dropoff_location"=>$mail_data['dropoff_location'],
-            "start_date"=>$mail_data["start_date"],
-            "end_date"=>$mail_data["end_date"],
-            "total"=>$mail_data["total"].' '.$currency,
-            "nights_number"=>$mail_data["nights_number"],
-            "franchise"=>$mail_data["franchise"],
-            "payment_method_check"=>$mail_data["payment_method_check"],
-            "car"=>$mail_data["car"],
-            "currency_code"=>$mail_data["currency_code"],
-            "lang"=>$mail_data["lang"],
-        ];
-
-
-        // client email
-        Mail::to($client_data['client']['email'])->send(new ClientBookingMail($client_data));
-        // Mail::to($admin_email)->send(new AdminBookingMail($client_data));
-
-
-        // Mail::send('emails.booked_admin', ['mail_data' => $mail_data], function ($m) use ($mail_data,$client_data,$from,$admin_email) {
-        //     $m->from($from, $mail_data['site_name']);
-        //     $m->to($admin_email, $mail_data['name'])->subject($mail_data['subject'])
-        //     ->replyTo($client_data['client']['email']); // Add reply-to email
-        // });
-    }
 
     public function get_price($seasons, $start_date, $end_date){
         $price = 0;

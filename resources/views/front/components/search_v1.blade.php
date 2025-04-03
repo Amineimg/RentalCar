@@ -26,7 +26,6 @@
                             <div class="input-block date-widget">
                                 <div class="group-img">
                                     <input type="text" class="form-control datetimepicker start_date" name="start_date" placeholder="{{ Carbon::now()->format("d-m-Y") }}" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}">
-                                      
                                     <span><i class="feather-calendar"></i></span>
                                 </div>
                             </div>

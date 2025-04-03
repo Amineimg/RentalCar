@@ -161,7 +161,8 @@ class AdminCarController extends Controller
         if(isset($request->front_image)){
             Image::create(['image' => $request->front_image, 'imageable_id' => $car->id, 'imageable_type' => 'App\Models\Admin\Car']);
         }
-
+        // dd($car);
+        // dd($languages );
         // Updating the Content
         foreach($languages as $language) {
 
@@ -175,9 +176,13 @@ class AdminCarController extends Controller
             $data['meta_description'] = $request->meta_description[$language->id];
             $data['car_id'] = $car->id;
             $data['language_id']  = $language->id;
+            // dd($data);
 
             // Create the Car Content
-            CarContent::create($data);
+            CarContent::updateOrCreate([
+                'car_id' => $car->id,
+                'language_id'  => $language->id,
+            ],$data);
         }
         //---- Seasons ---------
         if(!empty($request->seasons)){
