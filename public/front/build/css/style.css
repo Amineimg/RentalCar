@@ -22060,3 +22060,48 @@ input.form-control.rounded-pill:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+.floating-buttons{
+    list-style:none;
+    position:fixed;
+    z-index:999;
+    bottom:1%;
+    right:5px;
+    padding:0;
+    margin:0;transform:translateY(-50%);
+}
+.floating-buttons li span{
+    background-color:#FFA633 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+.floating-buttons .fa-circle{color:#0aa;}
+@media (max-width:576px){
+    .floating-buttons {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: auto;
+        transform: inherit;
+        display: flex;
+        justify-content: space-between;
+    }
+    .floating-buttons li {
+        width: 25%;
+        height: 40px;
+    }
+    .floating-buttons li span.fa-stack{
+        width: calc(100% - 1px);
+    }
+    .floating-buttons li i.fa.fa-circle{
+        height:2em;
+        overflow:hidden;
+    }
+    .floating-buttons li i.fa.fa-circle::before{
+        content: "\f0c8";
+        font-size: 200px;
+        text-align: center;
+        line-height: 30px;
+    }
+}

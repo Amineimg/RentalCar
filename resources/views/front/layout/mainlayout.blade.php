@@ -24,7 +24,17 @@
 
     <body class="home-two">
 @endif
-@if (!Route::is(['forgot-password', 'login', 'register', 'reset-password', 'index-3', 'listing-grid', 'listing-list','listing-map']))
+@if (
+    !Route::is([
+        'forgot-password',
+        'login',
+        'register',
+        'reset-password',
+        'index-3',
+        'listing-grid',
+        'listing-list',
+        'listing-map',
+    ]))
     <div class="main-wrapper">
 @endif
 @if (Route::is(['forgot-password', 'login', 'register', 'reset-password']))
@@ -40,16 +50,17 @@
     <div class="main-wrapper listing-page map-page">
 @endif
 {{-- @if (!Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance'])) --}}
-    @include('front/layout.partials.header')
+@include('front/layout.partials.header')
 {{-- @endif --}}
 @include('front.components.alett')
 @yield('content')
 {{-- @if (!Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance'])) --}}
-    @include('front/layout.partials.footer')
+@include('front/layout.partials.footer')
 {{-- @endif --}}
-</div>
-@component('front.components.scrolltotop')
-@endcomponent
+@include('front/layout.partials.bottom-bar')
+
+{{-- @endif --}}
+{{-- @endcomponent --}}
 @include('front/layout.partials.footer-scripts')
 @component('front/components.modalpopup')
 @endcomponent
