@@ -184,9 +184,9 @@
             <div class="col-md-12 col-lg-2">
                 <div id="logo">
                     <a href="{{ route('home') }}"><img class="img-fluid" width="150" height="80"
-                            title="location de voitures marrakech jacarandacar "
-                            alt="Location voitures Marrakech jacarandacar "
-                            src="{{ asset('assets/images/home/location-voiture-marrakech.png') }}" /></a>
+                            title="location de voiture marrakech  "
+                            alt="Location voiture Marrakech "
+                            src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" /></a>
                 </div>
             </div>
             <div class="col-md-12 col-lg-10">
