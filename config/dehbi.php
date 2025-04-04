@@ -5,7 +5,7 @@ return [
     "primary_phone"=>"+212 679-564277",
     "phones"=>[
         ["number"=>"+212 679-564277","type"=>"mobile" ,'icons'=>'bx bxs-phone' ,'href'=>'tel:'],
-        ["number"=>"+212679-564277","type"=>"whatssap" ,'icons'=>'bx bxl-whatsapp' ,'href'=>'https://wa.me/'],
+        ["number"=>"+212679564277","type"=>"whatssap" ,'icons'=>'bx bxl-whatsapp' ,'href'=>'https://wa.me/'],
         ["number"=>"+212654160992","type"=>"whatssap" ,'icons'=>'bx bxl-whatsapp' ,'href'=>'https://wa.me/'],
     ],
     "primary_emails"=>"contact@dehbicarrental.com",
