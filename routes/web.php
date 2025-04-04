@@ -531,3 +531,7 @@ Route::group(  [ 'middleware' => ['language_middleware','web']],function(){
 });
 });
 
+Route::get('clear-cache',function(){
+    Artisan::call('optimize:clear');
+});
+

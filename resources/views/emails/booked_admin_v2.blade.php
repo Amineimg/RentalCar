@@ -139,9 +139,9 @@
                                                                 <div align="center" class="alignment"
                                                                     style="line-height:10px">
                                                                     <div style="max-width: 176px;"><img
-                                                                            alt="Location voitures Marrakech jacarandacar"
+                                                                            alt="Location voiture Marrakech"
                                                                             height="auto"
-                                                                            src="{{ asset('assets/images/home/location-voiture-marrakech.png') }}"
+                                                                            src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}"
                                                                             style="display: block; height: auto; border: 0; width: 100%;"
                                                                             title="Talent Seekers logo"
                                                                             width="176" /></div>
