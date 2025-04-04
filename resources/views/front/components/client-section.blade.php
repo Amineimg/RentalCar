@@ -62,7 +62,7 @@
 <!-- /Why Choose Us -->
 
 <!-- About us Testimonials -->
-<section class="section about-testimonial testimonials-section">
+{{-- <section class="section about-testimonial testimonials-section">
     <div class="container">
         <!-- Heading title-->
         <div class="section-heading" data-aos="fade-down">
@@ -71,7 +71,6 @@
         </div>
         <!-- /Heading title -->
         <div class="owl-carousel about-testimonials testimonial-group mb-0 owl-theme">
-            {{-- @dd(__("website.reviews")); --}}
             @forelse (__("website.reviews") as $review)
                 <!-- Carousel Item -->
                 <div class="testimonial-item d-flex">
@@ -112,7 +111,7 @@
 
         </div>
     </div>
-</section>
+</section> --}}
 <!-- About us Testimonials -->
 
 <!-- FAQ  -->
