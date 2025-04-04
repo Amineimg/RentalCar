@@ -57,13 +57,14 @@
 {{-- @if (!Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance'])) --}}
 @include('front/layout.partials.footer')
 {{-- @endif --}}
-@include('front/layout.partials.bottom-bar')
+@include('front/layout.partials.footer')
 
 {{-- @endif --}}
 {{-- @endcomponent --}}
 @include('front/layout.partials.footer-scripts')
 @component('front/components.modalpopup')
 @endcomponent
+<div class="tr-widget" data-id="{{Config::get("app.trust_review_secret")}}" data-view="flash" data-lang=""><a href="https://trust.reviews/" class="trcr" target="_blank">Powered by <span>Trust.Reviews</span></a></div><script type="text/javascript" src="https://cdn.trust.reviews/widget/embed.min.js" defer></script>
 </body>
 
 </html>
