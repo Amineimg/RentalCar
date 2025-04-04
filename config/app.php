@@ -61,6 +61,7 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
+    'trust_review_secret' => env('TRUST_REVIEW_SECRET', null),
 
     /*
     |--------------------------------------------------------------------------
