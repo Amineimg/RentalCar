@@ -542,8 +542,8 @@
                                             <li class="column-group-last">
                                                 <div class="input-block mb-0">
                                                     <div class="search-btn">
-                                                        <a href="{{ url('booking-checkout') }}"
-                                                            class="btn btn-primary check-available w-100">{{ __("book_now") }}</a>                                                    </div>
+                                                        <a href="{{ route('booking_details',['car_alias'=>$car->alias]) }}"
+                                                            class="btn btn-primary check-available w-100">{{ __("website.book_now") }}</a>                                                    </div>
                                                 </div>
                                             </li>
                                         </ul>

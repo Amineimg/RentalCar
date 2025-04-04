@@ -477,7 +477,7 @@ Route::group(  [ 'middleware' => ['language_middleware','web']],function(){
     Route::match(['get','post'],'/search', [SearchController::class,'cars'])->name('search_home');
     Route::get('/contact-us', 'HomeController@contact')->name('contact');
     Route::post('/mail/sendcontact', 'HomeController@submitContact')->name('send_contact');
-    Route::get('/blog', 'BlogController@index')->name('blog');
+    Route::get('/blog', 'BlogController@index')->name('blogs');
     Route::get('/logout', 'UserController@logout')->name('logout');
     Route::get('/page/{alias}', 'PageController@index')->name('page');
     Route::get('blog/post/{alias}', 'BlogController@post')->name('single-post');
@@ -513,9 +513,9 @@ Route::group(  [ 'middleware' => ['language_middleware','web']],function(){
 
     // Cars
     // Route::get('{alias}', 'CarController@index')->name('single-car');
+    Route::match(['get','post'],'/booking/{car_alias}',[CarController::class,'booking'])->name('booking_details');
     Route::post('/bookcar',[CarController::class, 'book'])->name('book_car');
     Route::get('/car-details/{id}/{car_name}', 'CarController@details')->name('car_details');
-    Route::match(['get','post'],'/booking/{car_alias}',[CarController::class,'booking'])->name('booking_details');
     Route::post('/add-wishlist', 'CarController@add_to_wishlist');
     Route::post('/remove-wishlist', 'CarController@remove_from_wishlist');
 

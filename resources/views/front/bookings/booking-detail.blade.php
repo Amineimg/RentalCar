@@ -32,7 +32,7 @@
                                         <div class="care-more-info">
                                             <h5>{{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }}</h5>
                                             <p>{{ Helpers::getAttributeFromTranslate("name",Helpers::getDefaultLanguage('id'),1,$car->carmodel->carmake) }}</p>
-                                            <a href="{{ url('listing-details') }}">View Car Details</a>
+                                            <a href="{{ route('car_details',['id'=>$car->id,'car_name'=>$car->alias]) }}">{{ __('website.car_details') }}</a>
                                         </div>
                                     </div>
 
@@ -112,6 +112,54 @@
                                                     <h6>Total</h6>
                                                     <h5 class="total-service"></h5>
                                                 </li>
+                                            </ul>
+                                        </div>
+                                        {{-- <div class="book-our-drivers">
+                                            <h4 class="title-head">Driver</h4>
+                                            <ul class="acting-driver-list">
+                                                <li class="d-block">
+                                                    <div class="driver-profile-info">
+                                                        <span class="driver-profile"><img
+                                                                src="{{ URL::asset('/front/build/img/drivers/driver-02.jpg') }}"
+                                                                alt="Img"></span>
+                                                        <div class="driver-name">
+                                                            <h5>Ruban</h5>
+                                                            <ul>
+                                                                <li>No of Rides Completed : 32</li>
+                                                                <li>Age : 36</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="change-driver">
+                                                        <a href="javascript:void(0);"
+                                                            class="btn btn-secondary d-inline-flex align-items-center"><i
+                                                                class="bx bx-check-circle me-2"></i>Change Driver</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                                <div class="booking-sidebar-card">
+                                    <div class="booking-sidebar-head d-flex justify-content-between align-items-center alert alert-success" role="alert">
+
+                                        <h5>{{ __("website.franchise") }}</h5>
+                                    </div>
+                                    <div class="booking-sidebar-body">
+                                        <div class="booking-vehicle-rates">
+                                            <ul class="mt-0">
+                                                <li>
+                                                    <div>
+                                                        <h6>{{ __('website.franchise_required') }}</h6>
+                                                    </div>
+                                                    <span>{{ Helpers::moneyFormatDevise($car->franchise) }}</span>
+                                                    <div>
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" value="{{ $car->franchise }}" type="checkbox" role="switch" id="franchise" checked name="franchise">
+                                                          </div>
+                                                    </div>
+                                                </li>
+
                                             </ul>
                                         </div>
                                         {{-- <div class="book-our-drivers">
@@ -274,6 +322,8 @@
                                                         @endif
 
                                                         <tr class="services">
+                                                        </tr>
+                                                        <tr class="franchise">
 
                                                         </tr>
                                                         <tr class="bank_fees">
@@ -318,8 +368,8 @@
         var pickup_location = @json($pickup_location);
         var dropoff_location = @json($dropoff_location);
         var totalAllServices=0;
+        var franchise = 0;
         var priceOfDays = @json($price);;
-        console.log(priceOfDays)
         const  calculateServicesPrice= ()=> {
             if($('.service_select').length>0){
                 $('.resume tbody .services').remove()
@@ -340,24 +390,34 @@
                         resume+='<tr>'
                         }
                         totalAllServices+= totalService;
-                    console.log(totalAllServices)
-                    //  console.log("{{  Helpers::moneyFormatDevise(150) }}")
                     var money = formatMoney(totalAllServices);
                     $('.total-service').text(`${money}`)
 
                 });
                 $('.resume tbody').append(resume)
             }
-            calculateTotal();
 
+        }
+
+        const calculateFranchise = ()=>{
+            $('.resume tbody .franchise').remove()
+            franchise = $('#franchise').is(':checked') ? parseFloat($('#franchise').val()) : 0;
+            if($('#franchise').is(':checked')){
+                var money = formatMoney(franchise);
+
+                var   resume =`<tr class="franchise"><td>Franchise  </td> <td> ${money} </td> <tr>`;
+                $('.resume tbody').append(resume)
+            }
         }
 
 
         const calculateTotal = async()=>{
+            await  calculateServicesPrice();
+            await  calculateFranchise();
             var total = 0;
             pickup_tarif = pickup_location.tarif;
             dropoff_tarif = dropoff_location.tarif;
-            total = priceOfDays + pickup_tarif + dropoff_tarif + totalAllServices;
+            total = priceOfDays + pickup_tarif + dropoff_tarif + totalAllServices + franchise;
             var html = ""
             if($('.payment_method').val() == "{{ Constant::BANK_PAYMENT }}"){
                 total = total + ( total *0.03)
@@ -377,8 +437,13 @@
         $(document).on("change",'.payment_method',function(){
             calculateTotal();
         })
+
         $(document).on("change",'.service_select',function(){
-            calculateServicesPrice();
+            calculateTotal();
+        })
+
+        $(document).on("change",'#franchise',function(){
+            calculateTotal();
         })
 
 

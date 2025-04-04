@@ -12035,7 +12035,7 @@ iframe {
 
 .blogbanner {
   position: relative;
-  background: url("../img/blog/blogbanner.jpg");
+  /* background: url("../img/blog/blogbanner.jpg"); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

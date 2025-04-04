@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Session;
 class Helpers {
 
     public static function getAttributeFromTranslate($key,$language_id,$model_id,$model){
-        $translation= $model->contentload()->where('language_id', $language_id)->first();
-        return $translation  ? $translation->$key  : '';
+        // dd(isset($model->contentload) ,$key,$language_id,$model_id,$model);
+        $translation=  isset($model->contentload) && !is_null($model->contentload()->where('language_id', $language_id)->first()) ? $model->contentload()->where('language_id', $language_id)->first() : null;
+        return $translation   ? $translation->$key  : '';
     }
 
     public static function moneyFormatDevise($amount){

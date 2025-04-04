@@ -51,8 +51,8 @@ class Constant{
 
     public static function getPaymentTypes(){
         return collect([
-            ["name"=>'Cache','value'=>SELF::CACHE_PAYMENT ,'percentage'=>0],
-            ["name"=>'Par carte bancaire (+3%)','value'=>SELF::BANK_PAYMENT ,'percentage'=>3],
+            ["name"=>__("website.cache"),'value'=>SELF::CACHE_PAYMENT ,'percentage'=>0],
+            // ["name"=>__("website.by_bank_card"),'value'=>SELF::BANK_PAYMENT ,'percentage'=>3],
         ]);
     }
 
