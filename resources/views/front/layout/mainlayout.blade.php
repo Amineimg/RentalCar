@@ -57,7 +57,7 @@
 {{-- @if (!Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance'])) --}}
 @include('front/layout.partials.footer')
 {{-- @endif --}}
-@include('front/layout.partials.footer')
+@include('front/layout.partials.bottom-bar')
 
 {{-- @endif --}}
 {{-- @endcomponent --}}
