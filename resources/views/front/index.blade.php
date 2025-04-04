@@ -122,8 +122,8 @@
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2>{{ __("website.how_it_works") }}</h2>
-                <p>{{ __("website.how_it_works_description") }}</p>
+                <h2>{{ __('website.how_it_works') }}</h2>
+                <p>{{ __('website.how_it_works_description') }}</p>
             </div>
             <!-- /Heading title -->
             <div class="services-work">
@@ -132,11 +132,12 @@
                         <div class="services-group service-date flex-fill">
                             <div class="services-icon border-secondary">
                                 <img class="icon-img bg-secondary"
-                                    src="{{ URL::asset('/front/build/img/icons/services-icon-01.svg') }}" alt="Choose Locations">
+                                    src="{{ URL::asset('/front/build/img/icons/services-icon-01.svg') }}"
+                                    alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>{{ __("website.how_it_works_title_step_1") }}</h3>
-                                <p>{{ __("website.how_it_works_description_step_1") }}</p>
+                                <h3>{{ __('website.how_it_works_title_step_1') }}</h3>
+                                <p>{{ __('website.how_it_works_description_step_1') }}</p>
                             </div>
                         </div>
                     </div>
@@ -144,11 +145,12 @@
                         <div class="services-group service-loc flex-fill">
                             <div class="services-icon border-warning">
                                 <img class="icon-img bg-warning"
-                                    src="{{ URL::asset('/front/build/img/icons/services-icon-02.svg') }}" alt="Choose Locations">
+                                    src="{{ URL::asset('/front/build/img/icons/services-icon-02.svg') }}"
+                                    alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>{{ __("website.how_it_works_title_step_2") }}</h3>
-                                <p>{{ __("website.how_it_works_description_step_2") }}</p>
+                                <h3>{{ __('website.how_it_works_title_step_2') }}</h3>
+                                <p>{{ __('website.how_it_works_description_step_2') }}</p>
                             </div>
                         </div>
                     </div>
@@ -156,11 +158,12 @@
                         <div class="services-group service-book flex-fill">
                             <div class="services-icon border-dark">
                                 <img class="icon-img bg-dark"
-                                    src="{{ URL::asset('/front/build/img/icons/services-icon-03.svg') }}" alt="Choose Locations">
+                                    src="{{ URL::asset('/front/build/img/icons/services-icon-03.svg') }}"
+                                    alt="Choose Locations">
                             </div>
                             <div class="services-content">
-                                <h3>{{ __("website.how_it_works_title_step_3") }}</h3>
-                                <p>{{ __("website.how_it_works_description_step_3") }}</p>
+                                <h3>{{ __('website.how_it_works_title_step_3') }}</h3>
+                                <p>{{ __('website.how_it_works_description_step_3') }}</p>
                             </div>
                         </div>
                     </div>
@@ -5989,8 +5992,8 @@
     <!-- Popular Cartypes -->
 
     <!-- /Popular Cartypes -->
-      <!-- Rental deals -->
-      <x-slider-cars />
+    <!-- Rental deals -->
+    <x-slider-cars />
 
     <!-- /Rental deals -->
 
@@ -6005,8 +6008,8 @@
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2 class="title text-white">{{ __("website.fact_numbers") }}</h2>
-                <p class="description">{{ __("website.fact_numbers_description") }}</p>
+                <h2 class="title text-white">{{ __('website.fact_numbers') }}</h2>
+                <p class="description">{{ __('website.fact_numbers_description') }}</p>
             </div>
             <!-- /Heading title -->
             <div class="counter-group">
@@ -6019,7 +6022,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">16</span>K+</h4>
-                                    <p>{{ __("website.happy_customers") }}</p>
+                                    <p>{{ __('website.happy_customers') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6032,7 +6035,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">2547</span>+</h4>
-                                    <p>{{ __("website.count_of_cars") }}</p>
+                                    <p>{{ __('website.count_of_cars') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6045,7 +6048,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">625</span>+</h4>
-                                    <p>{{ __("website.car_center_solutions") }}</p>
+                                    <p>{{ __('website.car_center_solutions') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6058,7 +6061,7 @@
                                 </div>
                                 <div class="count-content">
                                     <h4><span class="counterUp">15000</span>+</h4>
-                                    <p>{{ __("website.total_kilometer") }}</p>
+                                    <p>{{ __('website.total_kilometer') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -6074,7 +6077,7 @@
     <!-- About us Testimonials -->
     <!-- FAQ  -->
     <!-- Pricing Plan -->
-    @component('front.components.client-section',["posts"=>$posts])
+    @component('front.components.client-section', ['posts' => $posts])
     @endcomponent
     <!-- /Pricing Plan -->
     <!-- /FAQ  -->

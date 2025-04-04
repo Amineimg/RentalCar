@@ -1,70 +1,7 @@
      <!-- Header -->
      @if (!Route::is(['home']))
-        <header class="header header-two">
-                @include('front.layout.partials.top-header')
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg header-nav">
-                        <div class="navbar-header">
-                            <a id="mobile_btn" href="javascript:void(0);">
-                                <span class="bar-icon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                            </a>
-                            <a href="{{ url('/') }}" class="navbar-brand logo">
-                                <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 18%;">
-                            </a>
-                            <a href="{{ url('/') }}" class="navbar-brand logo-small">
-                                <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 20%;">
-                            </a>
-                        </div>
-                        <div class="main-menu-wrapper">
-                            <div class="menu-header">
-                                <a href="{{ url('/') }}" class="menu-logo">
-                                    <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 18%;">
-                                </a>
-                                <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i
-                                        class="fas fa-times"></i></a>
-                            </div>
-                            <ul class="main-nav">
-                                <li class="has-submenu active">
-                                    <a href="{{ route('home') }}">{{ __("menu.home") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="{{ route('search_home') }}">{{ __("menu.parking") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.general_condition") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.faq") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.glogs") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="{{ route('contact') }}">{{ __("menu.contact") }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="nav header-navbar-rht">
-                            {{-- <li class="nav-item">
-                                <a class="nav-link login-link" href="{{ url('login') }}"><span><i
-                                            class="bx bx-user me-2"></i></span>Sign In / </a>
-                                <a class="nav-link login-link ms-1" href="{{ url('register') }}">Register </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link header-reg" href="{{ url('listing-list') }}"><span><i
-                                            class="bx bx-plus-circle"></i></span>Add Listing</a>
-                            </li> --}}
-                        </ul>
-                    </nav>
-                </div>
-        </header>
+        @include('front.layout.partials.top-header')
+
      @endif
 
      @if (Route::is(['home']))
@@ -72,72 +9,8 @@
      <!-- Hero Sec Main -->
         <div class="hero-sec-main">
             <!-- Header -->
-            <header class="header header-two">
-                @include('front.layout.partials.top-header')
+            @include('front.layout.partials.top-header')
 
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg header-nav">
-                        <div class="navbar-header">
-                            <a id="mobile_btn" href="javascript:void(0);">
-                                <span class="bar-icon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                            </a>
-                            <a href="{{ url('/') }}" class="navbar-brand logo">
-                                <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 18%;">
-                            </a>
-                            <a href="{{ url('/') }}" class="navbar-brand logo-small">
-                                <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 20%;">
-                            </a>
-                        </div>
-                        <div class="main-menu-wrapper">
-                            <div class="menu-header">
-                                <a href="{{ url('/') }}" class="menu-logo">
-                                    <img src="{{ URL::asset('/front/build/img/DEHBI LUX LOGO-BLACK v2.png') }}" class="img-fluid"
-                                    alt="" style="width: 40%;">
-                                </a>
-                                <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i
-                                        class="fas fa-times"></i></a>
-                            </div>
-                            <ul class="main-nav">
-                                <li class="has-submenu active">
-                                    <a href="{{ route('home') }}">{{ __("menu.home") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="{{ route('search_home') }}">{{ __("menu.parking") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.general_condition") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.faq") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="#faq">{{ __("menu.glogs") }}</a>
-                                </li>
-                                <li class="has-submenu">
-                                    <a href="{{ route('contact') }}">{{ __("menu.contact") }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="nav header-navbar-rht">
-                            {{-- <li class="nav-item">
-                                <a class="nav-link login-link" href="{{ url('login') }}"><span><i
-                                            class="bx bx-user me-2"></i></span>Sign In / </a>
-                                <a class="nav-link login-link ms-1" href="{{ url('register') }}">Register </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link header-reg" href="{{ url('listing-list') }}"><span><i
-                                            class="bx bx-plus-circle"></i></span>Add Listing</a>
-                            </li> --}}
-                        </ul>
-                    </nav>
-                </div>
-            </header>
             <!-- /Header -->
 
             <!-- Banner -->

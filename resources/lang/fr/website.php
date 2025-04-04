@@ -153,6 +153,16 @@ return [
     "submit" => "Soumettre",
     "contact_us" => "Contactez-nous",
     "subject" => "Sujet",
+    "read_more"=> "Read More",
+    "blogs_list"=> "Liste des blogs",
+    "blog_details"=> "Détails du blog",
+    "blog_details_description"=> "Description du blog",
+    "blog_details_description"=> "Description du blog",
+    "top_blogs"=> "Blogs populaires",
+    "airport_delevery"=> "Livraison à l'aéroport",
+    "home_delevery"=> "Livraison à domicile",
+    "franchise"=> "Franchise",
+    "franchise_required"=> "Payer la franchise ( l'achat de la franchise est obligatoire )",
 
 
 ];

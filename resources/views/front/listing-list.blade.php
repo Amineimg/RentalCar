@@ -325,14 +325,14 @@
                                     <div class="listing-img">
                                         <div class="img-slider owl-carousel">
                                             <div class="slide-images">
-                                                <a href="{{ url('listing-details') }}">
+                                                <a href="{{ route('booking_details',['car_alias'=>$car->alias]) }}">
                                                     <img src="{{ URL::asset('images/data/'.$car->front_image->image ??  '') }}"
                                                         class="img-fluid" alt="">
                                                 </a>
                                             </div>
                                             @forelse ($car->images as $image)
                                                 <div class="slide-images">
-                                                    <a href="{{ url('listing-details') }}">
+                                                    <a href="{{ route('booking_details',['car_alias'=>$car->alias]) }}">
                                                         <img src="{{ URL::asset('images/data/'.$image->image ?? '') }}"
                                                         class="img-fluid" alt="">
                                                     </a>
@@ -357,7 +357,7 @@
                                                         alt="author">
                                                 </a> --}}
                                                 <h3 class="listing-title">
-                                                    <a href="{{url('listing-details')}}">{{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }}</a>
+                                                    <a href="{{route('booking_details',['car_alias'=>$car->alias])}}">{{ Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$car) }}</a>
                                                 </h3>
                                                 {{-- <div class="list-rating">
                                                     <i class="fas fa-star filled"></i>

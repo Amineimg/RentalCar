@@ -1,17 +1,8 @@
- <!--Pagination-->
- @if (!Route::is(['blog-list', 'blog-grid']))
-     <div class="blog-pagination">
- @endif
- @if (Route::is(['blog-list', 'blog-grid']))
+
      <div class="pagination">
- @endif
  <nav>
-     @if (!Route::is(['blog-list', 'blog-grid']))
-         <ul class="pagination page-item justify-content-center">
-     @endif
-     @if (Route::is(['blog-list', 'blog-grid']))
+
          <ul class="pagination mt-0">
-     @endif
      <li class="previtem">
          <a class="page-link" href=""><i class="fas fa-regular fa-arrow-left me-2"></i> Prev</a>
      </li>

@@ -178,9 +178,9 @@ class CarController extends Controller
 
     public function booking(Request $request,$car_alias){
         $static_data      = $this->static_data;
-        $default_language = $this->default_language;//dd($static_data);
-        $car = Car::with(['images', 'front_image', 'contentload' => function ($query) use ($default_language) {
-            $query->where('language_id', $default_language->id);
+        $defaultLanguage =Helpers::getDefaultLanguage('object');
+        $car = Car::with(['images', 'front_image', 'contentload' => function ($query) use ($defaultLanguage) {
+            $query->where('language_id', $defaultLanguage->id);
         }])->where('alias', $car_alias)->first();
 
         $services = Service::get();
@@ -264,19 +264,6 @@ class CarController extends Controller
 
 
         ]);
-        return view('home.booking', compact(
-                                            'car',
-                                            'car_services',
-                                            'pickup_location',
-                                            'dropoff_location',
-                                            'static_data',
-                                            'default_language',
-                                            'price',
-                                            'nights',
-                                            'current_language',
-                                            'pickup_loc',
-                                            'dropoff_loc'
-                                        ));
 
     }
 

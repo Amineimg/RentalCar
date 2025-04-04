@@ -23,8 +23,8 @@
                                 <img src="{{ URL::asset('/front/build/img/icons/bx-selection.svg') }}" alt="Icon">
                             </div>
                             <div class="choose-content">
-                                <h4>{{ __("website.why_choose_us_title_step_1") }}</h4>
-                                <p>{{ __("website.why_choose_us_description_step_1") }}</p>
+                                <h4>{{ __('website.why_choose_us_title_step_1') }}</h4>
+                                <p>{{ __('website.why_choose_us_description_step_1') }}</p>
                             </div>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                                 <img src="{{ URL::asset('/front/build/img/icons/bx-crown.svg') }}" alt="Icon">
                             </div>
                             <div class="choose-content">
-                                <h4>{{ __("website.why_choose_us_title_step_2") }}</h4>
-                                <p>{{ __("website.why_choose_us_description_step_2") }}</p>
+                                <h4>{{ __('website.why_choose_us_title_step_2') }}</h4>
+                                <p>{{ __('website.why_choose_us_description_step_2') }}</p>
                             </div>
                         </div>
                     </div>
@@ -49,8 +49,8 @@
                                 <img src="{{ URL::asset('/front/build/img/icons/bx-user-check.svg') }}" alt="Icon">
                             </div>
                             <div class="choose-content">
-                                <h4>{{ __("website.why_choose_us_title_step_3") }}</h4>
-                                <p>{{ __("website.why_choose_us_description_step_3") }}</p>
+                                <h4>{{ __('website.why_choose_us_title_step_3') }}</h4>
+                                <p>{{ __('website.why_choose_us_description_step_3') }}</p>
                             </div>
                         </div>
                     </div>
@@ -66,45 +66,45 @@
     <div class="container">
         <!-- Heading title-->
         <div class="section-heading" data-aos="fade-down">
-            <h2 class="title text-white">{{ __("website.reviews_title") }}</h2>
-            <p class="description text-white">{{ __("website.reviews_description") }}</p>
+            <h2 class="title text-white">{{ __('website.reviews_title') }}</h2>
+            <p class="description text-white">{{ __('website.reviews_description') }}</p>
         </div>
         <!-- /Heading title -->
         <div class="owl-carousel about-testimonials testimonial-group mb-0 owl-theme">
             {{-- @dd(__("website.reviews")); --}}
             @forelse (__("website.reviews") as $review)
-                    <!-- Carousel Item -->
-                    <div class="testimonial-item d-flex">
-                        <div class="card flex-fill">
-                            <div class="card-body">
-                                <div class="quotes-head"></div>
-                                <div class="review-box">
-                                    <div class="review-profile">
-                                        <div class="review-img">
-                                            <img src="{{ URL::asset('/front/build/img/profiles/avatar-02.jpg') }}" class="img-fluid"
-                                                alt="img">
-                                        </div>
-                                    </div>
-                                    <div class="review-details">
-                                        <h6>{{ isset( $review["name"]) ? $review["name"] : '' }}</h6>
-                                        <p>{{ isset( $review["from_where"]) ? $review["from_where"] : '' }}</p>
+                <!-- Carousel Item -->
+                <div class="testimonial-item d-flex">
+                    <div class="card flex-fill">
+                        <div class="card-body">
+                            <div class="quotes-head"></div>
+                            <div class="review-box">
+                                <div class="review-profile">
+                                    <div class="review-img">
+                                        <img src="{{ URL::asset('/front/build/img/profiles/avatar-02.jpg') }}"
+                                            class="img-fluid" alt="img">
                                     </div>
                                 </div>
-                                <p>{{ isset( $review["description"]) ? $review["description"] : '' }}</p>
-                                <div class="list-rating">
-                                    <div class="list-rating-star">
+                                <div class="review-details">
+                                    <h6>{{ isset($review['name']) ? $review['name'] : '' }}</h6>
+                                    <p>{{ isset($review['from_where']) ? $review['from_where'] : '' }}</p>
+                                </div>
+                            </div>
+                            <p>{{ isset($review['description']) ? $review['description'] : '' }}</p>
+                            <div class="list-rating">
+                                <div class="list-rating-star">
+                                    <i class="fas fa-star filled"></i>
+                                    @for ($i = 1; $i <= $review['rating'] ?? 5; $i++)
                                         <i class="fas fa-star filled"></i>
-                                        @for ($i = 1; $i <= $review["rating"] ?? 5; $i++)
-                                            <i class="fas fa-star filled"></i>
-                                        @endfor
+                                    @endfor
 
-                                    </div>
-                                    <p><span>({{ $review["rating"] ?? 5 }}.0)</span></p>
                                 </div>
+                                <p><span>({{ $review['rating'] ?? 5 }}.0)</span></p>
                             </div>
                         </div>
                     </div>
-                    <!-- /Carousel Item  -->
+                </div>
+                <!-- /Carousel Item  -->
             @empty
 
             @endforelse
@@ -116,11 +116,11 @@
 <!-- About us Testimonials -->
 
 <!-- FAQ  -->
-<section class="section faq-section bg-light-primary">
+<section id="faq_section" class="section faq-section bg-light-primary">
     <div class="container">
         <!-- Heading title-->
         <div class="section-heading" data-aos="fade-down">
-            <h2>{{ __("website.faq_title") }}</h2>
+            <h2>{{ __('website.faq_title') }}</h2>
             <p>{{ __('website.faq_description') }}</p>
         </div>
         <!-- /Heading title -->
@@ -128,14 +128,14 @@
             @forelse (__("website.faqs") as $key => $faq)
                 <div class="faq-card bg-white" data-aos="fade-down">
                     <h4 class="faq-title">
-                        <a class="collapseds" data-bs-toggle="collapse" href="#faq_{{$key}}" aria-expanded="true">{{ $faq["question"] ?? '' }}</a>
+                        <a class="collapseds" data-bs-toggle="collapse" href="#faq_{{ $key }}"
+                            aria-expanded="true">{{ $faq['question'] ?? '' }}</a>
                     </h4>
-                    <div id="faq_{{$key}}" class="card-collapse collapse show">
-                        <p>{{ $faq["answer"] ?? '' }}</p>
+                    <div id="faq_{{ $key }}" class="card-collapse collapse show">
+                        <p>{{ $faq['answer'] ?? '' }}</p>
                     </div>
                 </div>
             @empty
-
             @endforelse
 
 
@@ -148,13 +148,13 @@
 
 
 <!-- Blog Section -->
-@if (isset($posts) && count($posts)>0)
+@if (isset($posts) && count($posts) > 0)
     <section class="blog-section news-section pt-0">
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2>{{ __("website.blogs_title") }}</h2>
-                <p>{{ __("website.blogs_description") }}</p>
+                <h2>{{ __('website.blogs_title') }}</h2>
+                <p>{{ __('website.blogs_description') }}</p>
             </div>
             <!-- /Heading title -->
 
@@ -164,15 +164,17 @@
                     <div class="col-lg-4 col-md-6 d-lg-flex">
                         <div class="blog grid-blog">
                             <div class="blog-image">
-                                <a href="{{ url('blog-details') }}"><img class="img-fluid"
+                                <a href="{{ route('single-post', ['alias' => $post->alias]) }}"><img class="img-fluid"
                                         src="{{ url('/') . $post->image }}" alt="Post Image"></a>
                             </div>
                             <div class="blog-content">
                                 {{-- <p class="blog-category">
                                     <a href="javascript:void(0)"><span>Updates</span></a>
                                 </p> --}}
-                                <h3 class="blog-title"><a href="{{ route('single-post',['alias'=>$post->alias]) }}">{{ $post->contentload->title }}</a></h3>
-                                <p class="blog-description"> {!! Str::limit($post->contentload->content, 150, '...') !!}</p>
+                                <h3 class="blog-title"><a
+                                        href="{{ route('single-post', ['alias' => $post->alias]) }}">{{ $post->contentload ? $post->contentload->title : '' }}</a>
+                                </h3>
+                                <p class="blog-description"> {!! Str::limit($post->contentload ? $post->contentload->content : '', 120, '...') !!}</p>
                                 <ul class="meta-item mb-0">
                                     <li>
                                         <div class="post-author">
@@ -180,22 +182,24 @@
                                                 {{-- <img src="{{ URL::asset('/front/build/img/profiles/avatar-13.jpg') }}"
                                                     alt="author"> --}}
                                             </div>
-                                            <a href="javascript:void(0)"> <span> {{ $post->user->username }}  </span></a>
+                                            <a href="javascript:void(0)"> <span> {{ $post->user->username }}
+                                                </span></a>
                                         </div>
                                     </li>
-                                    <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> <span>{{ Carbon::parse($post->created_at)->Format("Y-m-d") }}</span>
+                                    <li class="date-icon"><i class="fa-solid fa-calendar-days"></i>
+                                        <span>{{ Carbon::parse($post->created_at)->Format('Y-m-d') }}</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 @empty
-
                 @endforelse
 
             </div>
             <div class="view-all text-center aos-init aos-animate" data-aos="fade-down">
-                <a href="{{ url('blog-details') }}" class="btn btn-view d-inline-flex align-items-center">{{ __("show_all") }}
+                <a href="{{ route('blogs') }}"
+                    class="btn btn-view d-inline-flex align-items-center">{{ __('website.show_all') }}
                     <span><i class="feather-arrow-right ms-2"></i></span></a>
             </div>
 

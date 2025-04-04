@@ -153,5 +153,14 @@ return [
     "submit" => "Submit",
     "contact_us" => "Contact Us",
     "subject" => "Subject",
+    "read_more"=> "Read More",
+    "blogs_list"=> "Blogs List",
+    "blog_details"=> "Blog Details",
+    "blog_details_description"=> "Blog Details Description",
+    "top_blogs"=> "Top Blogs",
+    "airport_delevery"=> "Airport Delivery",
+    "home_delevery"=> "Home Delivery",
+    "franchise"=> "Franchise",
+    "franchise_required"=> "Payer la franchise ( l'achat de la franchise est obligatoire )",
 
 ];
