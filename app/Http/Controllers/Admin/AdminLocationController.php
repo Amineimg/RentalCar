@@ -199,6 +199,9 @@ class AdminLocationController extends Controller
 
             $data['location_id'] = $location->id;
 
+            $data['meta_title'] = $request->meta_title[$language->id];
+            $data['meta_description'] = $request->meta_description[$language->id];
+
             $data['language_id']  = $language->id;
 
             LocationContent::create($data);
@@ -428,6 +431,8 @@ class AdminLocationController extends Controller
             // Getting content from textarea
 
             $data['description'] = $request->description[$language->id];
+            $data['meta_title'] = $request->meta_title[$language->id];
+            $data['meta_description'] = $request->meta_description[$language->id];
 
             $data['location_id'] = $location->id;
 
