@@ -45,6 +45,24 @@
                                             </div>
                                         </div>
                                         <div class="col s12">
+                                            <div class="form-group  {{$errors->has('meta_title.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::text('meta_title['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => 'Meta Title'])}}
+                                                {{Form::label('meta_title['.$language->id.']', 'Meta Title')}}
+                                                @if($errors->has('meta_title.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_title.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col s12">
+                                            <div class="form-group  {{$errors->has('meta_description.'.$language->id.'') ? 'has-error' : ''}}">
+                                                {{Form::text('meta_description['.$language->id.']', null, ['class' => 'form-control', 'placeholder' => 'Meta Description'])}}
+                                                {{Form::label('meta_description['.$language->id.']', 'Meta Description')}}
+                                                @if($errors->has('meta_description.'.$language->id.''))
+                                                    <span class="wrong-error">* {{$errors->first('meta_description.'.$language->id.'')}}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col s12">
                                             {{Form::textarea('description['.$language->id.']', null, ['class' => 'hidden desc-content'])}}
                                             @if($errors->has('description.'.$language->id.''))
                                                 <span class="wrong-error">{{$errors->first('description.'.$language->id.'')}}</span>
