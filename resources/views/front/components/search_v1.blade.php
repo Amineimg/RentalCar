@@ -54,11 +54,10 @@
                             <label><i class="bx bx-map"></i>{{ __("website.dropoff_location") }}</label>
                             <div class="group-img">
                                 <select name="dropoff_location" class=" form-control select " id="">
-
                                     @forelse ($locations as $location)
-                                    <option {{ Session::has("dropoff_location") && !empty(Session::get("dropoff_location") && Session::get("dropoff_location")==$location->id ? "selected" : '') }} value="{{ $location->id }}">{{ $location->contentload->location }}</option>
+                                        <option {{ Session::has("dropoff_location") && !empty(Session::get("dropoff_location")) && Session::get("dropoff_location")==$location->id ? "selected" : '' }} value="{{ $location->id }}">{{ $location->contentload->location }}</option>
                                     @empty
-                                    <option>No locations</option>
+                                        <option>No locations</option>
                                     @endforelse
                                 </select>
                             </div>

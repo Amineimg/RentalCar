@@ -4,10 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Dreams Rent | Template</title>
+
+    @if(View::hasSection('seo_head'))
+        @yield('seo_head')
+    @else
+        @include('front.layout.partials.default_seo_head')
+    @endif
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ URL::asset('/front/build/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('front/build/img/DEHBI LUX LOGO-WHITE v2.png') }}">
     @include('front/layout.partials.head')
 
 
@@ -64,7 +69,9 @@
 @include('front/layout.partials.footer-scripts')
 @component('front/components.modalpopup')
 @endcomponent
-<div class="tr-widget" data-id="{{Config::get("app.trust_review_secret")}}" data-view="flash" data-lang=""><a href="https://trust.reviews/" class="trcr" target="_blank">Powered by <span>Trust.Reviews</span></a></div><script type="text/javascript" src="https://cdn.trust.reviews/widget/embed.min.js" defer></script>
+<div class="tr-widget" data-id="{{ Config::get('app.trust_review_secret') }}" data-view="flash" data-lang=""><a
+        href="https://trust.reviews/" class="trcr" target="_blank">Powered by <span>Trust.Reviews</span></a></div>
+<script type="text/javascript" src="https://cdn.trust.reviews/widget/embed.min.js" defer></script>
 </body>
 
 </html>

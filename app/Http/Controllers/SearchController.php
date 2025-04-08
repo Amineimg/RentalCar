@@ -129,7 +129,8 @@ class SearchController extends Controller
 
         }])->where('featured', 1)->orderBy("order",'asc')->get();
 
-        $pickup_location = $dropoff_location  = Location::where('id', $request->pickup_location)->first();
+        $dropoff_location  = Location::where('id', $request->pickup_location)->first();
+        $pickup_location = Location::where('id', $request->dropoff_location)->first();
         $brands = Carmake::with(['models','contentload' => function($query) use($default_language){
             $query->where('language_id', $default_language->id);
 
@@ -168,7 +169,6 @@ class SearchController extends Controller
         else{
            $end_date =  Session::has('end_date')  && !empty(Session::get('end_date')) ? Session::get('end_date') : Carbon::now()->addDay();
         }
-
 
         Session::put('pickup_location', $pickup_location);
         Session::put('dropoff_location', $dropoff_location);
