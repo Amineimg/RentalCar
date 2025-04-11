@@ -350,15 +350,18 @@ class CarController extends Controller
             $data = $request->all();
             $services = [];
             $totalServices =0;
-            foreach($data['services'] as $key=>$item){
-                $services[$key]['id']   = $key;
-                //caluculate service price
-                $service = Service::find($key);
-                $services[$key]['name']  =Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$service);
-                $services[$key]['count'] = $item;
-                $services[$key]['price'] = $service->price;
-                $totalServices+= $item>0 ? ($item * $service->price) : 0;
+            if( isset($data['services']) && count($data['services'])>0){
+                foreach($data['services'] as $key=>$item){
+                    $services[$key]['id']   = $key;
+                    //caluculate service price
+                    $service = Service::find($key);
+                    $services[$key]['name']  =Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$service);
+                    $services[$key]['count'] = $item;
+                    $services[$key]['price'] = $service->price;
+                    $totalServices+= $item>0 ? ($item * $service->price) : 0;
+                }
             }
+
 
         $franchise = $totalFranchise = 0;
         if($request->has("franchise")){
