@@ -350,16 +350,25 @@ class CarController extends Controller
             $data = $request->all();
             $services = [];
             $totalServices =0;
-            foreach($data['services'] as $key=>$item){
-                $services[$key]['id']   = $key;
-                //caluculate service price
-                $service = Service::find($key);
-                $services[$key]['name']  =Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$service);
-                $services[$key]['count'] = $item;
-                $services[$key]['price'] = $service->price;
-                $totalServices+= $item>0 ? ($item * $service->price) : 0;
+            if( isset($data['services']) && count($data['services'])>0){
+                foreach($data['services'] as $key=>$item){
+                    $services[$key]['id']   = $key;
+                    //caluculate service price
+                    $service = Service::find($key);
+                    $services[$key]['name']  =Helpers::getAttributeFromTranslate("name",2,Helpers::getDefaultLanguage('id'),$service);
+                    $services[$key]['count'] = $item;
+                    $services[$key]['price'] = $service->price;
+                    $totalServices+= $item>0 ? ($item * $service->price) : 0;
+                }
             }
-        $totalPrice = $price  + ($pickup_location_model->tarif ?? 0) + ($dropoff__location_model->tarif ?? 0) + $totalServices;
+
+
+        $franchise = $totalFranchise = 0;
+        if($request->has("franchise")){
+            $franchise = $car->franchise;
+            $totalFranchise = $franchise * $nombreDeJours;
+        }
+        $totalPrice = $price  + ($pickup_location_model->tarif ?? 0) + ($dropoff__location_model->tarif ?? 0) + $totalServices + $totalFranchise;
         if (isset($request->payment_method ) &&  $request->payment_method== Constant::BANK_PAYMENT) {
             $totalPrice+=  $totalPrice * 0.03;
         }
@@ -371,7 +380,7 @@ class CarController extends Controller
             $data['completed']     = 0;
             $data['status']     = 0;
             $data['total'] = $totalPrice;
-            $data['franchise'] = $car->franchise;
+            $data['franchise'] = $franchise;
             $data['owner_id'] = null;
 
             $client_data['name']          = $request->first_name . ' '.$request->last_name;

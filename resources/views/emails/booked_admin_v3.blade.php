@@ -584,7 +584,7 @@
                                                                             : </span></strong>
                                                                 </h1>
                                                                 <p style="margin: 0; padding-left:5px;">
-                                                                    {{ isset($data['franchise']) ? $data['franchise'] : '' }}
+                                                                    {{ isset($data['franchise_text']) ? $data['franchise_text'] : '' }}
                                                                 </p>
                                                             </td>
                                                         </tr>

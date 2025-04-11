@@ -155,7 +155,7 @@
                                                     <span>{{ Helpers::moneyFormatDevise($car->franchise) }}</span>
                                                     <div>
                                                         <div class="form-check form-switch">
-                                                            <input class="form-check-input" value="{{ $car->franchise }}" type="checkbox" role="switch" id="franchise" checked name="franchise">
+                                                            <input class="form-check-input" data-value='{{ $car->franchise }}' value="yes" type="checkbox" role="switch" id="franchise" checked name="franchise">
                                                           </div>
                                                     </div>
                                                 </li>
@@ -369,7 +369,8 @@
         var dropoff_location = @json($dropoff_location);
         var totalAllServices=0;
         var franchise = 0;
-        var priceOfDays = @json($price);;
+        var TotalFranchise = 0;
+        var priceOfDays = @json($price);
         const  calculateServicesPrice= ()=> {
             if($('.service_select').length>0){
                 $('.resume tbody .services').remove()
@@ -401,11 +402,13 @@
 
         const calculateFranchise = ()=>{
             $('.resume tbody .franchise').remove()
-            franchise = $('#franchise').is(':checked') ? parseFloat($('#franchise').val()) : 0;
+            TotalFranchise =  franchise = $('#franchise').is(':checked') ? parseFloat($('#franchise').data('value')) : 0;
             if($('#franchise').is(':checked')){
-                var money = formatMoney(franchise);
+                TotalFranchise = franchise * days;
+                var FranchiseMoney =formatMoney(franchise) ;
+                var money = formatMoney(TotalFranchise);
 
-                var   resume =`<tr class="franchise"><td>Franchise  </td> <td> ${money} </td> <tr>`;
+                var   resume =`<tr class="franchise"><td>Franchise ${ FranchiseMoney} X (${days} {{ __("website.days") }}) </td> <td> ${money} </td> <tr>`;
                 $('.resume tbody').append(resume)
             }
         }
@@ -417,7 +420,7 @@
             var total = 0;
             pickup_tarif = pickup_location.tarif;
             dropoff_tarif = dropoff_location.tarif;
-            total = priceOfDays + pickup_tarif + dropoff_tarif + totalAllServices + franchise;
+            total = priceOfDays + pickup_tarif + dropoff_tarif + totalAllServices + TotalFranchise;
             var html = ""
             if($('.payment_method').val() == "{{ Constant::BANK_PAYMENT }}"){
                 total = total + ( total *0.03)
