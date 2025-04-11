@@ -359,7 +359,13 @@ class CarController extends Controller
                 $services[$key]['price'] = $service->price;
                 $totalServices+= $item>0 ? ($item * $service->price) : 0;
             }
-        $totalPrice = $price  + ($pickup_location_model->tarif ?? 0) + ($dropoff__location_model->tarif ?? 0) + $totalServices;
+
+        $franchise = $totalFranchise = 0;
+        if($request->has("franchise")){
+            $franchise = $car->franchise;
+            $totalFranchise = $franchise * $nombreDeJours;
+        }
+        $totalPrice = $price  + ($pickup_location_model->tarif ?? 0) + ($dropoff__location_model->tarif ?? 0) + $totalServices + $totalFranchise;
         if (isset($request->payment_method ) &&  $request->payment_method== Constant::BANK_PAYMENT) {
             $totalPrice+=  $totalPrice * 0.03;
         }
@@ -371,7 +377,7 @@ class CarController extends Controller
             $data['completed']     = 0;
             $data['status']     = 0;
             $data['total'] = $totalPrice;
-            $data['franchise'] = $car->franchise;
+            $data['franchise'] = $franchise;
             $data['owner_id'] = null;
 
             $client_data['name']          = $request->first_name . ' '.$request->last_name;
