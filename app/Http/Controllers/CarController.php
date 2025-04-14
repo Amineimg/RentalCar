@@ -196,14 +196,14 @@ class CarController extends Controller
             $pickup_location= $request->pickup_location;
         }
         else{
-           $pickup_location =  Session::has('pickup_location')  && !empty(Session::get('pickup_location')) ? Session::get('pickup_location') : '';
+            $pickup_location =  Session::has('pickup_location')  && !empty(Session::get('pickup_location')) ? Session::get('pickup_location') : Helpers::getDefaultLocation('id');
         }
 
         if(!empty($request->dropoff_location)){
             $dropoff_location= $request->dropoff_location;
         }
         else{
-           $dropoff_location =  Session::has('dropoff_location')  && !empty(Session::get('dropoff_location')) ? Session::get('dropoff_location') : '';
+           $dropoff_location =  Session::has('dropoff_location')  && !empty(Session::get('dropoff_location')) ? Session::get('dropoff_location') : Helpers::getDefaultLocation('id');
         }
 
         if(!empty($request->start_date)){

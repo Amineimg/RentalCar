@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
+    <link rel="icon" type="image/png" href="{{ asset('front/build/img/favicon/favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('front/build/img/favicon/favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('front/build/img/favicon/favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('front/build/img/favicon/apple-touch-icon.png') }}" />
+    <link rel="manifest" href="{{ asset('front/build/img/favicon/site.webmanifest') }}" />
+
     @if(View::hasSection('seo_head'))
         @yield('seo_head')
     @else
@@ -12,7 +18,7 @@
     @endif
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('front/build/img/DEHBI LUX LOGO-WHITE v2.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('front/build/img/DEHBI LUX LOGO-WHITE v2.png') }}"> --}}
     @include('front/layout.partials.head')
 
 
