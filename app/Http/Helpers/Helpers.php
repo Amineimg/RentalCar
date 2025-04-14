@@ -4,6 +4,7 @@ namespace App\Http\Helpers;
 
 use App\Models\Admin\Currency;
 use App\Models\Admin\Language;
+use App\Models\Admin\Location;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
@@ -69,6 +70,25 @@ class Helpers {
                 return $currency;
             break;
            }
+    }
+
+    public static function getDefaultLocation($returnWhat='object'){
+        $defaultLocation = null;
+        $defaultLocation = Location::orderBy('order', 'asc')->first();
+        switch ($returnWhat) {
+            case 'object':
+                return $defaultLocation;
+            case 'id':
+                return $defaultLocation->id;
+            case 'name':
+                return $defaultLocation->name;
+            case 'tarif':
+                return $defaultLocation->tarif;
+
+            default:
+                return $defaultLocation;
+        }
+        return $defaultLocation;
     }
 
 }
