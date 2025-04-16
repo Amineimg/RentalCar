@@ -117,7 +117,7 @@
                             </div>
                         </div> --}}
                         <div class="accord-list">
-                            <div class="accordion" id="accordionMain1">
+                            {{-- <div class="accordion" id="accordionMain1">
                                 <div class="card-header-new" id="headingOne">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse"
@@ -132,11 +132,9 @@
                                     data-bs-parent="#accordionExample1">
                                     <div class="card-body-chat">
                                         <div class="row">
-                                            {{-- @dd(old('brands')); --}}
                                             <div class="col-md-12">
                                                 <div id="checkBoxes1">
                                                     <div class="selectBox-cont">
-                                                        {{-- @dd($filterDate); --}}
                                                         @forelse ($brands as $brand)
                                                         <label class="custom_check w-100">
                                                             <input type="checkbox" name="filterData[brands][]" value="{{ $brand->id }}" {{   isset($filterDate["brands"]) && in_array($brand->id,$filterDate["brands"]) ? 'checked': ''  }} >
@@ -147,32 +145,15 @@
                                                         @endforelse
 
 
-                                                        {{-- <!-- View All -->
-                                                        <div class="view-content">
-                                                            <div class="viewall-One">
-                                                                <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
-                                                                    <span class="checkmark"></span> Kia
-                                                                </label>
-                                                                <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
-                                                                    <span class="checkmark"></span> Honda
-                                                                </label>
-                                                                <label class="custom_check w-100">
-                                                                    <input type="checkbox" name="username">
-                                                                    <span class="checkmark"></span> Toyota
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /View All --> --}}
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion" id="accordionMain2">
+                            </div> --}}
+                            {{-- <div class="accordion" id="accordionMain2">
                                 <div class="card-header-new" id="headingTwo">
                                     <h6 class="filter-title">
                                         <a href="javascript:void(0);" class="w-100 collapsed" data-bs-toggle="collapse"
@@ -188,7 +169,6 @@
                                     <div class="card-body-chat">
                                         <div id="checkBoxes2">
                                             <div class="selectBox-cont">
-                                                {{-- @dd($filterDate["brands"]) --}}
                                                 @forelse ($categories as $category)
                                                     <label class="custom_check w-100">
                                                         <input type="checkbox" name="filterData[categories][]" value="{{ $category->id }}" {{   isset($filterDate["categories"]) && in_array($category->id,$filterDate["categories"]) ? 'checked': ''  }}>
@@ -199,33 +179,12 @@
 
                                                 @endforelse
 
-                                                {{-- <!-- View All -->
-                                                <div class="view-content">
-                                                    <div class="viewall-One">
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Hatchback (123)
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Luxury (06)
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> SUV (6)
-                                                        </label>
-                                                        <label class="custom_check w-100">
-                                                            <input type="checkbox" name="username">
-                                                            <span class="checkmark"></span> Wagon (5)
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <!-- /View All --> --}}
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="accordion" id="accordionMain4">
                                 <div class="card-header-new" id="headingfuel">
                                     <h6 class="filter-title">
