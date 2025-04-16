@@ -51,13 +51,13 @@
                         </td>
                         <td>
                             @if(!empty($car->contentDefault->name))
-                            <a href="{{route('admin.car.edit', $car->id)}}" title="{{get_string('edit_car')}}">{{$car->contentDefault->name}}
+                            <a href="{{route('admin.car.edit', $car->id)}}" title="{{get_string('edit_car')}}">{{$car->contentDefault ? $car->contentDefault->name : ''}}
                             </a>
                             @endif
                         </td>
                         <td>
-                            @if($car->category->contentDefault->name)
-                            {{$car->category->contentDefault->name}}
+                            @if($car->category && $car->category->contentDefault->name)
+                                {{ $car->category->contentDefault ? $car->category->contentDefault->name : ''}}
                             @endif
                         </td>
                         <td class="page-status">{{$car->status ? get_string('active') : get_string('pending')}}</td>
