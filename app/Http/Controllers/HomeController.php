@@ -67,13 +67,21 @@ class HomeController extends Controller
             'posts'=>$posts,
         ]);
     }
+    public function aboutUs(){
+        return view('front.about.index');
+
+    }
+    public function gallery(){
+        return view('front.gallery.index');
+    }
+
 
     public function generalconditions(){
         // Get Static Data
         $static_data = $this->static_data;
         $default_language = $this->default_language;
 
-        return view('home.general_condition',compact('static_data','default_language'));
+        return view('front.general.index',compact('static_data','default_language'));
     }
 
     public function faq(){
@@ -81,7 +89,7 @@ class HomeController extends Controller
         $static_data = $this->static_data;
         $default_language = $this->default_language;
 
-        return view('home.faq',compact('static_data','default_language'));
+        return view('front.feq.index',compact('static_data','default_language'));
     }
 
     // Contact page

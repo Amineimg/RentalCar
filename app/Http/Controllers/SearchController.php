@@ -114,6 +114,12 @@ class SearchController extends Controller
         }else{
             $featured_services = null;
         }
+        session([
+            'pickup_location' => $request->pickup_location,
+            'dropoff_location' => $request->dropoff_location,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+        ]);
         return view('home.search', compact('services', 'static_data', 'default_language', 'featured_cars', 'featured_services',
             'services', 'cars'));
     }

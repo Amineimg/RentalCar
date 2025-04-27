@@ -2,96 +2,117 @@
 @extends('front.layout.mainlayout')
 @section('content')
     @component('front.components.breadcrumb')
-        @slot('title')
+            @slot('title')
+                {{ __("website.contact_us") }}
+            @endslot
+            @slot('li_1')
             {{ __("website.contact_us") }}
-        @endslot
-        @slot('li_1')
-        {{ __("website.contact_us") }}
-        @endslot
-        @slot('li_2')
+            @endslot
+            @slot('li_2')
 
-        @endslot
+            @endslot
     @endcomponent
     <!-- Contact us -->
-    <section class="contact-section">
+    <section class="contact-section-1 fix section-padding pb-0">
         <div class="container">
-            <div class="contact-info-area">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
-                        data-aos-delay="0.1">
-                        <div class="single-contact-info flex-fill">
-                            <span><i class="feather-phone-call"></i></span>
-                            <h3>{{ __("website.phone") }}</h3>
-                            <a href="tel:{{ config('dehbi.primary_phone') }}">{{ config('dehbi.primary_phone') }}</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
-                        data-aos-delay="0.2">
-                        <div class="single-contact-info flex-fill">
-                            <span><i class="feather-mail"></i></span>
-                            <h3>{{ __("website.email") }}</h3>
-                            <a href="mailto:{{ config('dehbi.primary_emails') }}">{{ config('dehbi.primary_emails') }}</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
-                        data-aos-delay="0.3">
-                        <div class="single-contact-info flex-fill">
-                            <span><i class="feather-map-pin"></i></span>
-                            <h3>{{ __("website.address") }}</h3>
-                            <a href="javascript:void(0);">{{ config('dehbi.address') }}</a>
-                        </div>
-                    </div>
-                    {{-- <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200"
-                        data-aos-delay="0.4">
-                        <div class="single-contact-info flex-fill">
-                            <span><i class="feather-clock"></i></span>
-                            <h3>Opening Hours</h3>
-                            <a href="javascript:void(0);">Mon - Sat (10.00AM - 05.30PM)</a>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-            <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
-                <div class="row d-flex align-items-center justify-content-center">
-                    {{-- <div class="col-lg-6 d-flex">
-                        <img src="{{ URL::asset('/build/img/contact-info.jpg') }}" class="img-fluid" alt="Contact">
-                    </div> --}}
-                    <div class="col-lg-8">
-                        <form action="{{ route('send_contact') }}" method="POST" class="contact-form">
-                            @csrf
-                            <div class="row">
-                                <h1>{{ __("website.contact_us") }}</h1>
-                                <div class="col-md-12">
-                                    <div class="input-block">
-                                        <label>{{ __("website.full_name") }} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name='name' required>
+            <div class="contact-wrapper-area">
+                <div class="row g-4">
+                    <div class="col-lg-9">
+                        <div class="contact-content">
+                            <div class="section-title">
+                                <img src="{{asset('assets_v2/img/sub-icon.png')}}" alt="icon-img" class="wow fadeInUp">
+                                <span class="wow fadeInUp" data-wow-delay=".2s">contact us</span>
+                                <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                                    {{ __("website.contact_us") }}
+                                </h2>
+                            </div>
+                            <form action="{{ route('send_contact') }}" id="contact-form" method="POST" class="contact-form-items mt-5 mt-md-0">
+                                <div class="row g-4">
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <input type="text" name="name" id="name" placeholder={{ __("website.full_name") }} required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <input type="email" name="email" id="email2" placeholder={{ __("website.email") }} required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <input type="text" name="subject" id="subject" placeholder={{ __("website.subject") }} required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-clt">
+                                            <input type="number" name="phone" id="phone" placeholder="Phone" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-clt">
+                                            <textarea name="message" id="message" placeholder={{ __("website.message") }} required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="submit" class="theme-btn">
+                                            {{ __("website.submit") }}
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="input-block">
-                                        <label>{{ __("website.subject") }}<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name='subject' required>
-                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="contact-right-items">
+
+                            <div class="icon-items">
+                                <div class="icon">
+                                    <img src="{{asset('assets_v2/img/question.png')}}" alt="img">
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="input-block">
-                                        <label>{{ __("website.email") }} <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="" name='email' required>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="input-block">
-                                        <label>{{ __("website.message") }} <span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="4" cols="50" placeholder="" required name='message'> </textarea>
-                                    </div>
+                                <div class="content">
+                                    <p>Have Question?</p>
+                                    <h6><a href="tel:+212 524 448 489">+212 524 448 489</a></h6>
                                 </div>
                             </div>
-                            <button class="btn contact-btn">{{ __("website.submit") }} </button>
-                        </form>
+                            <div class="icon-items">
+                                <div class="icon">
+                                    <img src="{{asset('assets_v2/img/email.png')}}" alt="img">
+                                </div>
+                                <div class="content">
+                                    <p>Write Email</p>
+                                    <h6><a href="contact@seocom.ma" class="link">contact@seocom.ma</a></h6>
+                                </div>
+                            </div>
+                            <div class="icon-items">
+                                <div class="icon">
+                                    <img src="{{asset('assets_v2/img/location.png')}}" alt="img">
+                                </div>
+                                <div class="content">
+                                    <p>Visit Office</p>
+                                    <h6>
+                                        Avenue 11 janvier <br> Marrakech, Maroc
+
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="social-icon d-flex align-items-center">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- /Contact us -->
+    <div class="map-section">
+        <div class="map-items">
+            <div class="googpemap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4298.045230060755!2d-7.998483144573187!3d31.639439441049262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafef6bd2f62c69%3A0x49157de7e7388939!2sSEOCOM%20web%20agency!5e0!3m2!1sfr!2sma!4v1744581653740!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
 @endsection

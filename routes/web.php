@@ -478,6 +478,9 @@ Route::group(  [ 'middleware' => ['language_middleware','web']],function(){
     Route::get('/contact-us', 'HomeController@contact')->name('contact');
     Route::post('/mail/sendcontact', 'HomeController@submitContact')->name('send_contact');
     Route::get('/blog', 'BlogController@index')->name('blogs');
+    Route::get('/about', [HomeController::class, 'aboutUs'])->name('about');
+    Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+
     Route::get('/logout', 'UserController@logout')->name('logout');
     Route::get('/page/{alias}', 'PageController@index')->name('page');
     Route::get('blog/post/{alias}', 'BlogController@post')->name('single-post');

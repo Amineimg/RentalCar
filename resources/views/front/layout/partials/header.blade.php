@@ -7,146 +7,168 @@
      @if (Route::is(['home']))
 
      <!-- Hero Sec Main -->
-        <div class="hero-sec-main">
             <!-- Header -->
             @include('front.layout.partials.top-header')
 
             <!-- /Header -->
 
             <!-- Banner -->
-            <section class="banner-section banner-sec-two banner-slider">
-                <div class="banner-img-slider owl-carousel">
-                    <div class="slider-img">
-                        <img src="{{ URL::asset('/front/build/img/bg/dehbi (3).png') }}" alt="Img">
-                    </div>
-                    <div class="slider-img">
-                        <img src="{{ URL::asset('/front/build/img/bg/dehbi (5).png') }}" alt="Img">
-                    </div>
-                    <div class="slider-img">
-                        <img src="{{ URL::asset('/front/build/img/bg/home-banner-img-03.png') }}" alt="Img">
+            <section class="hero-section hero-1 fix">
+                <div class="array-button">
+                    <button class="image-array-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="image-array-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="swiper hero-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="hero-image bg-cover" style="background-image: url('assets_v2/img/hero/location-de-voiture-marrakech.jpg');">
+                                <div class="overlay-shape">
+                                </div>
+                            </div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-12">
+                                           <div class="hero-content text-center">
+                                                <h4 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                    Car <span>Rental</span>
+                                                </h4>
+                                                <h2 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                    {{ __("website.home_page_title") }}
+
+                                                </h2>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="hero-image bg-cover" style="background-image: url('assets_v2/img/hero/dacia-duster-marrakech.jpg');">
+
+
+                            </div>
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-12">
+                                        <div class="hero-content text-center" >
+                                            <h4 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                Car <span>Rental</span>
+                                            </h4>
+                                            <h2 class="text-white" data-animation="fadeInUp" data-delay="1.3s">
+                                                {{ __("website.home_page_title") }}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="home-banner">
-                        <div class="row align-items-center">
-                            <div class="col-md-12">
-                                <div class="hero-sec-contents">
-                                    <div class="banner-title">
-                                        <h1>{{ __("website.home_page_title") }}.
-                                            <span>{{ __("website.brand_name") }}</span>
-                                        </h1>
-                                        <p>{{ __("website.home_page_description") }}
-                                        </p>
-                                    </div>
-                                    <div class="banner-form">
-                                        <form action="{{ route("search_home") }}" method="post">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="banner-search-list">
-                                                        <div class="input-block">
-                                                            <label><i class="bx bx-map"></i> {{ __("website.pickup_location") }}</label>
-                                                            <select class="select" name="pickup_location">
-                                                                @forelse ($locations as $location)
-                                                                    <option value="{{ $location->id }}">{{ $location->contentload->location }}</option>
-                                                                @empty
-                                                                <option>No locations</option>
-                                                                @endforelse
-                                                            </select>
-                                                        </div>
-                                                        <div class="input-block">
-                                                            <label><i class="bx bx-calendar"></i>{{ __("website.start_date") }}</label>
-                                                            <div class="date-widget">
-                                                                <div class="group-img">
-                                                                    <input type="text" class="form-control datetimepicker start_date" name="start_date" placeholder="{{ Carbon::now()->format("d-m-Y") }}" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="input-block">
-                                                            <label><i class="bx bx-calendar"></i>{{ __("website.start_time") }}</label>
-                                                            <div class="date-widget">
-                                                                <div class="group-img">
-                                                                    <input type="text" class="form-control timepicker" name="start_time"
-                                                                        placeholder="11:00 AM">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                <div class="banner-search-list">
-                                                    <div class="input-block">
-                                                        <label><i class="bx bx-map"></i>{{ __("website.dropoff_location") }}</label>
-                                                        <select class="select" name="dropoff_location">
-                                                            @forelse ($locations as $location)
-                                                                <option value="{{ $location->id }}">{{ $location->contentload->location }}</option>
-                                                            @empty
-                                                            <option>No locations</option>
-                                                            @endforelse
-                                                        </select>
-                                                    </div>
-                                                    <div class="input-block">
-                                                        <label><i class="bx bx-calendar"></i>{{ __("website.end_date") }}</label>
-                                                        <div class="date-widget">
-                                                            <div class="group-img">
-                                                                <input type="text" class="form-control datetimepicker end_date" name="end_date"
-                                                                placeholder="{{ Carbon::now()->format("d-m-Y") }}" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("end_date") && !empty(Session::get("end_date")) ? Carbon::parse(Session::get("end_date"))->format("d-m-Y") : Carbon::now()->addDay()->format("d-m-Y") }}" >
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-block">
-                                                        <label><i class="bx bx-calendar"></i>{{ __("website.end_time") }}</label>
-                                                        <div class="date-widget">
-                                                            <div class="group-img">
-                                                                <input type="text" class="form-control timepicker"  name="end_time"
-                                                                    placeholder="11:00 AM">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            <div class="input-block-btn">
-                                                <button class="btn btn-primary" type="submit">
-                                                    <i class="bx bx-search-alt me-2"></i> {{ __("website.search") }}
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    {{-- <div class="banner-user-group text-center">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/front/build/img/profiles/avatar-01.jpg') }}"
-                                                        alt="Img"></a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/front/build/img/profiles/avatar-02.jpg') }}"
-                                                        alt="Img"></a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/front/build/img/profiles/avatar-03.jpg') }}"
-                                                        alt="Img"></a>
-                                            </li>
-                                            <li class="users-text">
-                                                <h5>6K + Customers</h5>
-                                                <span>has used our renting services </span>
-                                            </li>
-                                        </ul>
-                                    </div> --}}
+                <div class="pickup-loaction-area bg-cover" style="background-image: url('{{ asset('assets_v2/img/brand-bg.png') }}'); ">
+                    <div class="container">
+                        <form action="{{ route("search_home") }}" method="post">
+                            @csrf
+                            <div class="pickup-wrapper wow fadeInUp" data-wow-delay=".4s">
+                                <div class="pickup-items">
+                                    <label class="field-label">{{ __("website.pickup_location") }}</label>
+                                    <div class="category-oneadjust">
+                                        <select class="category" name="pickup_location">
 
+                                            @forelse ($locations as $location)
+                                                <option value="{{ $location->id }}">{{ $location->contentload->location }}</option>
+                                                @empty
+                                                <option>No locations</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="pickup-items">
+                                    <label class="field-label">{{ __("website.start_date") }}</label>
+                                    <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                                        <input class="form-control" type="text" name="start_date" placeholder="Check in" data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("start_date") && !empty(Session::get("start_date")) ? Carbon::parse(Session::get("start_date"))->format("d-m-Y") : Carbon::now()->format("d-m-Y") }}">
+                                        <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                    </div>
+                                </div>
+                                <div class="pickup-items">
+                                    <label class="field-label">{{ __("website.end_date") }}</label>
+                                    <div id="datepicker2" class="input-group date" data-date-format="dd-mm-yyyy">
+                                        <input class="form-control" type="text" name="end_date" placeholder="Check in"  data-min-date="{{ Carbon::now()->format("d-m-Y") }}" data-current-date="{{Session::has("end_date") && !empty(Session::get("end_date")) ? Carbon::parse(Session::get("end_date"))->format("d-m-Y") : Carbon::now()->addDay()->format("d-m-Y") }}" >
+                                        <span class="input-group-addon"> <i class="fa-solid fa-calendar-days"></i></span>
+                                    </div>
+                                </div>
+                                <div class="pickup-items">
+                                    <label class="field-label">{{ __("website.dropoff_location") }}</label>
+                                    <div class="category-oneadjust">
+                                        <select name="dropoff_location" class="category">
+
+                                            @forelse ($locations as $location)
+                                                <option value="{{ $location->id }}">{{ $location->contentload->location }}</option>
+                                                @empty
+                                                <option>No locations</option>
+                                            @endforelse
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="pickup-items">
+                                    <label class="field-label style-2">button</label>
+                                <button class="pickup-btn" type="submit">
+                                    {{ __("website.search") }}
+                                </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="brand-wrapper pt-80 pb-80">
+                        <div class="array-button">
+                            <button class="array-prev-2"><i class="far fa-chevron-left"></i></button>
+                            <button class="array-next-2"><i class="far fa-chevron-right"></i></button>
+                        </div>
+                        <div class="swiper brand-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{asset('assets_v2/img/brand/01.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{asset('assets_v2/img/brand/02.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{asset('assets_v2/img/brand/03.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{asset('assets_v2/img/brand/04.png')}}" alt="img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="brand-image">
+                                        <img src="{{asset('assets_v2/img/brand/05.png')}}" alt="img">
+                                    </div>
                                 </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </section>
-            <!-- /Banner -->
-        </div>
+
+
+
+
+
+
      @endif
      <!-- /Hero Sec Main -->

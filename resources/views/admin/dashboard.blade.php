@@ -95,7 +95,7 @@
                                     <input type="checkbox" class="filled-in primary-color" id="{{$booking->id}}" />
                                     <label for="{{$booking->id}}"></label>
                                 </td>
-                                <td>@if($booking->car_id && $booking->car) {{ $booking->car->contentDefault->name }} @elseif($booking->service) {{ $booking->service->contentDefault->name }} @endif</td>
+                                <td>@if($booking->car_id && $booking->car)  @elseif($booking->service)  @endif</td>
                                 <td>{{ $booking->start_date }}</td>
                                 <td>{{ $booking->end_date }}</td>
                                 <td>{{ $booking->passengers_number }}</td>

@@ -252,6 +252,7 @@ class CarController extends Controller
 
         // current language id
         return view("front.bookings.booking-detail",[
+
             'car' => $car,
             'start_date' => $start_date,
             'end_date' => $end_date,
@@ -266,6 +267,7 @@ class CarController extends Controller
         ]);
 
     }
+
 
 
     public function book(Request $request){

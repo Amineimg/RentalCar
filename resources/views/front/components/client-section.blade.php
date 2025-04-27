@@ -1,56 +1,111 @@
 <!-- Why Choose Us -->
-<section class="section why-choose popular-explore">
-    <div class="choose-left">
-        <img src="{{ URL::asset('/front/build/img/bg/choose-left.png') }}" class="img-fluid" alt="Why Choose Us">
+
+<section class="testimonial-section fix section-padding">
+    <div class="testimonial-bg-shape">
+        <img src="{{ asset('assets_v2/img/testimonial/testimonial-bg.jpg') }}" alt="shape-img">
     </div>
     <div class="container">
-        <!-- Heading title-->
-        <div class="row">
-            <div class="col-lg-4 mx-auto">
-                <div class="section-heading" data-aos="fade-down">
-                    <h2>Why Choose Us</h2>
-                    <p>We are innovative and passionate about the work we do. </p>
-                </div>
+        <div class="section-title-area">
+            <div class="section-title">
+                <img src="{{ asset('assets_v2/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
+                <span class="wow fadeInUp" data-wow-delay=".2s">our testimonials</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                    What They’re Talking <br>
+                    About Majdline Travel
+                </h2>
             </div>
+            <p class="wow fadeInUp" data-wow-delay=".5s">
+                Lorem ipsum dolor sit amet nsectetur cing elituspe ndisse suscipit <br> sagitis leo sit.
+            </p>
         </div>
-        <!-- /Heading title -->
-        <div class="why-choose-group">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
-                    <div class="card flex-fill">
-                        <div class="card-body">
-                            <div class="choose-img choose-black">
-                                <img src="{{ URL::asset('/front/build/img/icons/bx-selection.svg') }}" alt="Icon">
+        <div class="swiper testimonial-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-card-items">
+                        <div class="testimoni-bg-shape">
+                            <div class="testimonial-items-top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </div>
+                                <p>
+                                    I was very impresed by the Majdoline Travel service lorem ipsum is simply free text used by copy typing refreshing. Neque porro est qui dolorem ipsum quia.
+                                </p>
+                                <div class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
-                            <div class="choose-content">
-                                <h4>{{ __('website.why_choose_us_title_step_1') }}</h4>
-                                <p>{{ __('website.why_choose_us_description_step_1') }}</p>
+                        </div>
+                        <div class="client-info-items d-flex align-items-center gap-3">
+                            <div class="client-img bg-cover" ></div>
+                            <div class="content">
+                                <h5>
+                                    Jessica Brown
+                                </h5>
+                                <span>Customer</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
-                    <div class="card flex-fill">
-                        <div class="card-body">
-                            <div class="choose-img choose-secondary">
-                                <img src="{{ URL::asset('/front/build/img/icons/bx-crown.svg') }}" alt="Icon">
+                <div class="swiper-slide">
+                    <div class="testimonial-card-items">
+                        <div class="testimoni-bg-shape">
+                            <div class="testimonial-items-top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </div>
+                                <p>
+                                    I was very impresed by the Majdoline Travel service lorem ipsum is simply free text used by copy typing refreshing. Neque porro est qui dolorem ipsum quia.
+                                </p>
+                                <div class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
-                            <div class="choose-content">
-                                <h4>{{ __('website.why_choose_us_title_step_2') }}</h4>
-                                <p>{{ __('website.why_choose_us_description_step_2') }}</p>
+                        </div>
+                        <div class="client-info-items d-flex align-items-center gap-3">
+                            <div class="client-img bg-cover" ></div>
+                            <div class="content">
+                                <h5>
+                                    Kevin Martin
+                                </h5>
+                                <span>Customer</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12 d-flex" data-aos="fade-down">
-                    <div class="card flex-fill">
-                        <div class="card-body">
-                            <div class="choose-img choose-primary">
-                                <img src="{{ URL::asset('/front/build/img/icons/bx-user-check.svg') }}" alt="Icon">
+                <div class="swiper-slide">
+                    <div class="testimonial-card-items">
+                        <div class="testimoni-bg-shape">
+                            <div class="testimonial-items-top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                </div>
+                                <p>
+                                    I was very impresed by the Majdoline Travel service lorem ipsum is simply free text used by copy typing refreshing. Neque porro est qui dolorem ipsum quia.
+                                </p>
+                                <div class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
                             </div>
-                            <div class="choose-content">
-                                <h4>{{ __('website.why_choose_us_title_step_3') }}</h4>
-                                <p>{{ __('website.why_choose_us_description_step_3') }}</p>
+                        </div>
+                        <div class="client-info-items d-flex align-items-center gap-3">
+                            <div class="client-img bg-cover" ></div>
+                            <div class="content">
+                                <h5>
+                                    Jessica Brown
+                                </h5>
+                                <span>Customer</span>
                             </div>
                         </div>
                     </div>
@@ -115,95 +170,86 @@
 <!-- About us Testimonials -->
 
 <!-- FAQ  -->
-<section id="faq_section" class="section faq-section bg-light-primary">
-    <div class="container">
-        <!-- Heading title-->
-        <div class="section-heading" data-aos="fade-down">
-            <h2>{{ __('website.faq_title') }}</h2>
-            <p>{{ __('website.faq_description') }}</p>
-        </div>
-        <!-- /Heading title -->
-        <div class="faq-info">
-            @forelse (__("website.faqs") as $key => $faq)
-                <div class="faq-card bg-white" data-aos="fade-down">
-                    <h4 class="faq-title">
-                        <a class="collapseds" data-bs-toggle="collapse" href="#faq_{{ $key }}"
-                            aria-expanded="true">{{ $faq['question'] ?? '' }}</a>
-                    </h4>
-                    <div id="faq_{{ $key }}" class="card-collapse collapse show">
-                        <p>{{ $faq['answer'] ?? '' }}</p>
-                    </div>
-                </div>
-            @empty
-            @endforelse
 
 
-        </div>
-    </div>
-</section>
 <!-- /FAQ -->
-
+<!-- Gallery Section Start -->
 
 
 
 <!-- Blog Section -->
 @if (isset($posts) && count($posts) > 0)
-    <section class="blog-section news-section pt-0">
+
+    <section class="news-section section-padding fix">
         <div class="container">
-            <!-- Heading title-->
-            <div class="section-heading" data-aos="fade-down">
-                <h2>{{ __('website.blogs_title') }}</h2>
-                <p>{{ __('website.blogs_description') }}</p>
+            <div class="section-title text-center">
+                <img src="{{ asset('assets_v2/img/sub-icon.png') }}" alt="icon-img" class="wow fadeInUp">
+                <span class="wow fadeInUp" data-wow-delay=".2s">{{ __('website.blogs_description') }}</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".4s">
+                    {{ __('website.blogs_title') }}
+                </h2>
             </div>
-            <!-- /Heading title -->
-
-            <div class="row">
-
-                @forelse ($posts as $post)
-                    <div class="col-lg-4 col-md-6 d-lg-flex">
-                        <div class="blog grid-blog">
-                            <div class="blog-image">
-                                <a href="{{ route('single-post', ['alias' => $post->alias]) }}"><img class="img-fluid"
-                                        src="{{ url('/') . $post->image }}" alt="Post Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                {{-- <p class="blog-category">
-                                    <a href="javascript:void(0)"><span>Updates</span></a>
-                                </p> --}}
-                                <h3 class="blog-title"><a
-                                        href="{{ route('single-post', ['alias' => $post->alias]) }}">{{ $post->contentload ? $post->contentload->title : '' }}</a>
-                                </h3>
-                                <p class="blog-description"> {!! Str::limit($post->contentload ? $post->contentload->content : '', 120, '...') !!}</p>
-                                <ul class="meta-item mb-0">
-                                    <li>
-                                        <div class="post-author">
-                                            <div class="post-author-img">
-                                                {{-- <img src="{{ URL::asset('/front/build/img/profiles/avatar-13.jpg') }}"
-                                                    alt="author"> --}}
-                                            </div>
-                                            <a href="javascript:void(0)"> <span> {{ $post->user->username }}
-                                                </span></a>
+            <section class="news-section section-padding fix">
+                <div class="container">
+                    <div class="row g-4">
+                        @forelse ($posts as $post)
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="news-card-items mt-0">
+                                    <div class="news-image">
+                                        <img src="{{ URL::asset($post->image) }}" alt="news-img">
+                                        <div class="post-date">
+                                            <h6>
+                                                {{ \Carbon\Carbon::parse($post->created_at)->format('d') }} <br>
+                                                {{ \Carbon\Carbon::parse($post->created_at)->format('M') }}
+                                            </h6>
                                         </div>
-                                    </li>
-                                    <li class="date-icon"><i class="fa-solid fa-calendar-days"></i>
-                                        <span>{{ Carbon::parse($post->created_at)->Format('Y-m-d') }}</span>
-                                    </li>
-                                </ul>
+                                    </div>
+                                    <div class="news-content">
+                                        <div class="post-client">
+                                            {{-- <img src="{{ asset('assets/img/news/client.png') }}" alt="img"> --}}
+                                        </div>
+                                        <div class="news-cont">
+                                            <span>by {{ $post->author_name ?? 'Admin' }}</span>
+                                            <h3>
+                                                <a href="{{ route('single-post', ['alias' => $post->alias]) }}">
+                                                    {{ Helpers::getAttributeFromTranslate('title', 2, Helpers::getDefaultLanguage('id'), $post) }}
+                                                </a>
+                                            </h3>
+                                            <p>
+                                                {!! Str::limit(
+                                                    Helpers::getAttributeFromTranslate('content', 2, Helpers::getDefaultLanguage('id'), $post),
+                                                    150,
+                                                    '...',
+                                                ) !!}
+                                            </p>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <i class="fa-solid fa-comments"></i>
+                                                {{ $post->comments_count ?? 2 }} Comments
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('single-post', ['alias' => $post->alias]) }}">
+                                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                                    {{ __('website.read_more') }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @empty
+                            <p class="text-center">{{ __('No posts available.') }}</p>
+                        @endforelse
                     </div>
-                @empty
-                @endforelse
 
-            </div>
-            <div class="view-all text-center aos-init aos-animate" data-aos="fade-down">
-                <a href="{{ route('blogs') }}"
-                    class="btn btn-view d-inline-flex align-items-center">{{ __('website.show_all') }}
-                    <span><i class="feather-arrow-right ms-2"></i></span></a>
-            </div>
+                    {{-- Pagination --}}
 
+                </div>
+            </section>
         </div>
     </section>
 @endif
 
-<!-- /Blog Section -->
+
+

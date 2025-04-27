@@ -1,37 +1,34 @@
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/css/bootstrap.min.css') }}">
+<link rel="shortcut icon" href="{{ asset('assets_v2/img/favicon.png') }}">
+<!--<< Bootstrap min.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/bootstrap.min.css') }}">
+<!--<< All Min Css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/all.min.css') }}">
+<!--<< Animate.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/animate.css') }}">
+<!--<< Magnific Popup.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/magnific-popup.css') }}">
+<!--<< MeanMenu.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/meanmenu.css') }}">
+<!--<< DatePicker.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/datepickerboot.css') }}">
+<!--<< Swiper Bundle.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/swiper-bundle.min.css') }}">
+<!--<< Nice Select.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/nice-select.css') }}">
+<!--<< Main.css >>-->
+<link rel="stylesheet" href="{{ asset('assets_v2/css/main.css') }}">
 
-<!-- Fontawesome CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/fontawesome/css/fontawesome.min.css') }}">
-<link rel="stylesheet" href="{{ url('/front/build/plugins/fontawesome/css/all.min.css') }}">
-
-<!-- Select2 CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/select2/css/select2.min.css') }}">
-<!-- Aos CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/aos/aos.css') }}">
-<!-- Boxicons CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/boxicons/css/boxicons.min.css') }}">
-
-<!-- Datatables CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/datatables/datatables.min.css') }}">
 
 
-<!-- Datepicker CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/css/bootstrap-datetimepicker.min.css') }}">
 
-<!-- Owl carousel CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/css/owl.carousel.min.css') }}">
-<!-- Fancybox CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/fancybox/fancybox.css') }}">
-<!-- Rangeslider CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/ion-rangeslider/css/ion.rangeSlider.min.css') }}">
-<!-- Fearther CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/css/feather.css') }}">
-<!-- Slick CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/slick/slick.css') }}">
 
-<!-- Datatables CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/plugins/datatables/datatables.min.css') }}">
 
-<!-- Main CSS -->
-<link rel="stylesheet" href="{{ url('/front/build/css/style.css') }}">
+
+
+
+
+
+
+
+
+

@@ -1,23 +1,26 @@
 @if (!Route::is(['blog-details','user-bookings','user-booking-cancelled','user-booking-complete','user-booking-inprogress','user-booking-upcoming','user-dashboard','user-reviews','user-wishlist','user-messages','user-wallet','user-payment','user-settings','user-integration','user-notifications','user-preferences','user-security','booking-cancelled-calendar','booking-adon','booking-checkout','booking-complete-calendar','booking-detail','booking-inprogress-calendar','bookings-calendar','booking-payment','booking-adon','booking-success','booking-payment','booking-upcoming-calendar']))
     <!-- Breadscrumb Section -->
-    <div class="breadcrumb-bar">
-        <div class="container">
-            <div class="row align-items-center text-center">
-                <div class="col-md-12 col-12">
-                    <h2 class="breadcrumb-title">{{ $title }}</h2>
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __("menu.home")}}</a></li>
-                            <li class="breadcrumb-item"><a href="{{ isset($li_1_url) ? $li_1_url : '' }}">{{ $li_1 }}</a></li>
-                            @if (isset($li_2))
-                                <li class="breadcrumb-item active" aria-current="page">{{ $li_2 }}</li>
-                            @endif
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+<div class="breadcrumb-wrapper bg-cover" style="background-image:  url('/assets_v2/img/brand-bg.png')">
+    <div class="container">
+        <div class="page-heading">
+            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
+                <li>
+                    <a href="{{route('home')}}">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <i class="fas fa-chevron-right"></i>
+                </li>
+                <li>
+                    {{ $li_1 }}
+                </li>
+            </ul>
+            <h1 class="wow fadeInUp" data-wow-delay=".5s">{{ $title}}</h1>
         </div>
     </div>
+</div>
+
     <!-- /Breadscrumb Section -->
 @endif
 
