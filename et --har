@@ -1,0 +1,265 @@
+[33mcommit 91bfa604f0f700507d787041c7dbd88dd92fa4aa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/Project_AmineIMEGHRI[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mProject_AmineIMEGHRI[m[33m)[m
+Merge: 527917a da427f7
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Mon Apr 14 16:04:55 2025 +0100
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    change favicon
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!18
+
+[33mcommit da427f770ebafa6052b583f3be7054ac45a17fb0[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Mon Apr 14 15:52:25 2025 +0100
+
+    fix default location
+
+[33mcommit c27568dd640f9337c46b5d2c19880bad911d55d6[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Mon Apr 14 14:33:57 2025 +0100
+
+    change favicon
+
+[33mcommit 527917a7a04f31f52bd0df6df9476c7dd2451c16[m
+Merge: 5f38f03 49cf8ef
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 11 11:11:31 2025 +0100
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    fix problem of franchise
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!17
+
+[33mcommit 49cf8efb1af7f051226209194e2a29ab5e1b2990[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 11 11:07:17 2025 +0100
+
+    fix services problem
+
+[33mcommit 36a4b5302bf2c36893baadefd54642907af2b765[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 11 10:38:01 2025 +0100
+
+    fix problem of franchise
+
+[33mcommit 5f38f0336631940d187fcad42dde55f952c944c2[m
+Merge: b3e3b1b 72accaf
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Tue Apr 8 15:01:17 2025 +0100
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    seo changes
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!16
+
+[33mcommit 72accafc5177b767fa42c66e0507102a49963424[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Tue Apr 8 14:54:09 2025 +0100
+
+    fix search component
+
+[33mcommit bd2230d62e3e8c9accc62bd08cafc7f702f295cc[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Tue Apr 8 12:59:29 2025 +0100
+
+    seo changes
+
+[33mcommit b3e3b1b0bf3f093dfcf41b07ed454a796061585d[m
+Merge: d662e86 9be6b24
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Tue Apr 8 12:21:20 2025 +0100
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    fix problem of locations
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!15
+
+[33mcommit 9be6b24b6425b66ccbc93f64d0f62b0c73f2fd07[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Tue Apr 8 12:18:00 2025 +0100
+
+    fix problem of locations
+
+[33mcommit d662e86c2f220879796d00d9d4a782b6c9843ef4[m
+Merge: df85430 276e423
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 18:17:45 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    add database
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!14
+
+[33mcommit 276e42327814a9705b28acdb93c726e3110156d1[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 18:17:18 2025 +0000
+
+    add database
+
+[33mcommit df854305199a19282465b8e4f474961037d07249[m
+Merge: a75ee67 3659c72
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 17:07:50 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    remove section reviews
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!13
+
+[33mcommit 3659c721708b213fd16ce140b817e66ed8de480f[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 17:02:53 2025 +0000
+
+    remove section reviews
+
+[33mcommit a75ee6732e76f18c63d55868b6f418c48bfd14f3[m
+Merge: c338469 7f763d4
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 16:43:11 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    fix problemof bottom bar
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!12
+
+[33mcommit 7f763d4a6c45fd1f39a35a8e440ec79aafc91e27[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 16:38:57 2025 +0000
+
+    fix problemof bottom bar
+
+[33mcommit c3384690a82cd8f2e5434caf176a2e136abadb21[m
+Merge: 9436409 b212ef8
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 16:35:23 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    add trust review
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!11
+
+[33mcommit b212ef88ac60504a339ecfcc7813b3ace0809c24[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 16:31:44 2025 +0000
+
+    add trust review
+
+[33mcommit 94364095089fb63a7df07c85cf338d306f57c0c4[m
+Merge: 540c5a1 581cfe1
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 16:31:08 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    add bottom bar
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!10
+
+[33mcommit 581cfe1248a83c15d2e446a0da43e9a7b3ffec97[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 15:55:34 2025 +0000
+
+    add bottom bar
+
+[33mcommit 540c5a1daaf6c3c8476612fb689636ad3369c436[m
+Merge: 466e114 bf44c3e
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 14:04:11 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    change logo on emails
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!9
+
+[33mcommit bf44c3e36ac4b11c8702f0f06f6c77f7c415b8b1[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 14:03:34 2025 +0000
+
+    change logo and email 2
+
+[33mcommit ce6d0d0d2bd74cc35ae3237c519da667b9eaf6bf[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 12:00:49 2025 +0000
+
+    change logo on emails
+
+[33mcommit 466e1143201ad7371e7e5159f85d5e50071d6df6[m
+Merge: 34a3509 169f80e
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 11:59:43 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    fix blogs and franchise
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!8
+
+[33mcommit 169f80eea272410da5e3b5962269a591313c06c6[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Apr 4 10:49:06 2025 +0000
+
+    fix blogs and franchise
+
+[33mcommit 34a3509ebbac1b43948251a2aa87dcbba8ae0b91[m
+Merge: b354801 20d52e5
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Thu Apr 3 15:16:17 2025 +0000
+
+    Merge branch 'dev-abdelilah' into 'master'
+    
+    add contact page
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!7
+
+[33mcommit 20d52e57c2de6cd4f13976d4bb0d5d34944ce1f9[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Thu Apr 3 15:15:45 2025 +0000
+
+    add contact page
+
+[33mcommit b3548011017cd8910cd6398dfb3000a3bd2505a1[m
+Merge: 735c621 f6a0984
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Thu Apr 3 11:16:34 2025 +0000
+
+    Merge branch 'dev-001' into 'master'
+    
+    fix something
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!6
+
+[33mcommit f6a09842d180430a35133ebd491677f1932346a1[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Thu Apr 3 11:16:23 2025 +0000
+
+    send mail when client booked
+
+[33mcommit cfbfc45d5021aa552b522a5e89a8ac590d0655a9[m
+Author: abdelilah bourkoukou <72749844+abdelilahberk@users.noreply.github.com>
+Date:   Thu Apr 3 08:57:31 2025 +0000
+
+    fix something
+
+[33mcommit 735c621aae040ecaa1afcceb15df4da6728aa9b7[m
+Merge: e13fded fde1760
+Author: abdelilah BOURKOUKOU <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Mar 28 16:31:10 2025 +0000
+
+    Merge branch 'dev-abdeliah' into 'master'
+    
+    integrate template and some pages
+    
+    See merge request abdelilahbourkoukou/dehbi-lux!4
+
+[33mcommit fde17603870b668563aca797fd0fa6a46e6ea5b3[m
+Author: abdelilahSEOCOM <abdelilahbourkoukou.seocom@gmail.com>
+Date:   Fri Mar 28 12:07:08 20
