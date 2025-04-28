@@ -135,15 +135,15 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="{{ route('home') }}">Home</a>
+                                            <a href="{{ route('home') }}">{{__('menu.home') }}</a>
 
                                         </li>
                                         <li>
-                                            <a href="{{ route('search_home') }}">Cars park</a>
+                                            <a href="{{ route('search_home') }}">{{ __('menu.parking') }}</a>
 
                                         </li>
                                         <li>
-                                            <a href="{{ route('about')}}">About Us</a>
+                                            <a href="{{ route('about')}}">{{ __('menu.About') }}</a>
                                         </li>
 
 
@@ -156,8 +156,8 @@
 
                                             </a>
                                             <ul class="submenu">
-                                                <li><a href="{{route ('faq')}}">FAQ</a></li>
-                                                <li><a href="{{route('generalconditions')}}">Conditions generales</a></li>
+                                                <li><a href="{{route ('faq')}}">{{ __('menu.faq') }}</a></li>
+                                                <li><a href="{{route('generalconditions')}}">{{ __('menu.general_condition') }}</a></li>
 
                                             </ul>
 
@@ -165,11 +165,11 @@
                                         </li>
 
                                         <li>
-                                            <a href="{{ route('blogs') }}">Blogs</a>
+                                            <a href="{{ route('blogs') }}">{{ __('menu.blogs') }}</a>
 
                                         </li>
                                         <li>
-                                            <a href="{{route('contact')}}">Contact</a>
+                                            <a href="{{route('contact')}}">{{ __('menu.contact') }}</a>
                                         </li>
                                     </ul>
                                 </nav>

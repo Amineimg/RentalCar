@@ -1,10 +1,11 @@
 <?php
 return [
-    "home"=>"Home",
-    "parking"=>"parking",
+    "home"=>"Accueil",
+    "parking"=>"Parc Auto",
     "general_condition"=>"Conditions générales",
     "faq"=>"FAQ",
-    "glogs"=>"Blogs",
+    "blogs"=>"Blogs",
     "contact"=>"Contact",
+    "About" => "About Us"
 
 ];

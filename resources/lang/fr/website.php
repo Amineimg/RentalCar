@@ -1,7 +1,7 @@
 <?php
 return [
     'home_page_title' => 'Location de voiture à Marrakech',
-    'brand_name' => 'DEHBI LUX',
+    'brand_name' => 'MAjdoline Travel',
     'home_page_description' => 'Dehbi Lux - Votre solution simple de location de voiture à Marrakech avec DEHBILUX.',
     'pickup_location' => 'Lieu de prise en charge',
     'dropoff_location' => 'Lieu de restitution',
@@ -164,5 +164,34 @@ return [
     "franchise"=> "Franchise",
     "franchise_required"=> "Payer la franchise ( l'achat de la franchise est obligatoire )",
 
+
+
+
+
+
+'terms_title' => "Termes et Conditions",
+'terms_description' => "Veuillez lire attentivement nos termes et conditions avant de louer un véhicule chez Majdoline Travel.",
+'terms' => [
+    [
+        "title" => "Majdoline Travel",
+        "description" => "Majdoline Travel et toute son équipe vous souhaitent la bienvenue au Maroc. Nous sommes une agence de location de voitures et 4x4 (avec ou sans chauffeur) basée à Marrakech. Notre flotte diversifiée permet un large choix adapté à vos besoins pour un service de location de voitures économique, simple et efficace."
+    ],
+    [
+        "title" => "Garantie & Paiement",
+        "description" => "Une garantie par carte bancaire ou un dépôt en espèces est obligatoire : 500 euros pour les véhicules standards et 3000 euros pour les 4x4. La garantie/dépôt est restituée au retour du véhicule. Le montant total de la location est payable le jour de la livraison et n'est pas remboursable."
+    ],
+    [
+        "title" => "Rappels Importants",
+        "description" => "Seuls les véhicules 4x4 sont autorisés sur les pistes hors route. Tout dommage résultant d'une mauvaise utilisation sera facturé. Les véhicules standards sont assurés pour 5 personnes, les 4x4 pour 7 personnes. Tout dépassement de ce nombre est sous votre responsabilité. Le véhicule doit être restitué avec le même niveau de carburant. Le carburant excédentaire n'est pas remboursable."
+    ],
+    [
+        "title" => "Responsabilité",
+        "description" => "En cas d'accident ou de panne, vous êtes responsable jusqu'à l'arrivée d'un agent de Majdoline Travel. Les dommages à l'intérieur du véhicule (brûlures, déchirures, taches) ou à la carrosserie (en cas de votre faute) sont à votre charge. Nous ne sommes pas responsables des objets perdus ou endommagés à l'intérieur du véhicule, ni des dommages causés aux pneus."
+    ],
+    [
+        "title" => "Autoradio",
+        "description" => "Pour les véhicules équipés d'un autoradio, veuillez retirer la façade lors du stationnement. En cas de vol ou de dommage, des frais seront appliqués."
+    ],
+],
 
 ];

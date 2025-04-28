@@ -163,4 +163,33 @@ return [
     "franchise"=> "Franchise",
     "franchise_required"=> "Payer la franchise ( l'achat de la franchise est obligatoire )",
 
+
+
+
+'terms_title' => "Terms and Conditions",
+'terms_description' => "Please read carefully our terms and conditions before renting a vehicle from Majdoline Travel.",
+'terms' => [
+    [
+        "title" => "Majdoline Travel",
+        "description" => "Majdoline Travel and its entire team welcome you to Morocco. We are a Marrakech car rental agency offering vehicles and 4x4s (with or without driver), based in Marrakech. Our diversified fleet allows for a wide choice tailored to your needs for a cheap, simple, and efficient car rental service."
+    ],
+    [
+        "title" => "Guarantee & Payment",
+        "description" => "A credit card guarantee or cash deposit is mandatory: 500 Euros for standard vehicles and 3000 Euros for 4x4s. The guarantee/deposit is returned upon return of the car. The total rental amount is payable on the day of delivery and is non-refundable."
+    ],
+    [
+        "title" => "Important Reminders",
+        "description" => "Only 4x4 vehicles are allowed on off-road tracks. Any damage from misuse will be invoiced. Standard vehicles are insured for 5 people, 4x4s for 7 people. Exceeding this limit is your responsibility. Return the vehicle with the same fuel level. Excess fuel is non-refundable."
+    ],
+    [
+        "title" => "Responsibility",
+        "description" => "In case of accident or breakdown, you are responsible until a Majdoline Travel agent arrives. Damage to interior (burns, tears, stains) or bodywork (if at your fault) is your responsibility. We are not responsible for lost or damaged items inside the vehicle, nor for tire damage."
+    ],
+    [
+        "title" => "Car Radio",
+        "description" => "For vehicles with car radios, please remove the front panel when parking. In case of theft or damage, charges will apply."
+    ],
+],
+
 ];
+

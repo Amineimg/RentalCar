@@ -2,9 +2,10 @@
 return [
     "home"=>"Home",
     "parking"=>"parking",
-    "general_condition"=>"Conditions générales",
+    "general_condition"=>"Terms and Conditions",
     "faq"=>"FAQ",
-    "glogs"=>"Blogs",
+    "blogs"=>"Blogs",
     "contact"=>"Contact",
+    "About" => "About Us"
 
 ];
