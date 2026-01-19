@@ -85,7 +85,7 @@
                                 <div class="footer-content">
                                     <p>Subscribe our newsletter to get our latest update & news</p>
                                     <div class="footer-input">
-                                        <input type="email" id="email2" placeholder="Email address">
+                                            <input type="email" id="email2" placeholder="Email address">
                                         <button class="newsletter-btn" type="submit">
                                             <i class="fa-regular fa-paper-plane"></i>
                                         </button>

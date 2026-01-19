@@ -71,11 +71,11 @@
                 <ul class="contact-list">
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <a href="majdolinerentacar@gmail.com" class="link">majdolinerentacar@gmail.com</a>
+                        <a href="majdolinerentacar@gmail.com" class="link">amineimeghri@gmail.com</a>
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        Avenue 11 janvier Marrakech, Maroc
+                        853 Half and Half Drive Fresno California , United States
                     </li>
                 </ul>
                 <div class="header-top-right">
@@ -127,7 +127,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{route('home')}}" class="header-logo">
-                                <img src="{{ asset('assets_v2/img/logo/majdoline car logo.png') }}" alt="logo-img">
+                                <img src="{{ asset('assets_v2/img/logo/black-logo.svg') }}" alt="logo-img">
                             </a>
                         </div>
                         <div class="mean__menu-wrapper">
@@ -183,7 +183,7 @@
                             </div>
                             <div class="content">
                                 <p>Call Anytime</p>
-                                <h6><a href="tel:+212 618 700 526">+212 618 700 526</a></h6>
+                                <h6><a href="tel:+212 618 700 526">(518) 966-5212</a></h6>
                             </div>
                         </div>
                         <a href="#0" class="search-trigger search-icon"><i class="fa-regular fa-magnifying-glass"></i></a>
